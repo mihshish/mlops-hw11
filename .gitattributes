@@ -1,4 +1,4 @@
-* text=auto
+* text=auto eol=lf
 *.py text eol=lf
 *.json text eol=lf
 *.jsonl text eol=lf
@@ -10,3 +10,4 @@ Makefile text eol=lf
 # Immutable byte-level provenance and measured logs: do not normalize CRLF in transport.
 upstream/** -text
 evidence/** -text
+legacy_hw67/** -text

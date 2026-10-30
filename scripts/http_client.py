@@ -17,7 +17,9 @@ def request(url,path,payload=None,timeout=180):
     try:
         with urllib.request.urlopen(req,timeout=timeout) as r: status,body=r.status,r.read()
     except urllib.error.HTTPError as e: status,body=e.code,e.read()
-    return status,json.loads(body),time.perf_counter()-start
+    try: decoded=json.loads(body)
+    except (ValueError,UnicodeDecodeError): decoded={'error':body.decode('utf-8',errors='replace')}
+    return status,decoded,time.perf_counter()-start
 
 
 def main():
