@@ -10,4 +10,5 @@ Makefile text eol=lf
 # Immutable byte-level provenance and measured logs: do not normalize CRLF in transport.
 upstream/** -text
 evidence/** -text
+evidence/** whitespace=cr-at-eol
 legacy_hw67/** -text

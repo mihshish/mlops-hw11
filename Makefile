@@ -45,3 +45,7 @@ bench-proof:
 .PHONY: restore-baseline
 restore-baseline:
 	uv run --extra inference python -m scripts.restore_baseline
+
+.PHONY: package
+package:
+	uv run python -m scripts.package

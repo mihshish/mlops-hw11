@@ -1,0 +1,226 @@
+COMMAND: ['C:\\MLOPS\\8-9-10\\hw8910-broken\\.venv\\Scripts\\python.exe', '-m', 'unittest', 'discover', '-s', 'tests', '-v']
+CWD: C:\Users\Admin\AppData\Local\Temp\hw8910-checkout-yzsgdde8\repo
+EXIT: 0
+test_changed_bytes_at_same_path_invalidate_cache (test_release.ReleaseContractTests.test_changed_bytes_at_same_path_invalidate_cache) ... ok
+test_complete_bound_report_allowed (test_release.ReleaseContractTests.test_complete_bound_report_allowed) ... ok
+test_every_preparation_setting_invalidates_cache (test_release.ReleaseContractTests.test_every_preparation_setting_invalidates_cache) ... ok
+test_failed_atomic_replace_preserves_previous_bytes (test_release.ReleaseContractTests.test_failed_atomic_replace_preserves_previous_bytes) ... ok
+test_incomplete_false_and_truthy_string_rejected (test_release.ReleaseContractTests.test_incomplete_false_and_truthy_string_rejected) ... ok
+test_invalid_digest_and_schema_rejected (test_release.ReleaseContractTests.test_invalid_digest_and_schema_rejected) ... ok
+test_invalid_metric_rejected (test_release.ReleaseContractTests.test_invalid_metric_rejected) ... ok
+test_key_ignores_path_and_mapping_order (test_release.ReleaseContractTests.test_key_ignores_path_and_mapping_order) ... ok
+test_missing_fields_rejected (test_release.ReleaseContractTests.test_missing_fields_rejected) ... ok
+test_publish_and_repeat (test_release.ReleaseContractTests.test_publish_and_repeat) ... ok
+test_rejection_preserves_previous_bytes (test_release.ReleaseContractTests.test_rejection_preserves_previous_bytes) ... ok
+test_report_binding_mismatch_rejected (test_release.ReleaseContractTests.test_report_binding_mismatch_rejected) ... ok
+test_runtime_change_with_stale_hash_rejected (test_release.ReleaseContractTests.test_runtime_change_with_stale_hash_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 13 tests in 0.229s
+
+OK
+
+COMMAND: ['C:\\MLOPS\\8-9-10\\hw8910-broken\\.venv\\Scripts\\python.exe', '-m', 'unittest', 'discover', '-s', 'tests_integration', '-v']
+CWD: C:\Users\Admin\AppData\Local\Temp\hw8910-checkout-yzsgdde8\repo
+EXIT: 0
+test_01_cache_recovery_and_content_invalidation_subprocess (test_incidents.IncidentRegression.test_01_cache_recovery_and_content_invalidation_subprocess) ... CLI ['init'] EXIT 0 OUTPUT Created STUB ONLY workspace C:\Users\Admin\AppData\Local\Temp\tmplgimgxcy\stand
+CLI ['run', '--fail-after-prepare'] EXIT 1 OUTPUT PREPARED 0dd09272a795557fa06139596d9ec23c3530c4da8794eb97d4d6ee3620ba62e8
+Traceback (most recent call last):
+  File "C:\Users\Admin\AppData\Local\Temp\hw8910-checkout-yzsgdde8\repo\lab.py", line 5, in <module>
+    main()
+  File "C:\Users\Admin\AppData\Local\Temp\hw8910-checkout-yzsgdde8\repo\process_core.py", line 168, in main
+    else: run(args.workspace,args.report,args.fail_after_prepare,args.manifest,args.fail_after_pointer)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Temp\hw8910-checkout-yzsgdde8\repo\process_core.py", line 146, in run
+    raise RuntimeError('Injected failure after preparation')
+RuntimeError: Injected failure after preparation
+CLI ['run'] EXIT 0 OUTPUT CACHE_HIT 0dd09272a795557fa06139596d9ec23c3530c4da8794eb97d4d6ee3620ba62e8
+ARTIFACT_VERIFIED fixture-B (read existing artifact; NO TRAINING)
+PUBLISHED fixture-B 8d77ca5044f74b4405babc2b82c2d0dd23d394d0d76a7c90a8a462affa83b158
+CLI ['run'] EXIT 0 OUTPUT PREPARED dd403f3223e7347a067a28ab37b704af104a86970a9e32d39d203b6b0f058bf2
+ARTIFACT_VERIFIED fixture-B (read existing artifact; NO TRAINING)
+ALREADY_PUBLISHED 8d77ca5044f74b4405babc2b82c2d0dd23d394d0d76a7c90a8a462affa83b158
+ok
+test_02_incomplete_foreign_and_rejected_reports_subprocess (test_incidents.IncidentRegression.test_02_incomplete_foreign_and_rejected_reports_subprocess) ... CLI ['init'] EXIT 0 OUTPUT Created STUB ONLY workspace C:\Users\Admin\AppData\Local\Temp\tmp8le5rtqu\stand
+CLI ['run', '--report', 'report-incomplete.json'] EXIT 1 OUTPUT PREPARED 0dd09272a795557fa06139596d9ec23c3530c4da8794eb97d4d6ee3620ba62e8
+ARTIFACT_VERIFIED fixture-B (read existing artifact; NO TRAINING)
+Traceback (most recent call last):
+  File "C:\Users\Admin\AppData\Local\Temp\hw8910-checkout-yzsgdde8\repo\lab.py", line 5, in <module>
+    main()
+  File "C:\Users\Admin\AppData\Local\Temp\hw8910-checkout-yzsgdde8\repo\process_core.py", line 168, in main
+    else: run(args.workspace,args.report,args.fail_after_prepare,args.manifest,args.fail_after_pointer)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Temp\hw8910-checkout-yzsgdde8\repo\process_core.py", line 148, in run
+    report = assess(root, manifest, report_name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Temp\hw8910-checkout-yzsgdde8\repo\process_core.py", line 108, in assess
+    release.validate_release(manifest, report)
+  File "C:\Users\Admin\AppData\Local\Temp\hw8910-checkout-yzsgdde8\repo\release.py", line 52, in validate_release
+    raise ValueError('Incomplete or rejected evaluation')
+ValueError: Incomplete or rejected evaluation
+CLI ['run', '--report', 'report-A.json'] EXIT 1 OUTPUT CACHE_HIT 0dd09272a795557fa06139596d9ec23c3530c4da8794eb97d4d6ee3620ba62e8
+ARTIFACT_VERIFIED fixture-B (read existing artifact; NO TRAINING)
+Traceback (most recent call last):
+  File "C:\Users\Admin\AppData\Local\Temp\hw8910-checkout-yzsgdde8\repo\lab.py", line 5, in <module>
+    main()
+  File "C:\Users\Admin\AppData\Local\Temp\hw8910-checkout-yzsgdde8\repo\process_core.py", line 168, in main
+    else: run(args.workspace,args.report,args.fail_after_prepare,args.manifest,args.fail_after_pointer)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Temp\hw8910-checkout-yzsgdde8\repo\process_core.py", line 148, in run
+    report = assess(root, manifest, report_name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Temp\hw8910-checkout-yzsgdde8\repo\process_core.py", line 108, in assess
+    release.validate_release(manifest, report)
+  File "C:\Users\Admin\AppData\Local\Temp\hw8910-checkout-yzsgdde8\repo\release.py", line 57, in validate_release
+    raise ValueError('Evaluation binding mismatch: ' + key)
+ValueError: Evaluation binding mismatch: model_id
+CLI ['run', '--report', 'report-reject.json'] EXIT 1 OUTPUT CACHE_HIT 0dd09272a795557fa06139596d9ec23c3530c4da8794eb97d4d6ee3620ba62e8
+ARTIFACT_VERIFIED fixture-B (read existing artifact; NO TRAINING)
+Traceback (most recent call last):
+  File "C:\Users\Admin\AppData\Local\Temp\hw8910-checkout-yzsgdde8\repo\lab.py", line 5, in <module>
+    main()
+  File "C:\Users\Admin\AppData\Local\Temp\hw8910-checkout-yzsgdde8\repo\process_core.py", line 168, in main
+    else: run(args.workspace,args.report,args.fail_after_prepare,args.manifest,args.fail_after_pointer)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Temp\hw8910-checkout-yzsgdde8\repo\process_core.py", line 148, in run
+    report = assess(root, manifest, report_name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Temp\hw8910-checkout-yzsgdde8\repo\process_core.py", line 108, in assess
+    release.validate_release(manifest, report)
+  File "C:\Users\Admin\AppData\Local\Temp\hw8910-checkout-yzsgdde8\repo\release.py", line 52, in validate_release
+    raise ValueError('Incomplete or rejected evaluation')
+ValueError: Incomplete or rejected evaluation
+ok
+test_03_atomic_write_failure_subprocess (test_incidents.IncidentRegression.test_03_atomic_write_failure_subprocess) ... CLI ['init'] EXIT 0 OUTPUT Created STUB ONLY workspace C:\Users\Admin\AppData\Local\Temp\tmpz5nkpahd\stand
+ATOMIC_REPLACE_EXIT 1 Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "C:\Users\Admin\AppData\Local\Temp\hw8910-checkout-yzsgdde8\repo\release.py", line 85, in publish
+    atomic_bytes(target, canonical(manifest) + b'\n')
+  File "C:\Users\Admin\AppData\Local\Temp\hw8910-checkout-yzsgdde8\repo\release.py", line 77, in atomic_bytes
+    os.replace(temporary, target)
+  File "C:\Users\Admin\AppData\Roaming\uv\python\cpython-3.12-windows-x86_64-none\Lib\unittest\mock.py", line 1139, in __call__
+    return self._mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\uv\python\cpython-3.12-windows-x86_64-none\Lib\unittest\mock.py", line 1143, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\uv\python\cpython-3.12-windows-x86_64-none\Lib\unittest\mock.py", line 1198, in _execute_mock_call
+    raise effect
+OSError: injected replacement failure
+
+ok
+test_04_repeated_publication_subprocess (test_incidents.IncidentRegression.test_04_repeated_publication_subprocess) ... CLI ['init'] EXIT 0 OUTPUT Created STUB ONLY workspace C:\Users\Admin\AppData\Local\Temp\tmp16badjay\stand
+CLI ['run'] EXIT 0 OUTPUT PREPARED 0dd09272a795557fa06139596d9ec23c3530c4da8794eb97d4d6ee3620ba62e8
+ARTIFACT_VERIFIED fixture-B (read existing artifact; NO TRAINING)
+PUBLISHED fixture-B 66a622a13e7fedefd3bba1681a3768d3d03d462504e9166f68273b445931414d
+CLI ['run'] EXIT 0 OUTPUT CACHE_HIT 0dd09272a795557fa06139596d9ec23c3530c4da8794eb97d4d6ee3620ba62e8
+ARTIFACT_VERIFIED fixture-B (read existing artifact; NO TRAINING)
+ALREADY_PUBLISHED 66a622a13e7fedefd3bba1681a3768d3d03d462504e9166f68273b445931414d
+ok
+test_05_readiness_http (test_incidents.IncidentRegression.test_05_readiness_http) ... CLI ['init'] EXIT 0 OUTPUT Created STUB ONLY workspace C:\Users\Admin\AppData\Local\Temp\tmpx03hbk1b\stand
+HTTP /health STATUS 200 BODY {'alive': True, 'backend': 'STUB ONLY'}
+HTTP /health STATUS 200 BODY {'alive': True, 'backend': 'STUB ONLY'}
+HTTP /ready STATUS 503 BODY {'detail': 'Model loading, failed verification, or warming up'}
+HTTP /generate STATUS 503 BODY {'detail': 'Model not ready'}
+HTTP /debug STATUS 200 BODY {'loaded_id': None, 'calls': 0, 'warmup_finished': False, 'load_error': None}
+HTTP /ready STATUS 503 BODY {'detail': 'Model loading, failed verification, or warming up'}
+HTTP /ready STATUS 503 BODY {'detail': 'Model loading, failed verification, or warming up'}
+HTTP /ready STATUS 503 BODY {'detail': 'Model loading, failed verification, or warming up'}
+HTTP /ready STATUS 503 BODY {'detail': 'Model loading, failed verification, or warming up'}
+HTTP /ready STATUS 503 BODY {'detail': 'Model loading, failed verification, or warming up'}
+HTTP /ready STATUS 503 BODY {'detail': 'Model loading, failed verification, or warming up'}
+HTTP /ready STATUS 503 BODY {'detail': 'Model loading, failed verification, or warming up'}
+HTTP /ready STATUS 503 BODY {'detail': 'Model loading, failed verification, or warming up'}
+HTTP /ready STATUS 503 BODY {'detail': 'Model loading, failed verification, or warming up'}
+HTTP /ready STATUS 503 BODY {'detail': 'Model loading, failed verification, or warming up'}
+HTTP /ready STATUS 503 BODY {'detail': 'Model loading, failed verification, or warming up'}
+HTTP /ready STATUS 503 BODY {'detail': 'Model loading, failed verification, or warming up'}
+HTTP /ready STATUS 503 BODY {'detail': 'Model loading, failed verification, or warming up'}
+HTTP /ready STATUS 503 BODY {'detail': 'Model loading, failed verification, or warming up'}
+HTTP /ready STATUS 503 BODY {'detail': 'Model loading, failed verification, or warming up'}
+HTTP /ready STATUS 200 BODY {'ready': True, 'model_id': 'fixture-A', 'runtime_sha256': 'bc7bd5a4806e2e0e3b8569666b251d6c59a8d8e01e37fc37bf95b534023ca547'}
+HTTP /debug STATUS 200 BODY {'loaded_id': 'fixture-A', 'calls': 0, 'warmup_finished': True, 'load_error': None}
+HTTP /generate STATUS 200 BODY {'answer': 'STUB ONLY: fixture-A', 'output_tokens': 1, 'model_id': 'fixture-A', 'runtime_sha256': 'bc7bd5a4806e2e0e3b8569666b251d6c59a8d8e01e37fc37bf95b534023ca547', 'request_id': '4ad6b441-1da8-4d34-8ed3-151ddbd2a544', 'generation_seconds': 0.01013300009071827, 'queue_seconds': 1.4699995517730713e-05, 'total_seconds': 0.010147700086236}
+ok
+test_06_loaded_version_http (test_incidents.IncidentRegression.test_06_loaded_version_http) ... CLI ['init'] EXIT 0 OUTPUT Created STUB ONLY workspace C:\Users\Admin\AppData\Local\Temp\tmpb2xjufss\stand
+HTTP /health STATUS 200 BODY {'alive': True, 'backend': 'STUB ONLY'}
+HTTP /ready STATUS 200 BODY {'ready': True, 'model_id': 'fixture-A', 'runtime_sha256': 'bc7bd5a4806e2e0e3b8569666b251d6c59a8d8e01e37fc37bf95b534023ca547'}
+HTTP /generate STATUS 200 BODY {'answer': 'STUB ONLY: fixture-A', 'output_tokens': 1, 'model_id': 'fixture-A', 'runtime_sha256': 'bc7bd5a4806e2e0e3b8569666b251d6c59a8d8e01e37fc37bf95b534023ca547', 'request_id': '4104c602-1ecf-4756-bec4-f25dce35da65', 'generation_seconds': 0.010356900049373507, 'queue_seconds': 1.4099990949034691e-05, 'total_seconds': 0.010371000040322542}
+CLI ['run'] EXIT 0 OUTPUT PREPARED 0dd09272a795557fa06139596d9ec23c3530c4da8794eb97d4d6ee3620ba62e8
+ARTIFACT_VERIFIED fixture-B (read existing artifact; NO TRAINING)
+PUBLISHED fixture-B 869e105ac35b955006762b53e91176984c5c8aabe99c74dafaac275bf96ce40a
+HTTP /generate STATUS 200 BODY {'answer': 'STUB ONLY: fixture-A', 'output_tokens': 1, 'model_id': 'fixture-A', 'runtime_sha256': 'bc7bd5a4806e2e0e3b8569666b251d6c59a8d8e01e37fc37bf95b534023ca547', 'request_id': '85dd761d-4db1-4ba0-8215-f58280520b37', 'generation_seconds': 0.010545500088483095, 'queue_seconds': 1.4099990949034691e-05, 'total_seconds': 0.01055960007943213}
+HTTP /health STATUS 200 BODY {'alive': True, 'backend': 'STUB ONLY'}
+HTTP /ready STATUS 200 BODY {'ready': True, 'model_id': 'fixture-B', 'runtime_sha256': 'bc7bd5a4806e2e0e3b8569666b251d6c59a8d8e01e37fc37bf95b534023ca547'}
+HTTP /generate STATUS 200 BODY {'answer': 'STUB ONLY: fixture-B', 'output_tokens': 1, 'model_id': 'fixture-B', 'runtime_sha256': 'bc7bd5a4806e2e0e3b8569666b251d6c59a8d8e01e37fc37bf95b534023ca547', 'request_id': 'da6039eb-d63e-4089-a538-3172ea80e7e9', 'generation_seconds': 0.010944999987259507, 'queue_seconds': 1.300009898841381e-05, 'total_seconds': 0.010958000086247921}
+ok
+test_07_invalid_request_http_without_backend_call (test_incidents.IncidentRegression.test_07_invalid_request_http_without_backend_call) ... CLI ['init'] EXIT 0 OUTPUT Created STUB ONLY workspace C:\Users\Admin\AppData\Local\Temp\tmp1_kv1zyi\stand
+HTTP /health STATUS 200 BODY {'alive': True, 'backend': 'STUB ONLY'}
+HTTP /ready STATUS 200 BODY {'ready': True, 'model_id': 'fixture-A', 'runtime_sha256': 'bc7bd5a4806e2e0e3b8569666b251d6c59a8d8e01e37fc37bf95b534023ca547'}
+HTTP /debug STATUS 200 BODY {'loaded_id': 'fixture-A', 'calls': 0, 'warmup_finished': True, 'load_error': None}
+HTTP /generate STATUS 422 BODY {'detail': [{'type': 'string_too_short', 'loc': ['body', 'prompt'], 'msg': 'String should have at least 1 character', 'input': '', 'ctx': {'min_length': 1}}]}
+HTTP /debug STATUS 200 BODY {'loaded_id': 'fixture-A', 'calls': 0, 'warmup_finished': True, 'load_error': None}
+HTTP /generate STATUS 422 BODY {'detail': [{'type': 'value_error', 'loc': ['body', 'prompt'], 'msg': 'Value error, Prompt cannot be blank', 'input': '   ', 'ctx': {'error': {}}}]}
+HTTP /debug STATUS 200 BODY {'loaded_id': 'fixture-A', 'calls': 0, 'warmup_finished': True, 'load_error': None}
+HTTP /generate STATUS 422 BODY {'detail': [{'type': 'value_error', 'loc': ['body', 'max_new_tokens'], 'msg': 'Value error, Only evaluated max_new_tokens=32 is supported', 'input': 0, 'ctx': {'error': {}}}]}
+HTTP /debug STATUS 200 BODY {'loaded_id': 'fixture-A', 'calls': 0, 'warmup_finished': True, 'load_error': None}
+HTTP /generate STATUS 422 BODY {'detail': [{'type': 'value_error', 'loc': ['body', 'max_new_tokens'], 'msg': 'Value error, Only evaluated max_new_tokens=32 is supported', 'input': 100000, 'ctx': {'error': {}}}]}
+HTTP /debug STATUS 200 BODY {'loaded_id': 'fixture-A', 'calls': 0, 'warmup_finished': True, 'load_error': None}
+HTTP /generate STATUS 422 BODY {'detail': [{'type': 'int_type', 'loc': ['body', 'max_new_tokens'], 'msg': 'Input should be a valid integer', 'input': '32'}]}
+HTTP /debug STATUS 200 BODY {'loaded_id': 'fixture-A', 'calls': 0, 'warmup_finished': True, 'load_error': None}
+HTTP /generate STATUS 422 BODY {'detail': [{'type': 'int_type', 'loc': ['body', 'max_new_tokens'], 'msg': 'Input should be a valid integer', 'input': True}]}
+HTTP /debug STATUS 200 BODY {'loaded_id': 'fixture-A', 'calls': 0, 'warmup_finished': True, 'load_error': None}
+HTTP /generate STATUS 422 BODY {'detail': [{'type': 'string_too_long', 'loc': ['body', 'prompt'], 'msg': 'String should have at most 6000 characters', 'input': 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx', 'ctx': {'max_length': 6000}}]}
+HTTP /debug STATUS 200 BODY {'loaded_id': 'fixture-A', 'calls': 0, 'warmup_finished': True, 'load_error': None}
+HTTP /generate STATUS 200 BODY {'answer': 'STUB ONLY: fixture-A', 'output_tokens': 1, 'model_id': 'fixture-A', 'runtime_sha256': 'bc7bd5a4806e2e0e3b8569666b251d6c59a8d8e01e37fc37bf95b534023ca547', 'request_id': '8cd14b59-5b70-406b-bb11-78952a730137', 'generation_seconds': 0.010771799948997796, 'queue_seconds': 2.2900057956576347e-05, 'total_seconds': 0.010794700006954372}
+HTTP /debug STATUS 200 BODY {'loaded_id': 'fixture-A', 'calls': 1, 'warmup_finished': True, 'load_error': None}
+ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 22.460s
+
+OK
+
+COMMAND: ['C:\\MLOPS\\8-9-10\\hw8910-broken\\.venv\\Scripts\\python.exe', '-m', 'unittest', 'discover', '-s', 'tests', '-v']
+CWD: C:\Users\Admin\AppData\Local\Temp\hw8910-checkout-yzsgdde8\repo\legacy_hw67
+EXIT: 0
+test_behavioral_failure_rejected (test_eval.GateContract.test_behavioral_failure_rejected) ... ok
+test_critical_regression_despite_average_growth (test_eval.GateContract.test_critical_regression_despite_average_growth) ... ok
+test_equal_passes (test_eval.GateContract.test_equal_passes) ... ok
+test_improvement_passes (test_eval.GateContract.test_improvement_passes) ... ok
+test_missing_critical_slice_rejected (test_eval.GateContract.test_missing_critical_slice_rejected) ... ok
+test_missing_nan_empty_error_and_incompatible_rejected (test_eval.GateContract.test_missing_nan_empty_error_and_incompatible_rejected) ... ok
+test_regression_rejected (test_eval.GateContract.test_regression_rejected) ... ok
+test_clean_data (test_eval.LeakageContract.test_clean_data) ... ok
+test_duplicate_golden_questions_rejected (test_eval.LeakageContract.test_duplicate_golden_questions_rejected) ... ok
+test_exact_overlap (test_eval.LeakageContract.test_exact_overlap) ... ok
+test_group_overlap (test_eval.LeakageContract.test_group_overlap) ... ok
+test_too_small_or_missing_behavior (test_eval.LeakageContract.test_too_small_or_missing_behavior) ... ok
+test_no_registry_mutation_when_gate_rejects (test_eval.PromotionContract.test_no_registry_mutation_when_gate_rejects) ... ok
+test_accuracy_uses_all_questions (test_eval.ScoreContract.test_accuracy_uses_all_questions) ... ok
+test_missing_duplicate_empty_rejected (test_eval.ScoreContract.test_missing_duplicate_empty_rejected) ... ok
+test_reordered_outputs_are_matched_by_id (test_eval.ScoreContract.test_reordered_outputs_are_matched_by_id) ... ok
+test_slice_counts_and_per_item (test_eval.ScoreContract.test_slice_counts_and_per_item) ... ok
+test_strict_json_and_label (test_eval.ScoreContract.test_strict_json_and_label) ... ok
+test_wrong_label_is_valid_but_incorrect (test_eval.ScoreContract.test_wrong_label_is_valid_but_incorrect) ... ok
+test_baseline_init_refuses_overwrite (test_pipeline.PipelineContract.test_baseline_init_refuses_overwrite) ... ok
+test_negative_check_does_not_mutate_model_or_alias (test_pipeline.PipelineContract.test_negative_check_does_not_mutate_model_or_alias) ... ok
+test_pass_release_and_explicit_baseline_update (test_pipeline.PipelineContract.test_pass_release_and_explicit_baseline_update) ... ok
+test_protocol_or_raw_changes_rejected (test_pipeline.PipelineContract.test_protocol_or_raw_changes_rejected) ... ok
+test_refused_candidate_keeps_alias (test_pipeline.PipelineContract.test_refused_candidate_keeps_alias) ... ok
+
+----------------------------------------------------------------------
+Ran 24 tests in 0.376s
+
+OK
+Отчёты и сырые ответы сохранены. Далее: make eval; только после PASS - make promote
+PASS: испорченные ответы отклонены, alias не менялся
+Отчёты и сырые ответы сохранены. Далее: make eval; только после PASS - make promote
+champion -> models:/fixture-model/2
+Baseline обновлён явно; старый сохранён. Следующая оценка сравнит с принятой версией
+Отчёты и сырые ответы сохранены. Далее: make eval; только после PASS - make promote
+Отчёты и сырые ответы сохранены. Далее: make eval; только после PASS - make promote
+
+Original tests fingerprint: 09bd65e6b886
+HW6+7 tests fingerprint: c42ac7788026
+QUICK CHECK: 44/44 PASSED (13 + 7 + 24)

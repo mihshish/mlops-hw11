@@ -1,0 +1,1 @@
+{"command":["C:\\MLOPS\\8-9-10\\hw8910-broken\\.venv\\Scripts\\python.exe","-m","scripts.check"],"exit_code":0,"source_commit":"7e85992a2c2fd1194f5bb774a61441bb347b1b78","upstream_integrity_exit":0,"upstream_integrity_output":"{'exact_or_group_intersections': 0, 'n_train_index': 4656, 'n_golden': 50, 'n_behavioral': 3}"}
