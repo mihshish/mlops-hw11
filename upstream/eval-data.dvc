@@ -1,0 +1,6 @@
+outs:
+- md5: 9323ed070cd0f2c58bbf8f0ca368ca16.dir
+  size: 4074573
+  nfiles: 4
+  hash: md5
+  path: data/eval

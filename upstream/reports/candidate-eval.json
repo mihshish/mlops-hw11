@@ -1,0 +1,820 @@
+{
+  "overall": {
+    "n": 50,
+    "correct": 14,
+    "valid": 50,
+    "errors": 0,
+    "accuracy": 0.28,
+    "format_rate": 1.0
+  },
+  "slices": {
+    "critical_care": {
+      "n": 17,
+      "correct": 3,
+      "valid": 17,
+      "errors": 0,
+      "accuracy": 0.17647058823529413,
+      "format_rate": 1.0
+    },
+    "neurovascular": {
+      "n": 17,
+      "correct": 7,
+      "valid": 17,
+      "errors": 0,
+      "accuracy": 0.4117647058823529,
+      "format_rate": 1.0
+    },
+    "short": {
+      "n": 50,
+      "correct": 14,
+      "valid": 50,
+      "errors": 0,
+      "accuracy": 0.28,
+      "format_rate": 1.0
+    },
+    "trauma": {
+      "n": 16,
+      "correct": 4,
+      "valid": 16,
+      "errors": 0,
+      "accuracy": 0.25,
+      "format_rate": 1.0
+    }
+  },
+  "per_item": [
+    {
+      "id": "nmo_000003319",
+      "raw": "{\"answer\":\"2\"}",
+      "parsed": {
+        "answer": "2"
+      },
+      "valid": true,
+      "correct": true,
+      "error": null,
+      "slices": [
+        "neurovascular",
+        "short"
+      ]
+    },
+    {
+      "id": "nmo_000003403",
+      "raw": "{\"answer\":\"1\"}",
+      "parsed": {
+        "answer": "1"
+      },
+      "valid": true,
+      "correct": false,
+      "error": null,
+      "slices": [
+        "neurovascular",
+        "short"
+      ]
+    },
+    {
+      "id": "nmo_000003404",
+      "raw": "{\"answer\":\"1\"}",
+      "parsed": {
+        "answer": "1"
+      },
+      "valid": true,
+      "correct": false,
+      "error": null,
+      "slices": [
+        "neurovascular",
+        "short"
+      ]
+    },
+    {
+      "id": "nmo_000019947",
+      "raw": "{\"answer\":\"1\"}",
+      "parsed": {
+        "answer": "1"
+      },
+      "valid": true,
+      "correct": false,
+      "error": null,
+      "slices": [
+        "neurovascular",
+        "short"
+      ]
+    },
+    {
+      "id": "nmo_000020942",
+      "raw": "{\"answer\":\"2\"}",
+      "parsed": {
+        "answer": "2"
+      },
+      "valid": true,
+      "correct": true,
+      "error": null,
+      "slices": [
+        "neurovascular",
+        "short"
+      ]
+    },
+    {
+      "id": "nmo_000020943",
+      "raw": "{\"answer\":\"2\"}",
+      "parsed": {
+        "answer": "2"
+      },
+      "valid": true,
+      "correct": true,
+      "error": null,
+      "slices": [
+        "neurovascular",
+        "short"
+      ]
+    },
+    {
+      "id": "nmo_000031943",
+      "raw": "{\"answer\":\"1\"}",
+      "parsed": {
+        "answer": "1"
+      },
+      "valid": true,
+      "correct": true,
+      "error": null,
+      "slices": [
+        "neurovascular",
+        "short"
+      ]
+    },
+    {
+      "id": "nmo_000031944",
+      "raw": "{\"answer\":\"2\"}",
+      "parsed": {
+        "answer": "2"
+      },
+      "valid": true,
+      "correct": false,
+      "error": null,
+      "slices": [
+        "neurovascular",
+        "short"
+      ]
+    },
+    {
+      "id": "nmo_000043919",
+      "raw": "{\"answer\":\"1\"}",
+      "parsed": {
+        "answer": "1"
+      },
+      "valid": true,
+      "correct": false,
+      "error": null,
+      "slices": [
+        "neurovascular",
+        "short"
+      ]
+    },
+    {
+      "id": "nmo_000044023",
+      "raw": "{\"answer\":\"1\"}",
+      "parsed": {
+        "answer": "1"
+      },
+      "valid": true,
+      "correct": true,
+      "error": null,
+      "slices": [
+        "neurovascular",
+        "short"
+      ]
+    },
+    {
+      "id": "nmo_000053165",
+      "raw": "{\"answer\":\"1\"}",
+      "parsed": {
+        "answer": "1"
+      },
+      "valid": true,
+      "correct": false,
+      "error": null,
+      "slices": [
+        "neurovascular",
+        "short"
+      ]
+    },
+    {
+      "id": "nmo_000055490",
+      "raw": "{\"answer\":\"1\"}",
+      "parsed": {
+        "answer": "1"
+      },
+      "valid": true,
+      "correct": false,
+      "error": null,
+      "slices": [
+        "neurovascular",
+        "short"
+      ]
+    },
+    {
+      "id": "nmo_000097665",
+      "raw": "{\"answer\":\"1\"}",
+      "parsed": {
+        "answer": "1"
+      },
+      "valid": true,
+      "correct": true,
+      "error": null,
+      "slices": [
+        "neurovascular",
+        "short"
+      ]
+    },
+    {
+      "id": "nmo_000097666",
+      "raw": "{\"answer\":\"2\"}",
+      "parsed": {
+        "answer": "2"
+      },
+      "valid": true,
+      "correct": false,
+      "error": null,
+      "slices": [
+        "neurovascular",
+        "short"
+      ]
+    },
+    {
+      "id": "nmo_000123686",
+      "raw": "{\"answer\":\"1\"}",
+      "parsed": {
+        "answer": "1"
+      },
+      "valid": true,
+      "correct": false,
+      "error": null,
+      "slices": [
+        "neurovascular",
+        "short"
+      ]
+    },
+    {
+      "id": "nmo_000136593",
+      "raw": "{\"answer\":\"3\"}",
+      "parsed": {
+        "answer": "3"
+      },
+      "valid": true,
+      "correct": false,
+      "error": null,
+      "slices": [
+        "neurovascular",
+        "short"
+      ]
+    },
+    {
+      "id": "nmo_000140612",
+      "raw": "{\"answer\":\"2\"}",
+      "parsed": {
+        "answer": "2"
+      },
+      "valid": true,
+      "correct": true,
+      "error": null,
+      "slices": [
+        "neurovascular",
+        "short"
+      ]
+    },
+    {
+      "id": "nmo_000002395",
+      "raw": "{\"answer\":\"3\"}",
+      "parsed": {
+        "answer": "3"
+      },
+      "valid": true,
+      "correct": true,
+      "error": null,
+      "slices": [
+        "critical_care",
+        "short"
+      ]
+    },
+    {
+      "id": "nmo_000006485",
+      "raw": "{\"answer\":\"1\"}",
+      "parsed": {
+        "answer": "1"
+      },
+      "valid": true,
+      "correct": false,
+      "error": null,
+      "slices": [
+        "critical_care",
+        "short"
+      ]
+    },
+    {
+      "id": "nmo_000007460",
+      "raw": "{\"answer\":\"2\"}",
+      "parsed": {
+        "answer": "2"
+      },
+      "valid": true,
+      "correct": false,
+      "error": null,
+      "slices": [
+        "critical_care",
+        "short"
+      ]
+    },
+    {
+      "id": "nmo_000007474",
+      "raw": "{\"answer\":\"2\"}",
+      "parsed": {
+        "answer": "2"
+      },
+      "valid": true,
+      "correct": false,
+      "error": null,
+      "slices": [
+        "critical_care",
+        "short"
+      ]
+    },
+    {
+      "id": "nmo_000008480",
+      "raw": "{\"answer\":\"1\"}",
+      "parsed": {
+        "answer": "1"
+      },
+      "valid": true,
+      "correct": false,
+      "error": null,
+      "slices": [
+        "critical_care",
+        "short"
+      ]
+    },
+    {
+      "id": "nmo_000012887",
+      "raw": "{\"answer\":\"2\"}",
+      "parsed": {
+        "answer": "2"
+      },
+      "valid": true,
+      "correct": false,
+      "error": null,
+      "slices": [
+        "critical_care",
+        "short"
+      ]
+    },
+    {
+      "id": "nmo_000023973",
+      "raw": "{\"answer\":\"2\"}",
+      "parsed": {
+        "answer": "2"
+      },
+      "valid": true,
+      "correct": false,
+      "error": null,
+      "slices": [
+        "critical_care",
+        "short"
+      ]
+    },
+    {
+      "id": "nmo_000028018",
+      "raw": "{\"answer\":\"3\"}",
+      "parsed": {
+        "answer": "3"
+      },
+      "valid": true,
+      "correct": true,
+      "error": null,
+      "slices": [
+        "critical_care",
+        "short"
+      ]
+    },
+    {
+      "id": "nmo_000038142",
+      "raw": "{\"answer\":\"1\"}",
+      "parsed": {
+        "answer": "1"
+      },
+      "valid": true,
+      "correct": false,
+      "error": null,
+      "slices": [
+        "critical_care",
+        "short"
+      ]
+    },
+    {
+      "id": "nmo_000047440",
+      "raw": "{\"answer\":\"2\"}",
+      "parsed": {
+        "answer": "2"
+      },
+      "valid": true,
+      "correct": false,
+      "error": null,
+      "slices": [
+        "critical_care",
+        "short"
+      ]
+    },
+    {
+      "id": "nmo_000057757",
+      "raw": "{\"answer\":\"1\"}",
+      "parsed": {
+        "answer": "1"
+      },
+      "valid": true,
+      "correct": true,
+      "error": null,
+      "slices": [
+        "critical_care",
+        "short"
+      ]
+    },
+    {
+      "id": "nmo_000058255",
+      "raw": "{\"answer\":\"1\"}",
+      "parsed": {
+        "answer": "1"
+      },
+      "valid": true,
+      "correct": false,
+      "error": null,
+      "slices": [
+        "critical_care",
+        "short"
+      ]
+    },
+    {
+      "id": "nmo_000058265",
+      "raw": "{\"answer\":\"0\"}",
+      "parsed": {
+        "answer": "0"
+      },
+      "valid": true,
+      "correct": false,
+      "error": null,
+      "slices": [
+        "critical_care",
+        "short"
+      ]
+    },
+    {
+      "id": "nmo_000058977",
+      "raw": "{\"answer\":\"2\"}",
+      "parsed": {
+        "answer": "2"
+      },
+      "valid": true,
+      "correct": false,
+      "error": null,
+      "slices": [
+        "critical_care",
+        "short"
+      ]
+    },
+    {
+      "id": "nmo_000091489",
+      "raw": "{\"answer\":\"1\"}",
+      "parsed": {
+        "answer": "1"
+      },
+      "valid": true,
+      "correct": false,
+      "error": null,
+      "slices": [
+        "critical_care",
+        "short"
+      ]
+    },
+    {
+      "id": "nmo_000091491",
+      "raw": "{\"answer\":\"2\"}",
+      "parsed": {
+        "answer": "2"
+      },
+      "valid": true,
+      "correct": false,
+      "error": null,
+      "slices": [
+        "critical_care",
+        "short"
+      ]
+    },
+    {
+      "id": "nmo_000136853",
+      "raw": "{\"answer\":\"3\"}",
+      "parsed": {
+        "answer": "3"
+      },
+      "valid": true,
+      "correct": false,
+      "error": null,
+      "slices": [
+        "critical_care",
+        "short"
+      ]
+    },
+    {
+      "id": "nmo_000042475",
+      "raw": "{\"answer\":\"1\"}",
+      "parsed": {
+        "answer": "1"
+      },
+      "valid": true,
+      "correct": true,
+      "error": null,
+      "slices": [
+        "trauma",
+        "short"
+      ]
+    },
+    {
+      "id": "nmo_000042480",
+      "raw": "{\"answer\":\"2\"}",
+      "parsed": {
+        "answer": "2"
+      },
+      "valid": true,
+      "correct": false,
+      "error": null,
+      "slices": [
+        "trauma",
+        "short"
+      ]
+    },
+    {
+      "id": "nmo_000046082",
+      "raw": "{\"answer\":\"2\"}",
+      "parsed": {
+        "answer": "2"
+      },
+      "valid": true,
+      "correct": false,
+      "error": null,
+      "slices": [
+        "trauma",
+        "short"
+      ]
+    },
+    {
+      "id": "nmo_000046083",
+      "raw": "{\"answer\":\"2\"}",
+      "parsed": {
+        "answer": "2"
+      },
+      "valid": true,
+      "correct": false,
+      "error": null,
+      "slices": [
+        "trauma",
+        "short"
+      ]
+    },
+    {
+      "id": "nmo_000049974",
+      "raw": "{\"answer\":\"2\"}",
+      "parsed": {
+        "answer": "2"
+      },
+      "valid": true,
+      "correct": false,
+      "error": null,
+      "slices": [
+        "trauma",
+        "short"
+      ]
+    },
+    {
+      "id": "nmo_000051313",
+      "raw": "{\"answer\":\"3\"}",
+      "parsed": {
+        "answer": "3"
+      },
+      "valid": true,
+      "correct": false,
+      "error": null,
+      "slices": [
+        "trauma",
+        "short"
+      ]
+    },
+    {
+      "id": "nmo_000098538",
+      "raw": "{\"answer\":\"3\"}",
+      "parsed": {
+        "answer": "3"
+      },
+      "valid": true,
+      "correct": true,
+      "error": null,
+      "slices": [
+        "trauma",
+        "short"
+      ]
+    },
+    {
+      "id": "nmo_000113628",
+      "raw": "{\"answer\":\"3\"}",
+      "parsed": {
+        "answer": "3"
+      },
+      "valid": true,
+      "correct": false,
+      "error": null,
+      "slices": [
+        "trauma",
+        "short"
+      ]
+    },
+    {
+      "id": "nmo_000113638",
+      "raw": "{\"answer\":\"3\"}",
+      "parsed": {
+        "answer": "3"
+      },
+      "valid": true,
+      "correct": false,
+      "error": null,
+      "slices": [
+        "trauma",
+        "short"
+      ]
+    },
+    {
+      "id": "nmo_000131799",
+      "raw": "{\"answer\":\"2\"}",
+      "parsed": {
+        "answer": "2"
+      },
+      "valid": true,
+      "correct": false,
+      "error": null,
+      "slices": [
+        "trauma",
+        "short"
+      ]
+    },
+    {
+      "id": "nmo_000137687",
+      "raw": "{\"answer\":\"4\"}",
+      "parsed": {
+        "answer": "4"
+      },
+      "valid": true,
+      "correct": false,
+      "error": null,
+      "slices": [
+        "trauma",
+        "short"
+      ]
+    },
+    {
+      "id": "nmo_000140253",
+      "raw": "{\"answer\":\"3\"}",
+      "parsed": {
+        "answer": "3"
+      },
+      "valid": true,
+      "correct": false,
+      "error": null,
+      "slices": [
+        "trauma",
+        "short"
+      ]
+    },
+    {
+      "id": "nmo_000145520",
+      "raw": "{\"answer\":\"0\"}",
+      "parsed": {
+        "answer": "0"
+      },
+      "valid": true,
+      "correct": true,
+      "error": null,
+      "slices": [
+        "trauma",
+        "short"
+      ]
+    },
+    {
+      "id": "nmo_000145616",
+      "raw": "{\"answer\":\"2\"}",
+      "parsed": {
+        "answer": "2"
+      },
+      "valid": true,
+      "correct": false,
+      "error": null,
+      "slices": [
+        "trauma",
+        "short"
+      ]
+    },
+    {
+      "id": "nmo_000149484",
+      "raw": "{\"answer\":\"2\"}",
+      "parsed": {
+        "answer": "2"
+      },
+      "valid": true,
+      "correct": true,
+      "error": null,
+      "slices": [
+        "trauma",
+        "short"
+      ]
+    },
+    {
+      "id": "nmo_000149880",
+      "raw": "{\"answer\":\"3\"}",
+      "parsed": {
+        "answer": "3"
+      },
+      "valid": true,
+      "correct": false,
+      "error": null,
+      "slices": [
+        "trauma",
+        "short"
+      ]
+    }
+  ],
+  "status": "complete",
+  "model": {
+    "kind": "adapter",
+    "name": "nmo-qwen3-adapter",
+    "version": "1",
+    "run_id": "8b9e58ba729642a0847ac4ec564f3cbb",
+    "uri": "models:/nmo-qwen3-adapter/1"
+  },
+  "protocol_sha256": "0c9f97a715cc1b2dae27c57048aa1e2164ed3ded602f05e044ea2403314868bd",
+  "golden_sha256": "52b7628715197c172b01f1dd2b82f1b0934908c57c85bc90e0f0b91a7dfb6263",
+  "baseline_spec_sha256": "f71269b95f6b4e1e160fa25e9af6c973517cfebad15880b75b56c8184680b163",
+  "behavioral": {
+    "overall": {
+      "n": 3,
+      "correct": 0,
+      "valid": 0,
+      "errors": 0,
+      "accuracy": 0.0,
+      "format_rate": 0.0
+    },
+    "slices": {
+      "behavioral": {
+        "n": 3,
+        "correct": 0,
+        "valid": 0,
+        "errors": 0,
+        "accuracy": 0.0,
+        "format_rate": 0.0
+      }
+    },
+    "per_item": [
+      {
+        "id": "behavior-format",
+        "raw": "```json\n{\"answer\": \"2\"}\n```",
+        "parsed": null,
+        "valid": false,
+        "correct": false,
+        "error": null,
+        "slices": [
+          "behavioral"
+        ]
+      },
+      {
+        "id": "behavior-paraphrase",
+        "raw": "```json\n{\"answer\": \"1\"}\n```",
+        "parsed": null,
+        "valid": false,
+        "correct": false,
+        "error": null,
+        "slices": [
+          "behavioral"
+        ]
+      },
+      {
+        "id": "behavior-refusal",
+        "raw": "```json\n{\"answer\":\"REFUSE\"}\n```",
+        "parsed": null,
+        "valid": false,
+        "correct": false,
+        "error": null,
+        "slices": [
+          "behavioral"
+        ]
+      }
+    ]
+  },
+  "leakage": {
+    "exact_or_group_intersections": 0,
+    "n_train_index": 4656,
+    "n_golden": 50,
+    "n_behavioral": 3
+  },
+  "outputs_sha256": "f6f27519b54224032e9b88f3e4d6b9d43d604dfa1fb785d4e4ab6a4afe5b027c",
+  "evaluation_run_id": "b23ee66acbae4d9bb7034420d0422fae"
+}

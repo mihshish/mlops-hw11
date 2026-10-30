@@ -1,0 +1,54 @@
+22:57:20.276 | INFO    | prefect - Starting temporary server on http://127.0.0.1:8292
+See https://www.prefect.io/docs/v3/concepts/server#how-to-guides for more information on running a dedicated Prefect server.
+22:58:00.775 | INFO    | Flow run 'ninja-woodlouse' - Beginning flow run 'ninja-woodlouse' for flow 'hw8910-verified-release'
+22:58:00.907 | INFO    | Task run 'prepare_input-b18' - PREPARED 5f9d24e7dcfc8cdfa6ff985a0135e5c0df904fe0e4e76b52956aae148487c58d
+22:58:00.912 | INFO    | Task run 'prepare_input-b18' - PREPARED 5f9d24e7dcfc8cdfa6ff985a0135e5c0df904fe0e4e76b52956aae148487c58d rows=50
+22:58:00.928 | INFO    | Task run 'prepare_input-b18' - Finished in state Completed()
+22:58:00.999 | INFO    | Flow run 'ninja-woodlouse' - FLOW_ID 3ce9e970-89f1-46fe-b206-50915b4a026a PREPARATION_STATE Completed
+22:58:01.856 | ERROR   | Flow run 'ninja-woodlouse' - Encountered exception during execution: RuntimeError('Injected failure AFTER successful preparation')
+Traceback (most recent call last):
+  File "C:\MLOPS\8-9-10\hw8910-broken\.venv\Lib\site-packages\prefect\flow_engine.py", line 1339, in run_context
+    yield self
+  File "C:\MLOPS\8-9-10\hw8910-broken\.venv\Lib\site-packages\prefect\flow_engine.py", line 2133, in run_flow_sync
+    engine.call_flow_fn()
+  File "C:\MLOPS\8-9-10\hw8910-broken\.venv\Lib\site-packages\prefect\flow_engine.py", line 1361, in call_flow_fn
+    result = call_with_parameters(self.flow.fn, self.parameters)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\MLOPS\8-9-10\hw8910-broken\.venv\Lib\site-packages\prefect\utilities\callables\__init__.py", line 404, in call_with_parameters
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\MLOPS\8-9-10\hw8910-broken\pipeline.py", line 51, in release_flow
+    raise RuntimeError('Injected failure AFTER successful preparation')
+RuntimeError: Injected failure AFTER successful preparation
+22:58:01.969 | INFO    | Flow run 'ninja-woodlouse' - Finished in state Failed('Flow run encountered an exception: RuntimeError: Injected failure AFTER successful preparation')
+Traceback (most recent call last):
+  File "C:\MLOPS\8-9-10\hw8910-broken\pipeline.py", line 69, in <module>
+    if __name__=='__main__': main()
+                             ^^^^^^
+  File "C:\MLOPS\8-9-10\hw8910-broken\pipeline.py", line 66, in main
+    release_flow(str(a.workspace),a.manifest,a.report,a.fail_after_prepare,a.fail_after_pointer)
+  File "C:\MLOPS\8-9-10\hw8910-broken\.venv\Lib\site-packages\prefect\flows.py", line 1887, in __call__
+    return run_flow(
+           ^^^^^^^^^
+  File "C:\MLOPS\8-9-10\hw8910-broken\.venv\Lib\site-packages\prefect\flow_engine.py", line 2290, in run_flow
+    ret_val = run_flow_sync(**kwargs)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\MLOPS\8-9-10\hw8910-broken\.venv\Lib\site-packages\prefect\flow_engine.py", line 2135, in run_flow_sync
+    return engine.state if return_type == "state" else engine.result()
+                                                       ^^^^^^^^^^^^^^^
+  File "C:\MLOPS\8-9-10\hw8910-broken\.venv\Lib\site-packages\prefect\flow_engine.py", line 788, in result
+    raise self._raised
+  File "C:\MLOPS\8-9-10\hw8910-broken\.venv\Lib\site-packages\prefect\flow_engine.py", line 1339, in run_context
+    yield self
+  File "C:\MLOPS\8-9-10\hw8910-broken\.venv\Lib\site-packages\prefect\flow_engine.py", line 2133, in run_flow_sync
+    engine.call_flow_fn()
+  File "C:\MLOPS\8-9-10\hw8910-broken\.venv\Lib\site-packages\prefect\flow_engine.py", line 1361, in call_flow_fn
+    result = call_with_parameters(self.flow.fn, self.parameters)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\MLOPS\8-9-10\hw8910-broken\.venv\Lib\site-packages\prefect\utilities\callables\__init__.py", line 404, in call_with_parameters
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\MLOPS\8-9-10\hw8910-broken\pipeline.py", line 51, in release_flow
+    raise RuntimeError('Injected failure AFTER successful preparation')
+RuntimeError: Injected failure AFTER successful preparation
+22:58:02.029 | INFO    | prefect - Stopping temporary server on http://127.0.0.1:8292

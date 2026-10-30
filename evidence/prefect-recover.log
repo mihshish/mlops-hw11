@@ -1,0 +1,12 @@
+23:08:24.700 | INFO    | prefect - Starting temporary server on http://127.0.0.1:8833
+See https://www.prefect.io/docs/v3/concepts/server#how-to-guides for more information on running a dedicated Prefect server.
+23:08:41.326 | INFO    | Flow run 'capable-shoebill' - Beginning flow run 'capable-shoebill' for flow 'hw8910-verified-release'
+23:08:41.410 | INFO    | Task run 'prepare_input-a43' - Finished in state Cached(type=COMPLETED)
+23:08:41.465 | INFO    | Flow run 'capable-shoebill' - FLOW_ID 51b94dc5-034f-42cb-a4a9-4f27dae37ea6 PREPARATION_STATE Cached
+23:08:41.482 | INFO    | Task run 'obtain_artifact-ec5' - ARTIFACT_VERIFIED fixture-B (read existing artifact; NO TRAINING)
+23:08:41.490 | INFO    | Task run 'obtain_artifact-ec5' - Finished in state Completed()
+23:08:41.516 | INFO    | Task run 'evaluate_admission-7ed' - Finished in state Completed()
+23:08:41.637 | INFO    | Task run 'publish_accepted-ad8' - PUBLISHED fixture-B 09722fc5891884eda0b7571038f0d8569ca80429e74a496105e22c179f4dccf3
+23:08:41.647 | INFO    | Task run 'publish_accepted-ad8' - Finished in state Completed()
+23:08:42.393 | INFO    | Flow run 'capable-shoebill' - Finished in state Completed()
+23:08:42.476 | INFO    | prefect - Stopping temporary server on http://127.0.0.1:8833

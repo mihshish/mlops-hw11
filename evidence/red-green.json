@@ -1,0 +1,10 @@
+{
+  "red": {
+    "exit_code": 1,
+    "original_commit": "59c11d4c9c510780b85a5a72c0170f83724f1278"
+  },
+  "green": {
+    "exit_code": 0,
+    "original_commit": null
+  }
+}

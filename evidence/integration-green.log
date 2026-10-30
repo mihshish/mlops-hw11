@@ -1,0 +1,154 @@
+test_01_cache_recovery_and_content_invalidation_subprocess (test_incidents.IncidentRegression.test_01_cache_recovery_and_content_invalidation_subprocess) ... CLI ['init'] EXIT 0 OUTPUT Created STUB ONLY workspace C:\Users\Admin\AppData\Local\Temp\tmpgpn4n3qn\stand
+CLI ['run', '--fail-after-prepare'] EXIT 1 OUTPUT PREPARED 0dd09272a795557fa06139596d9ec23c3530c4da8794eb97d4d6ee3620ba62e8
+Traceback (most recent call last):
+  File "C:\MLOPS\8-9-10\hw8910-broken\lab.py", line 5, in <module>
+    main()
+  File "C:\MLOPS\8-9-10\hw8910-broken\process_core.py", line 160, in main
+    else: run(args.workspace,args.report,args.fail_after_prepare,args.manifest,args.fail_after_pointer)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\MLOPS\8-9-10\hw8910-broken\process_core.py", line 138, in run
+    raise RuntimeError('Injected failure after preparation')
+RuntimeError: Injected failure after preparation
+CLI ['run'] EXIT 0 OUTPUT CACHE_HIT 0dd09272a795557fa06139596d9ec23c3530c4da8794eb97d4d6ee3620ba62e8
+ARTIFACT_VERIFIED fixture-B (read existing artifact; NO TRAINING)
+PUBLISHED fixture-B ab07eec482a012fc2c2cf04b5efcd218c48f0d11deff460bdf772578c845b8d4
+CLI ['run'] EXIT 0 OUTPUT PREPARED dd403f3223e7347a067a28ab37b704af104a86970a9e32d39d203b6b0f058bf2
+ARTIFACT_VERIFIED fixture-B (read existing artifact; NO TRAINING)
+ALREADY_PUBLISHED ab07eec482a012fc2c2cf04b5efcd218c48f0d11deff460bdf772578c845b8d4
+ok
+test_02_incomplete_foreign_and_rejected_reports_subprocess (test_incidents.IncidentRegression.test_02_incomplete_foreign_and_rejected_reports_subprocess) ... CLI ['init'] EXIT 0 OUTPUT Created STUB ONLY workspace C:\Users\Admin\AppData\Local\Temp\tmpsvmc182h\stand
+CLI ['run', '--report', 'report-incomplete.json'] EXIT 1 OUTPUT PREPARED 0dd09272a795557fa06139596d9ec23c3530c4da8794eb97d4d6ee3620ba62e8
+ARTIFACT_VERIFIED fixture-B (read existing artifact; NO TRAINING)
+Traceback (most recent call last):
+  File "C:\MLOPS\8-9-10\hw8910-broken\lab.py", line 5, in <module>
+    main()
+  File "C:\MLOPS\8-9-10\hw8910-broken\process_core.py", line 160, in main
+    else: run(args.workspace,args.report,args.fail_after_prepare,args.manifest,args.fail_after_pointer)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\MLOPS\8-9-10\hw8910-broken\process_core.py", line 140, in run
+    report = assess(root, manifest, report_name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\MLOPS\8-9-10\hw8910-broken\process_core.py", line 100, in assess
+    release.validate_release(manifest, report)
+  File "C:\MLOPS\8-9-10\hw8910-broken\release.py", line 52, in validate_release
+    raise ValueError('Incomplete or rejected evaluation')
+ValueError: Incomplete or rejected evaluation
+CLI ['run', '--report', 'report-A.json'] EXIT 1 OUTPUT CACHE_HIT 0dd09272a795557fa06139596d9ec23c3530c4da8794eb97d4d6ee3620ba62e8
+ARTIFACT_VERIFIED fixture-B (read existing artifact; NO TRAINING)
+Traceback (most recent call last):
+  File "C:\MLOPS\8-9-10\hw8910-broken\lab.py", line 5, in <module>
+    main()
+  File "C:\MLOPS\8-9-10\hw8910-broken\process_core.py", line 160, in main
+    else: run(args.workspace,args.report,args.fail_after_prepare,args.manifest,args.fail_after_pointer)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\MLOPS\8-9-10\hw8910-broken\process_core.py", line 140, in run
+    report = assess(root, manifest, report_name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\MLOPS\8-9-10\hw8910-broken\process_core.py", line 100, in assess
+    release.validate_release(manifest, report)
+  File "C:\MLOPS\8-9-10\hw8910-broken\release.py", line 57, in validate_release
+    raise ValueError('Evaluation binding mismatch: ' + key)
+ValueError: Evaluation binding mismatch: model_id
+CLI ['run', '--report', 'report-reject.json'] EXIT 1 OUTPUT CACHE_HIT 0dd09272a795557fa06139596d9ec23c3530c4da8794eb97d4d6ee3620ba62e8
+ARTIFACT_VERIFIED fixture-B (read existing artifact; NO TRAINING)
+Traceback (most recent call last):
+  File "C:\MLOPS\8-9-10\hw8910-broken\lab.py", line 5, in <module>
+    main()
+  File "C:\MLOPS\8-9-10\hw8910-broken\process_core.py", line 160, in main
+    else: run(args.workspace,args.report,args.fail_after_prepare,args.manifest,args.fail_after_pointer)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\MLOPS\8-9-10\hw8910-broken\process_core.py", line 140, in run
+    report = assess(root, manifest, report_name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\MLOPS\8-9-10\hw8910-broken\process_core.py", line 100, in assess
+    release.validate_release(manifest, report)
+  File "C:\MLOPS\8-9-10\hw8910-broken\release.py", line 52, in validate_release
+    raise ValueError('Incomplete or rejected evaluation')
+ValueError: Incomplete or rejected evaluation
+ok
+test_03_atomic_write_failure_subprocess (test_incidents.IncidentRegression.test_03_atomic_write_failure_subprocess) ... CLI ['init'] EXIT 0 OUTPUT Created STUB ONLY workspace C:\Users\Admin\AppData\Local\Temp\tmpyubvj8x5\stand
+ATOMIC_REPLACE_EXIT 1 Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "C:\MLOPS\8-9-10\hw8910-broken\release.py", line 85, in publish
+    atomic_bytes(target, canonical(manifest) + b'\n')
+  File "C:\MLOPS\8-9-10\hw8910-broken\release.py", line 77, in atomic_bytes
+    os.replace(temporary, target)
+  File "C:\Users\Admin\AppData\Roaming\uv\python\cpython-3.12-windows-x86_64-none\Lib\unittest\mock.py", line 1139, in __call__
+    return self._mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\uv\python\cpython-3.12-windows-x86_64-none\Lib\unittest\mock.py", line 1143, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\uv\python\cpython-3.12-windows-x86_64-none\Lib\unittest\mock.py", line 1198, in _execute_mock_call
+    raise effect
+OSError: injected replacement failure
+
+ok
+test_04_repeated_publication_subprocess (test_incidents.IncidentRegression.test_04_repeated_publication_subprocess) ... CLI ['init'] EXIT 0 OUTPUT Created STUB ONLY workspace C:\Users\Admin\AppData\Local\Temp\tmp_wq48pyq\stand
+CLI ['run'] EXIT 0 OUTPUT PREPARED 0dd09272a795557fa06139596d9ec23c3530c4da8794eb97d4d6ee3620ba62e8
+ARTIFACT_VERIFIED fixture-B (read existing artifact; NO TRAINING)
+PUBLISHED fixture-B d1ec258d1f5213ebeb7a5f0db893256ce88fa25cef3f4709151887660257bfb9
+CLI ['run'] EXIT 0 OUTPUT CACHE_HIT 0dd09272a795557fa06139596d9ec23c3530c4da8794eb97d4d6ee3620ba62e8
+ARTIFACT_VERIFIED fixture-B (read existing artifact; NO TRAINING)
+ALREADY_PUBLISHED d1ec258d1f5213ebeb7a5f0db893256ce88fa25cef3f4709151887660257bfb9
+ok
+test_05_readiness_http (test_incidents.IncidentRegression.test_05_readiness_http) ... CLI ['init'] EXIT 0 OUTPUT Created STUB ONLY workspace C:\Users\Admin\AppData\Local\Temp\tmpeqcm3txo\stand
+HTTP /health STATUS 200 BODY {'alive': True, 'backend': 'STUB ONLY'}
+HTTP /health STATUS 200 BODY {'alive': True, 'backend': 'STUB ONLY'}
+HTTP /ready STATUS 503 BODY {'detail': 'Model loading, failed verification, or warming up'}
+HTTP /generate STATUS 503 BODY {'detail': 'Model not ready'}
+HTTP /debug STATUS 200 BODY {'loaded_id': None, 'calls': 0, 'warmup_finished': False, 'load_error': None}
+HTTP /ready STATUS 503 BODY {'detail': 'Model loading, failed verification, or warming up'}
+HTTP /ready STATUS 503 BODY {'detail': 'Model loading, failed verification, or warming up'}
+HTTP /ready STATUS 503 BODY {'detail': 'Model loading, failed verification, or warming up'}
+HTTP /ready STATUS 503 BODY {'detail': 'Model loading, failed verification, or warming up'}
+HTTP /ready STATUS 503 BODY {'detail': 'Model loading, failed verification, or warming up'}
+HTTP /ready STATUS 503 BODY {'detail': 'Model loading, failed verification, or warming up'}
+HTTP /ready STATUS 503 BODY {'detail': 'Model loading, failed verification, or warming up'}
+HTTP /ready STATUS 503 BODY {'detail': 'Model loading, failed verification, or warming up'}
+HTTP /ready STATUS 503 BODY {'detail': 'Model loading, failed verification, or warming up'}
+HTTP /ready STATUS 503 BODY {'detail': 'Model loading, failed verification, or warming up'}
+HTTP /ready STATUS 503 BODY {'detail': 'Model loading, failed verification, or warming up'}
+HTTP /ready STATUS 503 BODY {'detail': 'Model loading, failed verification, or warming up'}
+HTTP /ready STATUS 200 BODY {'ready': True, 'model_id': 'fixture-A', 'runtime_sha256': 'bc7bd5a4806e2e0e3b8569666b251d6c59a8d8e01e37fc37bf95b534023ca547'}
+HTTP /debug STATUS 200 BODY {'loaded_id': 'fixture-A', 'calls': 0, 'warmup_finished': True, 'load_error': None}
+HTTP /generate STATUS 200 BODY {'answer': 'STUB ONLY: fixture-A', 'output_tokens': 1, 'model_id': 'fixture-A', 'runtime_sha256': 'bc7bd5a4806e2e0e3b8569666b251d6c59a8d8e01e37fc37bf95b534023ca547', 'request_id': 'ec9d88cf-b424-4e59-a95c-38ae436715d5', 'generation_seconds': 0.011082199984230101, 'queue_seconds': 1.550000160932541e-05, 'total_seconds': 0.011097699985839427}
+ok
+test_06_loaded_version_http (test_incidents.IncidentRegression.test_06_loaded_version_http) ... CLI ['init'] EXIT 0 OUTPUT Created STUB ONLY workspace C:\Users\Admin\AppData\Local\Temp\tmpa00fufnd\stand
+HTTP /health STATUS 200 BODY {'alive': True, 'backend': 'STUB ONLY'}
+HTTP /ready STATUS 200 BODY {'ready': True, 'model_id': 'fixture-A', 'runtime_sha256': 'bc7bd5a4806e2e0e3b8569666b251d6c59a8d8e01e37fc37bf95b534023ca547'}
+HTTP /generate STATUS 200 BODY {'answer': 'STUB ONLY: fixture-A', 'output_tokens': 1, 'model_id': 'fixture-A', 'runtime_sha256': 'bc7bd5a4806e2e0e3b8569666b251d6c59a8d8e01e37fc37bf95b534023ca547', 'request_id': 'd84e9c14-c0b3-4de7-acbd-25b1ac3bc98a', 'generation_seconds': 0.010370000032708049, 'queue_seconds': 1.3399985618889332e-05, 'total_seconds': 0.010383400018326938}
+CLI ['run'] EXIT 0 OUTPUT PREPARED 0dd09272a795557fa06139596d9ec23c3530c4da8794eb97d4d6ee3620ba62e8
+ARTIFACT_VERIFIED fixture-B (read existing artifact; NO TRAINING)
+PUBLISHED fixture-B 686f99f79c6362e028d62a57b077971885dcdc4f4bb030dfcfd01a2afd88a969
+HTTP /generate STATUS 200 BODY {'answer': 'STUB ONLY: fixture-A', 'output_tokens': 1, 'model_id': 'fixture-A', 'runtime_sha256': 'bc7bd5a4806e2e0e3b8569666b251d6c59a8d8e01e37fc37bf95b534023ca547', 'request_id': 'd5550fa4-3ad8-42da-990e-9acaa02a2b0e', 'generation_seconds': 0.010682999971322715, 'queue_seconds': 2.9699993319809437e-05, 'total_seconds': 0.010712699964642525}
+HTTP /health STATUS 200 BODY {'alive': True, 'backend': 'STUB ONLY'}
+HTTP /ready STATUS 200 BODY {'ready': True, 'model_id': 'fixture-B', 'runtime_sha256': 'bc7bd5a4806e2e0e3b8569666b251d6c59a8d8e01e37fc37bf95b534023ca547'}
+HTTP /generate STATUS 200 BODY {'answer': 'STUB ONLY: fixture-B', 'output_tokens': 1, 'model_id': 'fixture-B', 'runtime_sha256': 'bc7bd5a4806e2e0e3b8569666b251d6c59a8d8e01e37fc37bf95b534023ca547', 'request_id': '300778fa-4b85-4b0e-aab1-8480607e1dba', 'generation_seconds': 0.010127900051884353, 'queue_seconds': 2.789997961372137e-05, 'total_seconds': 0.010155800031498075}
+ok
+test_07_invalid_request_http_without_backend_call (test_incidents.IncidentRegression.test_07_invalid_request_http_without_backend_call) ... CLI ['init'] EXIT 0 OUTPUT Created STUB ONLY workspace C:\Users\Admin\AppData\Local\Temp\tmpj9aoyk9r\stand
+HTTP /health STATUS 200 BODY {'alive': True, 'backend': 'STUB ONLY'}
+HTTP /ready STATUS 200 BODY {'ready': True, 'model_id': 'fixture-A', 'runtime_sha256': 'bc7bd5a4806e2e0e3b8569666b251d6c59a8d8e01e37fc37bf95b534023ca547'}
+HTTP /debug STATUS 200 BODY {'loaded_id': 'fixture-A', 'calls': 0, 'warmup_finished': True, 'load_error': None}
+HTTP /generate STATUS 422 BODY {'detail': [{'type': 'string_too_short', 'loc': ['body', 'prompt'], 'msg': 'String should have at least 1 character', 'input': '', 'ctx': {'min_length': 1}}]}
+HTTP /debug STATUS 200 BODY {'loaded_id': 'fixture-A', 'calls': 0, 'warmup_finished': True, 'load_error': None}
+HTTP /generate STATUS 422 BODY {'detail': [{'type': 'value_error', 'loc': ['body', 'prompt'], 'msg': 'Value error, Prompt cannot be blank', 'input': '   ', 'ctx': {'error': {}}}]}
+HTTP /debug STATUS 200 BODY {'loaded_id': 'fixture-A', 'calls': 0, 'warmup_finished': True, 'load_error': None}
+HTTP /generate STATUS 422 BODY {'detail': [{'type': 'value_error', 'loc': ['body', 'max_new_tokens'], 'msg': 'Value error, Only evaluated max_new_tokens=32 is supported', 'input': 0, 'ctx': {'error': {}}}]}
+HTTP /debug STATUS 200 BODY {'loaded_id': 'fixture-A', 'calls': 0, 'warmup_finished': True, 'load_error': None}
+HTTP /generate STATUS 422 BODY {'detail': [{'type': 'value_error', 'loc': ['body', 'max_new_tokens'], 'msg': 'Value error, Only evaluated max_new_tokens=32 is supported', 'input': 100000, 'ctx': {'error': {}}}]}
+HTTP /debug STATUS 200 BODY {'loaded_id': 'fixture-A', 'calls': 0, 'warmup_finished': True, 'load_error': None}
+HTTP /generate STATUS 422 BODY {'detail': [{'type': 'int_type', 'loc': ['body', 'max_new_tokens'], 'msg': 'Input should be a valid integer', 'input': '32'}]}
+HTTP /debug STATUS 200 BODY {'loaded_id': 'fixture-A', 'calls': 0, 'warmup_finished': True, 'load_error': None}
+HTTP /generate STATUS 422 BODY {'detail': [{'type': 'int_type', 'loc': ['body', 'max_new_tokens'], 'msg': 'Input should be a valid integer', 'input': True}]}
+HTTP /debug STATUS 200 BODY {'loaded_id': 'fixture-A', 'calls': 0, 'warmup_finished': True, 'load_error': None}
+HTTP /generate STATUS 422 BODY {'detail': [{'type': 'string_too_long', 'loc': ['body', 'prompt'], 'msg': 'String should have at most 6000 characters', 'input': 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx', 'ctx': {'max_length': 6000}}]}
+HTTP /debug STATUS 200 BODY {'loaded_id': 'fixture-A', 'calls': 0, 'warmup_finished': True, 'load_error': None}
+HTTP /generate STATUS 200 BODY {'answer': 'STUB ONLY: fixture-A', 'output_tokens': 1, 'model_id': 'fixture-A', 'runtime_sha256': 'bc7bd5a4806e2e0e3b8569666b251d6c59a8d8e01e37fc37bf95b534023ca547', 'request_id': 'b4694b3b-f518-4553-9d65-e67dcd39c1ce', 'generation_seconds': 0.010885700001381338, 'queue_seconds': 5.749997217208147e-05, 'total_seconds': 0.010943199973553419}
+HTTP /debug STATUS 200 BODY {'loaded_id': 'fixture-A', 'calls': 1, 'warmup_finished': True, 'load_error': None}
+ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 23.426s
+
+OK

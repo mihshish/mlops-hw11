@@ -8,3 +8,8 @@ models/
 *.bin
 *.pt
 .lab*/
+.prefect*/
+.runtime/
+release-assets/
+*.log
+!evidence/**/*.log

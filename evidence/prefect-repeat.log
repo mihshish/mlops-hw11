@@ -1,0 +1,12 @@
+23:08:55.346 | INFO    | prefect - Starting temporary server on http://127.0.0.1:8454
+See https://www.prefect.io/docs/v3/concepts/server#how-to-guides for more information on running a dedicated Prefect server.
+23:09:12.576 | INFO    | Flow run 'mature-kraken' - Beginning flow run 'mature-kraken' for flow 'hw8910-verified-release'
+23:09:12.661 | INFO    | Task run 'prepare_input-74e' - Finished in state Cached(type=COMPLETED)
+23:09:12.717 | INFO    | Flow run 'mature-kraken' - FLOW_ID 5502beed-660a-4f17-8644-a4be51371bd5 PREPARATION_STATE Cached
+23:09:12.725 | INFO    | Task run 'obtain_artifact-161' - ARTIFACT_VERIFIED fixture-B (read existing artifact; NO TRAINING)
+23:09:12.737 | INFO    | Task run 'obtain_artifact-161' - Finished in state Completed()
+23:09:12.755 | INFO    | Task run 'evaluate_admission-56d' - Finished in state Completed()
+23:09:12.796 | INFO    | Task run 'publish_accepted-8da' - ALREADY_PUBLISHED 09722fc5891884eda0b7571038f0d8569ca80429e74a496105e22c179f4dccf3
+23:09:12.825 | INFO    | Task run 'publish_accepted-8da' - Finished in state Completed()
+23:09:13.645 | INFO    | Flow run 'mature-kraken' - Finished in state Completed()
+23:09:13.693 | INFO    | prefect - Stopping temporary server on http://127.0.0.1:8454

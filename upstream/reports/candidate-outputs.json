@@ -1,0 +1,320 @@
+[
+  {
+    "id": "nmo_000003319",
+    "raw": "{\"answer\":\"2\"}",
+    "error": null,
+    "latency_seconds": 7.35899999999674
+  },
+  {
+    "id": "nmo_000003403",
+    "raw": "{\"answer\":\"1\"}",
+    "error": null,
+    "latency_seconds": 5.297000000020489
+  },
+  {
+    "id": "nmo_000003404",
+    "raw": "{\"answer\":\"1\"}",
+    "error": null,
+    "latency_seconds": 5.577999999979511
+  },
+  {
+    "id": "nmo_000019947",
+    "raw": "{\"answer\":\"1\"}",
+    "error": null,
+    "latency_seconds": 5.9689999999827705
+  },
+  {
+    "id": "nmo_000020942",
+    "raw": "{\"answer\":\"2\"}",
+    "error": null,
+    "latency_seconds": 6.0310000000172295
+  },
+  {
+    "id": "nmo_000020943",
+    "raw": "{\"answer\":\"2\"}",
+    "error": null,
+    "latency_seconds": 5.6560000000172295
+  },
+  {
+    "id": "nmo_000031943",
+    "raw": "{\"answer\":\"1\"}",
+    "error": null,
+    "latency_seconds": 6.405999999959022
+  },
+  {
+    "id": "nmo_000031944",
+    "raw": "{\"answer\":\"2\"}",
+    "error": null,
+    "latency_seconds": 6.329000000027008
+  },
+  {
+    "id": "nmo_000043919",
+    "raw": "{\"answer\":\"1\"}",
+    "error": null,
+    "latency_seconds": 6.1560000000172295
+  },
+  {
+    "id": "nmo_000044023",
+    "raw": "{\"answer\":\"1\"}",
+    "error": null,
+    "latency_seconds": 6.0
+  },
+  {
+    "id": "nmo_000053165",
+    "raw": "{\"answer\":\"1\"}",
+    "error": null,
+    "latency_seconds": 5.436999999976251
+  },
+  {
+    "id": "nmo_000055490",
+    "raw": "{\"answer\":\"1\"}",
+    "error": null,
+    "latency_seconds": 5.9689999999827705
+  },
+  {
+    "id": "nmo_000097665",
+    "raw": "{\"answer\":\"1\"}",
+    "error": null,
+    "latency_seconds": 6.2810000000172295
+  },
+  {
+    "id": "nmo_000097666",
+    "raw": "{\"answer\":\"2\"}",
+    "error": null,
+    "latency_seconds": 6.26600000000326
+  },
+  {
+    "id": "nmo_000123686",
+    "raw": "{\"answer\":\"1\"}",
+    "error": null,
+    "latency_seconds": 5.297000000020489
+  },
+  {
+    "id": "nmo_000136593",
+    "raw": "{\"answer\":\"3\"}",
+    "error": null,
+    "latency_seconds": 6.280999999959022
+  },
+  {
+    "id": "nmo_000140612",
+    "raw": "{\"answer\":\"2\"}",
+    "error": null,
+    "latency_seconds": 5.98399999999674
+  },
+  {
+    "id": "nmo_000002395",
+    "raw": "{\"answer\":\"3\"}",
+    "error": null,
+    "latency_seconds": 4.985000000044238
+  },
+  {
+    "id": "nmo_000006485",
+    "raw": "{\"answer\":\"1\"}",
+    "error": null,
+    "latency_seconds": 5.389999999955762
+  },
+  {
+    "id": "nmo_000007460",
+    "raw": "{\"answer\":\"2\"}",
+    "error": null,
+    "latency_seconds": 5.454000000027008
+  },
+  {
+    "id": "nmo_000007474",
+    "raw": "{\"answer\":\"2\"}",
+    "error": null,
+    "latency_seconds": 6.780999999959022
+  },
+  {
+    "id": "nmo_000008480",
+    "raw": "{\"answer\":\"1\"}",
+    "error": null,
+    "latency_seconds": 6.235000000044238
+  },
+  {
+    "id": "nmo_000012887",
+    "raw": "{\"answer\":\"2\"}",
+    "error": null,
+    "latency_seconds": 5.60899999999674
+  },
+  {
+    "id": "nmo_000023973",
+    "raw": "{\"answer\":\"2\"}",
+    "error": null,
+    "latency_seconds": 4.796999999962281
+  },
+  {
+    "id": "nmo_000028018",
+    "raw": "{\"answer\":\"3\"}",
+    "error": null,
+    "latency_seconds": 5.76600000000326
+  },
+  {
+    "id": "nmo_000038142",
+    "raw": "{\"answer\":\"1\"}",
+    "error": null,
+    "latency_seconds": 7.01500000001397
+  },
+  {
+    "id": "nmo_000047440",
+    "raw": "{\"answer\":\"2\"}",
+    "error": null,
+    "latency_seconds": 6.26600000000326
+  },
+  {
+    "id": "nmo_000057757",
+    "raw": "{\"answer\":\"1\"}",
+    "error": null,
+    "latency_seconds": 5.7810000000172295
+  },
+  {
+    "id": "nmo_000058255",
+    "raw": "{\"answer\":\"1\"}",
+    "error": null,
+    "latency_seconds": 7.655999999959022
+  },
+  {
+    "id": "nmo_000058265",
+    "raw": "{\"answer\":\"0\"}",
+    "error": null,
+    "latency_seconds": 5.14100000000326
+  },
+  {
+    "id": "nmo_000058977",
+    "raw": "{\"answer\":\"2\"}",
+    "error": null,
+    "latency_seconds": 4.719000000040978
+  },
+  {
+    "id": "nmo_000091489",
+    "raw": "{\"answer\":\"1\"}",
+    "error": null,
+    "latency_seconds": 6.48399999999674
+  },
+  {
+    "id": "nmo_000091491",
+    "raw": "{\"answer\":\"2\"}",
+    "error": null,
+    "latency_seconds": 6.9689999999827705
+  },
+  {
+    "id": "nmo_000136853",
+    "raw": "{\"answer\":\"3\"}",
+    "error": null,
+    "latency_seconds": 4.76600000000326
+  },
+  {
+    "id": "nmo_000042475",
+    "raw": "{\"answer\":\"1\"}",
+    "error": null,
+    "latency_seconds": 6.045999999972992
+  },
+  {
+    "id": "nmo_000042480",
+    "raw": "{\"answer\":\"2\"}",
+    "error": null,
+    "latency_seconds": 6.14100000000326
+  },
+  {
+    "id": "nmo_000046082",
+    "raw": "{\"answer\":\"2\"}",
+    "error": null,
+    "latency_seconds": 4.75
+  },
+  {
+    "id": "nmo_000046083",
+    "raw": "{\"answer\":\"2\"}",
+    "error": null,
+    "latency_seconds": 5.328000000037719
+  },
+  {
+    "id": "nmo_000049974",
+    "raw": "{\"answer\":\"2\"}",
+    "error": null,
+    "latency_seconds": 6.561999999976251
+  },
+  {
+    "id": "nmo_000051313",
+    "raw": "{\"answer\":\"3\"}",
+    "error": null,
+    "latency_seconds": 4.952999999979511
+  },
+  {
+    "id": "nmo_000098538",
+    "raw": "{\"answer\":\"3\"}",
+    "error": null,
+    "latency_seconds": 5.313000000023749
+  },
+  {
+    "id": "nmo_000113628",
+    "raw": "{\"answer\":\"3\"}",
+    "error": null,
+    "latency_seconds": 4.7810000000172295
+  },
+  {
+    "id": "nmo_000113638",
+    "raw": "{\"answer\":\"3\"}",
+    "error": null,
+    "latency_seconds": 5.23499999998603
+  },
+  {
+    "id": "nmo_000131799",
+    "raw": "{\"answer\":\"2\"}",
+    "error": null,
+    "latency_seconds": 6.045999999972992
+  },
+  {
+    "id": "nmo_000137687",
+    "raw": "{\"answer\":\"4\"}",
+    "error": null,
+    "latency_seconds": 5.797000000020489
+  },
+  {
+    "id": "nmo_000140253",
+    "raw": "{\"answer\":\"3\"}",
+    "error": null,
+    "latency_seconds": 5.23499999998603
+  },
+  {
+    "id": "nmo_000145520",
+    "raw": "{\"answer\":\"0\"}",
+    "error": null,
+    "latency_seconds": 4.842999999993481
+  },
+  {
+    "id": "nmo_000145616",
+    "raw": "{\"answer\":\"2\"}",
+    "error": null,
+    "latency_seconds": 4.735000000044238
+  },
+  {
+    "id": "nmo_000149484",
+    "raw": "{\"answer\":\"2\"}",
+    "error": null,
+    "latency_seconds": 5.077999999979511
+  },
+  {
+    "id": "nmo_000149880",
+    "raw": "{\"answer\":\"3\"}",
+    "error": null,
+    "latency_seconds": 5.797000000020489
+  },
+  {
+    "id": "behavior-format",
+    "raw": "```json\n{\"answer\": \"2\"}\n```",
+    "error": null,
+    "latency_seconds": 5.889999999955762
+  },
+  {
+    "id": "behavior-paraphrase",
+    "raw": "```json\n{\"answer\": \"1\"}\n```",
+    "error": null,
+    "latency_seconds": 6.26600000000326
+  },
+  {
+    "id": "behavior-refusal",
+    "raw": "```json\n{\"answer\":\"REFUSE\"}\n```",
+    "error": null,
+    "latency_seconds": 6.14100000000326
+  }
+]

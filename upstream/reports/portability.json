@@ -1,0 +1,71 @@
+{
+  "weights_unchanged": true,
+  "models": [
+    {
+      "run_id": "88278d82b5ea4f0ba56f70b295dd3d36",
+      "old_adapter_path": "artifacts\\adapter",
+      "adapter_path": "artifacts/adapter",
+      "old_model_code_path": "C:\\MLOPS\\6-7\\mlops26-hw6-7\\hw67-broken\\src\\model.py",
+      "model_code_path": "model.py",
+      "original_descriptor_sha256": "3c59b5b2add78415fe6bcba9db2c6b0851c63ff74c4e0ea16c98312ecdc847e1",
+      "portable_descriptor_sha256": "92b231b0150d5f4b2fbae5d7c576af795bf35806cbf4111258f9be4fcdaabab5",
+      "weights_sha256_before": "d33c2a0ee0623aa9774e5967aace9cc47b27b968da3800219ee299a7ba048920",
+      "weights_sha256_after": "d33c2a0ee0623aa9774e5967aace9cc47b27b968da3800219ee299a7ba048920"
+    },
+    {
+      "run_id": "db8bb0d20bda49688f7146c1e2c84b1a",
+      "old_adapter_path": "artifacts\\adapter",
+      "adapter_path": "artifacts/adapter",
+      "old_model_code_path": "C:\\MLOPS\\6-7\\mlops26-hw6-7\\hw67-broken\\src\\model.py",
+      "model_code_path": "model.py",
+      "original_descriptor_sha256": "f04b711ad3f003169f44da16bfe826e43c4d2d9c382a33df7bdb8e3a8d540feb",
+      "portable_descriptor_sha256": "c19eb45e440ebbc1fad1adaed2466dd28707fe6d5cdb5c04f533711ccfe723fc",
+      "weights_sha256_before": "0c0aa06384392150d219a13e144c67435c02ccee07fc230d42d806f9f284ac02",
+      "weights_sha256_after": "0c0aa06384392150d219a13e144c67435c02ccee07fc230d42d806f9f284ac02"
+    },
+    {
+      "run_id": "0af4f94497c942ba9f3337bdb85b5596",
+      "old_adapter_path": "artifacts\\adapter",
+      "adapter_path": "artifacts/adapter",
+      "old_model_code_path": "C:\\MLOPS\\6-7\\mlops26-hw6-7\\hw67-broken\\src\\model.py",
+      "model_code_path": "model.py",
+      "original_descriptor_sha256": "6eb7c021c59040119d4ac041fc3a8997e6b2a1714f78fff8ae7031a1627b6723",
+      "portable_descriptor_sha256": "63b7163ea186cb7f75f06f2bf299abc22162d93f1823a05518778bee691a2ab1",
+      "weights_sha256_before": "6bd0d580c55de4860e2b0ff3fd2c5b070c12edc76ce5c2287ca3f1b7928d770b",
+      "weights_sha256_after": "6bd0d580c55de4860e2b0ff3fd2c5b070c12edc76ce5c2287ca3f1b7928d770b"
+    },
+    {
+      "run_id": "8b9e58ba729642a0847ac4ec564f3cbb",
+      "old_adapter_path": "artifacts\\adapter",
+      "adapter_path": "artifacts/adapter",
+      "old_model_code_path": "C:\\MLOPS\\6-7\\mlops26-hw6-7\\hw67-broken\\src\\model.py",
+      "model_code_path": "model.py",
+      "original_descriptor_sha256": "55722c2e07dbeb4080b7e838623f17e60a637c89f2f69fc149a5e512f47850ca",
+      "portable_descriptor_sha256": "529bf9c3a1b695d86bd756f9db22448d6530bb41a78c66a3e2deb0f5fb8ad131",
+      "weights_sha256_before": "f9f792a1a93e9cf8649e4b28cf07593dbcb5cd9d978200c8b54a697a0bb1ad24",
+      "weights_sha256_after": "f9f792a1a93e9cf8649e4b28cf07593dbcb5cd9d978200c8b54a697a0bb1ad24"
+    },
+    {
+      "run_id": "d3d6250b3592400ca694bd2645badaf6",
+      "old_adapter_path": "artifacts\\adapter",
+      "adapter_path": "artifacts/adapter",
+      "old_model_code_path": "C:\\MLOPS\\6-7\\mlops26-hw6-7\\hw67-broken\\src\\model.py",
+      "model_code_path": "model.py",
+      "original_descriptor_sha256": "609285416ee07ad3f1240d75883239d9aa40ca9b389781c15dbdee4cb40a0dc6",
+      "portable_descriptor_sha256": "56c0e5539d2050778ba3a135e167f46fb63b483e7b111bd635af8148e4f5af9f",
+      "weights_sha256_before": "61598a2f6c3408e065f87b6b1965a2a703901c99f847588c7489fca8e2e07e55",
+      "weights_sha256_after": "61598a2f6c3408e065f87b6b1965a2a703901c99f847588c7489fca8e2e07e55"
+    },
+    {
+      "run_id": "2a2af4ff46154e72807edb3a57a8fb83",
+      "old_adapter_path": "artifacts\\adapter",
+      "adapter_path": "artifacts/adapter",
+      "old_model_code_path": "C:\\MLOPS\\6-7\\mlops26-hw6-7\\hw67-broken\\src\\model.py",
+      "model_code_path": "model.py",
+      "original_descriptor_sha256": "0701b51d61491b7cc74c6967e357aea6b0e7fa713c833048b6bf30179e92fd8c",
+      "portable_descriptor_sha256": "c181527b2b11e6caee31ddc7bf488acd5a60bbfa60942285f5723a267c3ce21b",
+      "weights_sha256_before": "dc31487dfeac0588b74a77e6f841aa2e5d9d2df0fa85a90dd177f64c6c46a726",
+      "weights_sha256_after": "dc31487dfeac0588b74a77e6f841aa2e5d9d2df0fa85a90dd177f64c6c46a726"
+    }
+  ]
+}

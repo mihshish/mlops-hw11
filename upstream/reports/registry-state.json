@@ -1,0 +1,12 @@
+{
+  "name": "nmo-qwen3-adapter",
+  "aliases": {
+    "candidate": {
+      "version": "1",
+      "run_id": "8b9e58ba729642a0847ac4ec564f3cbb"
+    },
+    "champion": null
+  },
+  "quality_passed": false,
+  "evaluation_run_id": "b23ee66acbae4d9bb7034420d0422fae"
+}

@@ -1,0 +1,7 @@
+{
+  "kind": "adapter",
+  "name": "nmo-qwen3-adapter",
+  "version": "1",
+  "run_id": "8b9e58ba729642a0847ac4ec564f3cbb",
+  "uri": "models:/nmo-qwen3-adapter/1"
+}

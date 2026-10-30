@@ -1,0 +1,116 @@
+test_01_cache_recovery_and_content_invalidation_subprocess (test_incidents.IncidentRegression.test_01_cache_recovery_and_content_invalidation_subprocess) ... CLI ['init'] EXIT 0 OUTPUT Создан синтетический стенд: C:\Users\Admin\AppData\Local\Temp\tmpk05epk72\stand
+CLI ['run', '--fail-after-prepare'] EXIT 1 OUTPUT PREPARED 19b8b0a21157bd3e44e7afd00735c6fd9cdf05ee7f668a5013f5c9f1ff16c1ac
+Traceback (most recent call last):
+  File "C:\Users\Admin\AppData\Local\Temp\hw8910-original-yh0zwo9l\lab.py", line 84, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "C:\Users\Admin\AppData\Local\Temp\hw8910-original-yh0zwo9l\lab.py", line 81, in main
+    else:run(args.workspace,args.report,args.fail_after_prepare)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Temp\hw8910-original-yh0zwo9l\lab.py", line 67, in run
+    if fail_after_prepare:raise RuntimeError('Инъекция сбоя после подготовки')
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: Инъекция сбоя после подготовки
+CLI ['run'] EXIT 0 OUTPUT CACHE_HIT 19b8b0a21157bd3e44e7afd00735c6fd9cdf05ee7f668a5013f5c9f1ff16c1ac
+PUBLISHED fixture-B
+CLI ['run'] EXIT 0 OUTPUT CACHE_HIT 19b8b0a21157bd3e44e7afd00735c6fd9cdf05ee7f668a5013f5c9f1ff16c1ac
+PUBLISHED fixture-B
+FAIL
+test_02_incomplete_foreign_and_rejected_reports_subprocess (test_incidents.IncidentRegression.test_02_incomplete_foreign_and_rejected_reports_subprocess) ... CLI ['init'] EXIT 0 OUTPUT Создан синтетический стенд: C:\Users\Admin\AppData\Local\Temp\tmpnwht68c2\stand
+CLI ['run', '--report', 'report-incomplete.json'] EXIT 0 OUTPUT PREPARED 19b8b0a21157bd3e44e7afd00735c6fd9cdf05ee7f668a5013f5c9f1ff16c1ac
+PUBLISHED fixture-B
+FAIL
+test_03_atomic_write_failure_subprocess (test_incidents.IncidentRegression.test_03_atomic_write_failure_subprocess) ... CLI ['init'] EXIT 0 OUTPUT Создан синтетический стенд: C:\Users\Admin\AppData\Local\Temp\tmpplm4nwyw\stand
+ATOMIC_REPLACE_EXIT 0 
+FAIL
+test_04_repeated_publication_subprocess (test_incidents.IncidentRegression.test_04_repeated_publication_subprocess) ... CLI ['init'] EXIT 0 OUTPUT Создан синтетический стенд: C:\Users\Admin\AppData\Local\Temp\tmp5gpx2ekn\stand
+CLI ['run'] EXIT 0 OUTPUT PREPARED 19b8b0a21157bd3e44e7afd00735c6fd9cdf05ee7f668a5013f5c9f1ff16c1ac
+PUBLISHED fixture-B
+CLI ['run'] EXIT 0 OUTPUT CACHE_HIT 19b8b0a21157bd3e44e7afd00735c6fd9cdf05ee7f668a5013f5c9f1ff16c1ac
+PUBLISHED fixture-B
+FAIL
+test_05_readiness_http (test_incidents.IncidentRegression.test_05_readiness_http) ... CLI ['init'] EXIT 0 OUTPUT Создан синтетический стенд: C:\Users\Admin\AppData\Local\Temp\tmpgzxzopei\stand
+HTTP /health STATUS 200 BODY {'alive': True, 'backend': 'STUB ONLY'}
+HTTP /health STATUS 200 BODY {'alive': True, 'backend': 'STUB ONLY'}
+HTTP /ready STATUS 200 BODY {'ready': True}
+FAIL
+test_06_loaded_version_http (test_incidents.IncidentRegression.test_06_loaded_version_http) ... CLI ['init'] EXIT 0 OUTPUT Создан синтетический стенд: C:\Users\Admin\AppData\Local\Temp\tmpm1xd00sg\stand
+HTTP /health STATUS 200 BODY {'alive': True, 'backend': 'STUB ONLY'}
+HTTP /ready STATUS 200 BODY {'ready': True}
+HTTP /generate STATUS 200 BODY {'answer': 'STUB ONLY: fixture-A', 'output_tokens': 1, 'model_id': 'fixture-A', 'runtime_sha256': 'bc7bd5a4806e2e0e3b8569666b251d6c59a8d8e01e37fc37bf95b534023ca547', 'request_id': '7be4c495-307c-47f2-bd07-96cbb285b4cb', 'generation_seconds': 0.011262300075031817}
+CLI ['run'] EXIT 0 OUTPUT PREPARED 19b8b0a21157bd3e44e7afd00735c6fd9cdf05ee7f668a5013f5c9f1ff16c1ac
+PUBLISHED fixture-B
+HTTP /generate STATUS 200 BODY {'answer': 'STUB ONLY: fixture-A', 'output_tokens': 1, 'model_id': 'fixture-B', 'runtime_sha256': 'bc7bd5a4806e2e0e3b8569666b251d6c59a8d8e01e37fc37bf95b534023ca547', 'request_id': '564a14d3-0570-4a62-9eb5-0a092e2ba9b2', 'generation_seconds': 0.023824900039471686}
+FAIL
+test_07_invalid_request_http_without_backend_call (test_incidents.IncidentRegression.test_07_invalid_request_http_without_backend_call) ... CLI ['init'] EXIT 0 OUTPUT Создан синтетический стенд: C:\Users\Admin\AppData\Local\Temp\tmplik841q4\stand
+HTTP /health STATUS 200 BODY {'alive': True, 'backend': 'STUB ONLY'}
+HTTP /ready STATUS 200 BODY {'ready': True}
+HTTP /debug STATUS 200 BODY {'loaded_id': 'fixture-A', 'calls': 0, 'warmup_finished': True}
+HTTP /generate STATUS 200 BODY {'answer': 'STUB ONLY: fixture-A', 'output_tokens': 1, 'model_id': 'fixture-A', 'runtime_sha256': 'bc7bd5a4806e2e0e3b8569666b251d6c59a8d8e01e37fc37bf95b534023ca547', 'request_id': '628ea426-7297-4fc2-8e67-a69156bed5c4', 'generation_seconds': 0.011366099934093654}
+FAIL
+
+======================================================================
+FAIL: test_01_cache_recovery_and_content_invalidation_subprocess (test_incidents.IncidentRegression.test_01_cache_recovery_and_content_invalidation_subprocess)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\MLOPS\8-9-10\hw8910-broken\tests_integration\test_incidents.py", line 90, in test_01_cache_recovery_and_content_invalidation_subprocess
+    self.assertIn('PREPARED',changed.stdout,'Same-path content change must invalidate cache')
+AssertionError: 'PREPARED' not found in 'CACHE_HIT 19b8b0a21157bd3e44e7afd00735c6fd9cdf05ee7f668a5013f5c9f1ff16c1ac\nPUBLISHED fixture-B\n' : Same-path content change must invalidate cache
+
+======================================================================
+FAIL: test_02_incomplete_foreign_and_rejected_reports_subprocess (test_incidents.IncidentRegression.test_02_incomplete_foreign_and_rejected_reports_subprocess)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\MLOPS\8-9-10\hw8910-broken\tests_integration\test_incidents.py", line 96, in test_02_incomplete_foreign_and_rejected_reports_subprocess
+    self.assertNotEqual(p.returncode,0,'Invalid/foreign report was admitted: '+report)
+AssertionError: 0 == 0 : Invalid/foreign report was admitted: report-incomplete.json
+
+======================================================================
+FAIL: test_03_atomic_write_failure_subprocess (test_incidents.IncidentRegression.test_03_atomic_write_failure_subprocess)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\MLOPS\8-9-10\hw8910-broken\tests_integration\test_incidents.py", line 108, in test_03_atomic_write_failure_subprocess
+    self.assertNotEqual(p.returncode,0,'Atomic replace was not used')
+AssertionError: 0 == 0 : Atomic replace was not used
+
+======================================================================
+FAIL: test_04_repeated_publication_subprocess (test_incidents.IncidentRegression.test_04_repeated_publication_subprocess)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\MLOPS\8-9-10\hw8910-broken\tests_integration\test_incidents.py", line 116, in test_04_repeated_publication_subprocess
+    self.assertEqual(len(events),1,'Retry created duplicate actual publication events')
+AssertionError: 2 != 1 : Retry created duplicate actual publication events
+
+======================================================================
+FAIL: test_05_readiness_http (test_incidents.IncidentRegression.test_05_readiness_http)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\MLOPS\8-9-10\hw8910-broken\tests_integration\test_incidents.py", line 121, in test_05_readiness_http
+    self.assertEqual(self.http('/ready')[0],503,'Ready before warmup')
+AssertionError: 200 != 503 : Ready before warmup
+
+======================================================================
+FAIL: test_06_loaded_version_http (test_incidents.IncidentRegression.test_06_loaded_version_http)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\MLOPS\8-9-10\hw8910-broken\tests_integration\test_incidents.py", line 133, in test_06_loaded_version_http
+    self.assertEqual(body['model_id'],'fixture-A','Advertised B but A remains loaded')
+AssertionError: 'fixture-B' != 'fixture-A'
+- fixture-B
+?         ^
++ fixture-A
+?         ^
+ : Advertised B but A remains loaded
+
+======================================================================
+FAIL: test_07_invalid_request_http_without_backend_call (test_incidents.IncidentRegression.test_07_invalid_request_http_without_backend_call)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\MLOPS\8-9-10\hw8910-broken\tests_integration\test_incidents.py", line 146, in test_07_invalid_request_http_without_backend_call
+    self.assertTrue(400<=status<500,'Invalid request reached the backend')
+AssertionError: False is not true : Invalid request reached the backend
+
+----------------------------------------------------------------------
+Ran 7 tests in 7.935s
+
+FAILED (failures=7)

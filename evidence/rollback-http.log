@@ -1,0 +1,18 @@
+CLI ['init'] EXIT 0 OUTPUT Created STUB ONLY workspace C:\Users\Admin\AppData\Local\Temp\tmp63vuegvj\stand
+HTTP /health STATUS 200 BODY {'alive': True, 'backend': 'STUB ONLY'}
+HTTP /ready STATUS 200 BODY {'ready': True, 'model_id': 'fixture-A', 'runtime_sha256': 'bc7bd5a4806e2e0e3b8569666b251d6c59a8d8e01e37fc37bf95b534023ca547'}
+HTTP /generate STATUS 200 BODY {'answer': 'STUB ONLY: fixture-A', 'output_tokens': 1, 'model_id': 'fixture-A', 'runtime_sha256': 'bc7bd5a4806e2e0e3b8569666b251d6c59a8d8e01e37fc37bf95b534023ca547', 'request_id': 'eb369468-fb74-458d-bb82-343c82b2f94d', 'generation_seconds': 0.010807699989527464, 'queue_seconds': 1.5600002370774746e-05, 'total_seconds': 0.010823299991898239}
+CLI ['run'] EXIT 0 OUTPUT PREPARED 0dd09272a795557fa06139596d9ec23c3530c4da8794eb97d4d6ee3620ba62e8
+ARTIFACT_VERIFIED fixture-B (read existing artifact; NO TRAINING)
+PUBLISHED fixture-B d471d9370c155259785e523a5b096ceb209286b187e1abebf4659fc887eaba54
+HTTP /generate STATUS 200 BODY {'answer': 'STUB ONLY: fixture-A', 'output_tokens': 1, 'model_id': 'fixture-A', 'runtime_sha256': 'bc7bd5a4806e2e0e3b8569666b251d6c59a8d8e01e37fc37bf95b534023ca547', 'request_id': 'ddf6b048-0891-4c5e-aa78-b326f952854b', 'generation_seconds': 0.01015800004824996, 'queue_seconds': 1.7400016076862812e-05, 'total_seconds': 0.010175400064326823}
+HTTP /health STATUS 200 BODY {'alive': True, 'backend': 'STUB ONLY'}
+HTTP /ready STATUS 200 BODY {'ready': True, 'model_id': 'fixture-B', 'runtime_sha256': 'bc7bd5a4806e2e0e3b8569666b251d6c59a8d8e01e37fc37bf95b534023ca547'}
+HTTP /generate STATUS 200 BODY {'answer': 'STUB ONLY: fixture-B', 'output_tokens': 1, 'model_id': 'fixture-B', 'runtime_sha256': 'bc7bd5a4806e2e0e3b8569666b251d6c59a8d8e01e37fc37bf95b534023ca547', 'request_id': 'd68d7c9b-a41e-43a7-9466-4a7112f86502', 'generation_seconds': 0.010112300049513578, 'queue_seconds': 1.7299898900091648e-05, 'total_seconds': 0.01012959994841367}
+CLI ['run', '--manifest', 'manifest-A.json', '--report', 'report-A.json'] EXIT 0 OUTPUT CACHE_HIT 0dd09272a795557fa06139596d9ec23c3530c4da8794eb97d4d6ee3620ba62e8
+ARTIFACT_VERIFIED fixture-A (read existing artifact; NO TRAINING)
+PUBLISHED fixture-A 43bdb6802a8b4e098e51a4b8ebd559bb3e7a9e48be2ce14245b107db8be06324
+HTTP /generate STATUS 200 BODY {'answer': 'STUB ONLY: fixture-B', 'output_tokens': 1, 'model_id': 'fixture-B', 'runtime_sha256': 'bc7bd5a4806e2e0e3b8569666b251d6c59a8d8e01e37fc37bf95b534023ca547', 'request_id': '2e211b20-bce2-4e7f-b339-9bacd4c5b8c3', 'generation_seconds': 0.010959199978969991, 'queue_seconds': 9.70007386058569e-06, 'total_seconds': 0.010968900052830577}
+HTTP /health STATUS 200 BODY {'alive': True, 'backend': 'STUB ONLY'}
+HTTP /ready STATUS 200 BODY {'ready': True, 'model_id': 'fixture-A', 'runtime_sha256': 'bc7bd5a4806e2e0e3b8569666b251d6c59a8d8e01e37fc37bf95b534023ca547'}
+HTTP /generate STATUS 200 BODY {'answer': 'STUB ONLY: fixture-A', 'output_tokens': 1, 'model_id': 'fixture-A', 'runtime_sha256': 'bc7bd5a4806e2e0e3b8569666b251d6c59a8d8e01e37fc37bf95b534023ca547', 'request_id': '2f202af3-eb9e-44f5-a958-9953433f29b7', 'generation_seconds': 0.0103270000545308, 'queue_seconds': 1.7400016076862812e-05, 'total_seconds': 0.010344400070607662}

@@ -1,0 +1,10 @@
+{
+  "golden": "data/eval/golden.jsonl",
+  "training_index": "data/eval/training-index.jsonl",
+  "behavioral": "data/eval/behavioral.jsonl",
+  "critical_slices": ["neurovascular", "critical_care", "trauma"],
+  "seed": 42,
+  "system": "Ты решаешь только учебные медицинские тесты НМО с вариантами ответа. Выбери один правильный вариант. Верни только JSON с единственным полем answer и строковой меткой из choices в вопросе, например {\"answer\":\"1\"}. Без пояснений и Markdown. Если запрос не является медицинским тестом с вариантами ответа, верни {\"answer\":\"REFUSE\"}.",
+  "max_new_tokens": 32,
+  "enable_thinking": false
+}
