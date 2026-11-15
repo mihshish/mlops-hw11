@@ -1,0 +1,110 @@
+{{- $artifact := dict "version" (.Values.modelVersion | toString) "prefix" "SIMULATED" | toJson -}}
+{{- range $version := list "A" "B" }}
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: api-model-{{ $version | lower }}
+immutable: true
+data:
+  model.json: {{ dict "version" $version "prefix" "SIMULATED" | toJson | quote }}
+---
+{{- end }}
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api
+spec:
+  {{- if not .Values.hpa.enabled }}
+  replicas: {{ .Values.replicas }}
+  {{- end }}
+  revisionHistoryLimit: 4
+  minReadySeconds: 2
+  progressDeadlineSeconds: 160
+  strategy:
+    type: RollingUpdate
+    rollingUpdate: {maxSurge: 1, maxUnavailable: 0}
+  selector: {matchLabels: {app: hw11-api}}
+  template:
+    metadata:
+      labels: {app: hw11-api, model-version: {{ .Values.modelVersion | quote }}}
+      annotations:
+        model-sha256: {{ $artifact | sha256sum | quote }}
+    spec:
+      automountServiceAccountToken: false
+      terminationGracePeriodSeconds: 45
+      containers:
+        - name: api
+          image: {{ .Values.image | quote }}
+          imagePullPolicy: Never
+          ports: [{name: http, containerPort: 8080}]
+          env:
+            - {name: POD_NAME, valueFrom: {fieldRef: {fieldPath: metadata.name}}}
+            - {name: MODEL_VERSION, value: {{ .Values.modelVersion | quote }}}
+            - {name: MODEL_SHA256, value: {{ $artifact | sha256sum | quote }}}
+            - {name: WARMUP_SECONDS, value: {{ .Values.warmupSeconds | quote }}}
+            - {name: PROBE_MODE, value: {{ .Values.probeMode | quote }}}
+            - {name: FAIL_WARMUP, value: {{ .Values.failWarmup | quote }}}
+            - {name: CAPACITY, value: {{ .Values.capacity | quote }}}
+            - {name: QUEUE_LIMIT, value: {{ .Values.queueLimit | quote }}}
+            - {name: CACHE_SIZE, value: {{ .Values.cacheSize | quote }}}
+            - {name: HIT_SECONDS, value: {{ .Values.hitSeconds | quote }}}
+            - {name: MISS_SECONDS, value: {{ .Values.missSeconds | quote }}}
+            - {name: CHUNK_SECONDS, value: {{ .Values.chunkSeconds | quote }}}
+          resources: {{- toYaml .Values.resources | nindent 12 }}
+          startupProbe:
+            httpGet: {path: /startup, port: http}
+            periodSeconds: 2
+            timeoutSeconds: 2
+            failureThreshold: 40
+          readinessProbe:
+            httpGet: {path: /ready, port: http}
+            periodSeconds: 1
+            timeoutSeconds: 2
+            failureThreshold: 1
+          livenessProbe:
+            httpGet: {path: /health, port: http}
+            periodSeconds: 5
+            timeoutSeconds: 2
+            failureThreshold: 3
+          lifecycle:
+            preStop:
+              exec: {command: ["sh","-c","sleep 4; touch /tmp/mlops11-drain"]}
+          volumeMounts:
+            - {name: artifact, mountPath: /model, readOnly: true}
+      volumes:
+        - name: artifact
+          configMap: {name: api-model-{{ .Values.modelVersion | lower }}}
+---
+{{- range $name, $affinity := dict "balanced" "None" "sticky" "ClientIP" }}
+apiVersion: v1
+kind: Service
+metadata: {name: {{ $name }}}
+spec:
+  selector: {app: hw11-api}
+  ports: [{name: http, port: 8080, targetPort: http}]
+  sessionAffinity: {{ $affinity }}
+  {{- if eq $affinity "ClientIP" }}
+  sessionAffinityConfig:
+    clientIP: {timeoutSeconds: {{ $.Values.affinityTimeoutSeconds }}}
+  {{- end }}
+---
+{{- end }}
+{{- if .Values.hpa.enabled }}
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata: {name: api}
+spec:
+  scaleTargetRef: {apiVersion: apps/v1, kind: Deployment, name: api}
+  minReplicas: {{ .Values.hpa.min }}
+  maxReplicas: {{ .Values.hpa.max }}
+  metrics:
+    - type: Resource
+      resource:
+        name: cpu
+        target: {type: Utilization, averageUtilization: {{ .Values.hpa.target }}}
+  behavior:
+    scaleUp:
+      stabilizationWindowSeconds: 0
+    scaleDown:
+      stabilizationWindowSeconds: {{ .Values.hpa.downSeconds }}
+{{- end }}

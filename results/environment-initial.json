@@ -1,0 +1,21 @@
+{
+  "status": "infrastructure_blocked_host_storage",
+  "observed_date_msk": "2026-11-15",
+  "initial_host_free_bytes": 9829285888,
+  "initial_host_total_bytes": 255390105600,
+  "host_ram_kib": 8222248,
+  "docker_engine": "28.3.2",
+  "docker_visible_cpu": 8,
+  "docker_visible_memory_bytes": 4024471552,
+  "kind": "0.30.0",
+  "node_image": "kindest/node:v1.34.0",
+  "kind_cluster_initially_ready": true,
+  "helm": "3.19.0",
+  "kubectl_client": "1.32.2 (upgrade to 1.34.x for measured experiments)",
+  "metrics_server_manifest": "v0.8.0 applied; resource metrics not confirmed",
+  "failure": "Grafana import via kind load failed: containerd sync input/output error; Docker BuildKit returned EOF",
+  "host_free_at_failure_bytes": 308523008,
+  "docker_data_vhdx_bytes_at_failure": 24833425408,
+  "pagefile_bytes_at_failure": 11132377088,
+  "note": "VHDX and pagefile sizes are total allocations, not attributable solely to this lab. No deletion of other labs, Docker data resetting, or fabricated cluster results."
+}

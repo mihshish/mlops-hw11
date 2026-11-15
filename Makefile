@@ -49,3 +49,5 @@ restore-baseline:
 .PHONY: package
 package:
 	uv run python -m scripts.package
+
+include hw11/Makefile

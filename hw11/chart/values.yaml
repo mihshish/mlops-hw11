@@ -1,0 +1,22 @@
+image: mlops11-api:1.0.0
+replicas: 2
+modelVersion: A
+warmupSeconds: 20
+probeMode: fixed
+failWarmup: false
+capacity: 2
+queueLimit: 4
+cacheSize: 4
+hitSeconds: 0.06
+missSeconds: 0.36
+chunkSeconds: 0.13
+affinityTimeoutSeconds: 180
+resources:
+  requests: {cpu: 100m, memory: 64Mi}
+  limits: {cpu: 500m, memory: 160Mi}
+hpa:
+  enabled: false
+  min: 2
+  max: 3
+  target: 65
+  downSeconds: 45
