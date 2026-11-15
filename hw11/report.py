@@ -60,6 +60,9 @@ def main():
     ctraffic=lines("c-requests.jsonl")
     check=obj("checks.json",[]); env=obj("environment-initial.json",{})
     before=obj("preflight.json",{})
+    findings=obj("measured-findings.json",{})
+    footprint=obj("container-disk.json",{})
+    changes=obj("stand-network-smoke.json",[])
     if traces:
         t0=traces[0]["time"]
         ga=chart("a-ready.svg","A · Ready, EndpointSlice и rollout", "с от начала", "реплики",
@@ -73,6 +76,7 @@ def main():
         outcomes=phase["outcomes"]
         rows.append((phase["run"],phase["n"],phase["sent"],phase["completed"],outcomes.get("rejected",0),
             outcomes.get("aborted",0),outcomes.get("timeout",0),outcomes.get("http_error",0)+outcomes.get("transport_error",0),
+            (100*(phase["sent"]-phase["completed"])/phase["sent"]) if phase["sent"] else None,
             phase["ttfc_p50"],phase["ttfc_p95"],phase["full_p50"],phase["full_p95"],phase["send_lag_p95"],
             ", ".join(f"{p[-5:]}={v['n']}" for p,v in phase["by_pod"].items())))
         series[f'{phase["pattern"]}/{phase["policy"]}'].append((phase["repeat"],phase["ttfc_p95"]))
@@ -113,8 +117,24 @@ def main():
         "Незавершённая сдача: нет полного комплекта фактических опытов Kubernetes")
     a_text=(table(("Результат A","Значение"),[(k,v) for k,v in a.items() if k!="long_stream"]) if a else
           "<p>Проверено только на localhost, без Kubernetes: сломанная проба открывает холодный backend, исправленная возвращает 503 до прогрева, несовместимый SHA не допускает Ready. Rollout, EndpointSlice, откат и SIGKILL не засчитаны без журналов.</p>")
-    b_text=(table(("Прогон","План","Отпр.","200+done","4xx","Оборв.","Тайм-аут","Др. ошибки","TTFC p50","TTFC p95","Full p50","Full p95","Отстав. p95, с","Распред."),rows)
+    b_text=(table(("Прогон","План","Отпр.","200+done","4xx","Оборв.","Тайм-аут","Др. ошибки","Неуспех, %","TTFC p50","TTFC p95","Full p50","Full p95","Отстав. p95, с","Распред."),rows)
       if rows else "<p>Нагрузочные замеры отсутствуют. Тесты проверили расписание 25/25/25/25 и 80/6,7/6,7/6,7, но это не доказательство распределения по Pod.</p>")
+    group_rows=[]
+    for name,v in findings.get("balance",{}).get("grouped",{}).items():
+        group_rows.append((name,v["repeats"],v["median_p95_ttfc"],v["median_p95_queue"],
+          v["median_loss_fraction"],v["median_hottest_share"],v["median_hit_fraction"],v["total_hot_with_capacity_samples"]))
+    by_policy=(table(("Политика / профиль","Повторы","Медиана p95 TTFC, с","Медиана p95 очереди, с","Доля неуспеха","Доля самого горячего Pod","Доля hit","Сэмплы: ожидание при свободных слотах"),group_rows)
+               if group_rows else "")
+    c_details=[]
+    c_transitions=[]
+    for phase,v in findings.get("hpa",{}).items():
+        for name,pod in v["new_pods"].items():
+            c_details.append((phase,name,pod["created_seconds"],pod["ready_seconds"],
+                              v["observed_return_after_last_planned_seconds"],str(v["ponames_and_counts"])))
+        c_transitions.extend((phase,t["name"],t["before"],t["after"],t["seconds"]) for t in v["transitions"])
+    c_text=(table(("Фаза","Новый Pod","Создан, с","Ready, с","Возврат через с после последнего планового","Запросы по Pod"),c_details)
+            if c_details else "")
+    if c_transitions:c_text+=table(("Фаза","Алерт","Из","В","Секунды от начала нагрузки"),c_transitions)
     out=f"""<!doctype html><html lang="ru"><head><meta charset="utf-8"><title>ДЗ 11 · Kubernetes</title>
 <style>body{{background:#f5f7fb;color:#17263b;font:16px/1.58 system-ui;margin:0}}main{{max-width:1160px;margin:auto;padding:35px}}
 h1,h2{{line-height:1.2}}table{{border-collapse:collapse;width:100%;font-size:13px}}td,th{{padding:7px;border-bottom:1px solid #d6e0ed;text-align:left}}
@@ -123,17 +143,20 @@ figure{{margin:20px 0}}img{{width:100%;max-width:850px}}a{{color:#175899}}.notic
 <h2>Стенд и инфраструктура</h2>
 <p>Продолжение API из ДЗ 8–10. В образе только FastAPI/Uvicorn и CPU-имитатор, без весов, обучения и MLflow. Режим <code>backend_mode=simulated</code>. Два Pod, CPU request 100m / limit 500m, память 64/160 MiB. На Pod: 2 active, 4 waiting, LRU на 4 префикса; искусственная цена hit/miss 0,06/0,36 с, интервал частей 0,13 с.</p>
 <p>Исходное состояние: Docker {escape(str(env.get("docker_engine","—")))}, около {env.get("initial_host_free_bytes",0)/2**30:.2f} GiB свободно, лимит Docker {env.get("docker_visible_memory_bytes",0)/2**30:.2f} GiB. kind действительно создал Ready control-plane. При импорте Grafana свободное место упало до {env.get("host_free_at_failure_bytes",0)/2**20:.0f} MiB; containerd вернул I/O error, BuildKit — EOF. Это блокировка первого запуска, не оценка размера стенда. Фактическое использование после успешного развёртывания собирает <code>hw11.collect</code>.</p>
+<p>Повторный запуск: {before.get("free_bytes",0)/2**30:.2f} GiB свободно до развёртывания. На WSL2 отсутствовала поддержка iptables recent: сначала прямой Pod отвечал, оба Service — нет. Неудачные попытки и ошибка kube-proxy сохранены в <a href="results/diagnostics/iptables/">diagnostics/iptables</a>. Решение — отдельный IPv4 kind с прокси nftables, не изменение маршрутизации в самом API. Подтверждённых успешных smoke через Service: {sum(r.get("outcome")=="completed" for r in changes)} / 2.</p>
+<p>Размер внутри узла по du: <code>{escape(footprint.get("node_used","не замерен"))}</code>. Это данные о занятом месте внутри контейнера kind, не оценка роста всей VHDX. Лимиты томов/время хранения заданы в чарте.</p>
 <p>ConfigMap A/B неизменяемы; процесс сверяет SHA-256 содержимого и версию, а отвечает по фактически загруженной версии. Все ответы, включая фрагменты, содержат request ID, Pod и версию. request/session ID в логах, а не в метках Prometheus. Команды запуска и удаления — <a href="README-HW11.md">README-HW11</a>.</p>
 <h2>A · Прогрев, rolling update, откат</h2>
 <p>Гипотеза: проверка живого HTTP вместо прогретого backend преждевременно добавляет Pod в EndpointSlice. <code>make hw11-a</code> меняет только режим проб под одинаковой нагрузкой. Исправление: порог startup покрывает 20 с, readiness проверяет прогрев, liveness — процесс. Для rollout 1 surge / 0 unavailable, preStop 4 с, Uvicorn 35 с, grace 45 с; отдельный опыт форсированной остановки не обязан быть без потерь.</p>
 {a_text}{ga}
 <h2>B · Привязка и горячая реплика</h2>
 <p>Гипотеза: ClientIP объединяет запросы одного клиента в одном Pod, даже если в другом есть место. <code>make hw11-b</code>: 4 клиента, 800 запланированных запросов за 120 с на прогон; четыре комбинации по три раза. Одинаковый payload и расписание для сравниваемых вариантов, отдельное TCP-соединение на запрос. Изначально префиксы каждого прогона холодные. Исправление для сравнения — убрать ClientIP, иначе сохранить локальность только как предпочтение. Если перекоса нет, проверяем IP и фактическую раскладку четырёх клиентов, а не удаляем неудобный прогон.</p>
-{b_text}{gq}{gb}
+{b_text}{by_policy}{gq}{gb}
+<p>Свободная ёмкость в таблице — одновременно waiting &gt; 0 у самого загруженного Pod и running &lt; 2 у другого на одном 5-секундном сэмпле. Нулевой результат у отдельного повтора сохранён: это не доказательство отсутствия кратких всплесков между сэмплами. Сохраняем ClientIP только при проверенной выгоде локальности и контроле очереди.</p>
 <h2>C · HPA и алерты</h2>
 <p><code>make hw11-c</code>: resource metrics API, CPU HPA 2–3 по 65% requests, scale-down stabilization 45 с. Под нагрузкой работает CPU-цикл, а не только sleep. Среднее может скрыть горячий Pod, а новая реплика не перебивает существующую ClientIP-привязку. В правилах HighTTFC: p95 &gt; 0,8 с при ≥8 успешных за 30 с; HighRejectionRate: &gt;12% при ≥15 исходах; удержание 15 с. Отдельно нужны наблюдения pending, firing и возврата в норму.</p>
 {table(("Алерт","Состояние","Фаза","UTC epoch"),state_rows) if state_rows else "<p>Реальный цикл 2→3→2 и переходы алертов пока не подтверждены.</p>"}
-{gc}
+{c_text}{gc}
 <h2>Перцентили и данные</h2>
 <p>TTFC — монотонный интервал send→первый содержательный chunk, full — send→done; inter-chunk измеряется только между частями. Отсутствующий done — незавершённый поток даже при HTTP 200. Никаких TTFT, TPOT или tokens/s для имитатора. Клиентский p50/p95 интерполируется на отсортированных успешных запросах, численность и ошибки указываются отдельно. PromQL сохраняет le при агрегации по Pod, использует дельту накопленных bucket в известном окне и сравнивает n, а не предполагает одинаковый выбор. Гистограмма приближает перцентиль внутри bucket; клиент включает сеть.</p>
 {metrics}
@@ -143,6 +166,6 @@ figure{{margin:20px 0}}img{{width:100%;max-width:850px}}a{{color:#175899}}.notic
 <p>Первичный кейс: <a href="https://cloud.google.com/blog/products/containers-kubernetes/how-gke-inference-gateway-improved-latency-for-vertex-ai">Google Cloud / Vertex AI: GKE Inference Gateway</a>. В этом кейсе команда повышала приоритет очереди относительно кеша, чтобы обходить горячие узлы. Это подтверждает идею совместного учёта очереди и локальности, но не переносит их ускорение на наш имитатор. Файл лекции 11 не предоставлен; принадлежность кейса к ней не подтверждена.</p>
 <p><a href="https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/">Kubernetes probes</a> · <a href="https://kubernetes.io/docs/concepts/workloads/autoscaling/horizontal-pod-autoscale/">HPA</a> · <a href="https://prometheus.io/docs/practices/histograms/">Prometheus histogram</a></p>
 </main></body></html>"""
-    Path("report.html").write_text(out,encoding="utf-8")
+    Path("report.html").write_text(out,encoding="utf-8",newline="\n")
     print(status,flush=True)
 if __name__=="__main__":main()

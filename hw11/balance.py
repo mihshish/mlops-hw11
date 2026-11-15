@@ -1,7 +1,7 @@
 """Controlled 2 policies × 2 patterns × 3 measured 120-second phases."""
 import collections
 import time
-from hw11.cluster import data,dump,k,kj,load,RESULT
+from hw11.cluster import data,dump,k,kj,load,single,RESULT
 
 def percentile(xs,p):
     xs=sorted(xs)
@@ -28,6 +28,11 @@ def summary(rows):
         "send_lag_p95":percentile([r["send_lag_seconds"] for r in rows if r.get("send_lag_seconds") is not None],.95)}
 
 def main():
+    for name in ("balanced","sticky"):
+        r=single(f"balance-preflight-{name}",name)
+        assert r["status"]==200 and r["outcome"]=="completed",r
+    # Permit one 5-second Prometheus scrape after the smoke before the first window.
+    time.sleep(6)
     results=[]
     for repeat in range(1,4):
         for pattern in ("uniform","skew"):
@@ -48,6 +53,8 @@ def main():
                 results.append(report)
                 dump("balance-summary.json",results)
                 print("DONE",tag,report["outcomes"],"p95",report["ttfc_p95"],"pod",[(p,v["n"]) for p,v in report["by_pod"].items()],flush=True)
+                if report["completed"]==0:
+                    raise SystemExit(f"No completed connection in {tag}; preserve the trace, investigate, restart a new series.")
     dump("client-pods.json",[{ "name":p["metadata"]["name"],"ip":p["status"].get("podIP")}
           for p in kj("get","pods","-l","app=hw11-client")["items"]])
 if __name__=="__main__": main()

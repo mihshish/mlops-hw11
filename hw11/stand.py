@@ -4,7 +4,7 @@ import json
 import platform
 import shutil
 from pathlib import Path
-from hw11.cluster import CTX,NS,KUBECTL,WORK,dump,k,kj,release,rollout,run
+from hw11.cluster import CTX,NS,KUBECTL,WORK,dump,k,kj,release,rollout,run,single
 
 NAME="mlops11"
 NODE="kindest/node:v1.34.0"
@@ -36,7 +36,10 @@ def setup():
     # Build before loading other images to avoid concurrent extraction peaks on 8 GiB hosts.
     run("docker","build","-f","Dockerfile.hw11","-t","mlops11-api:1.0.0",".",timeout=500)
     if NAME not in kind("get","clusters").stdout.splitlines():
-        kind("create","cluster","--name",NAME,"--image",NODE,"--wait","180s",timeout=700)
+        kind("create","cluster","--config","hw11/kind.yaml","--image",NODE,"--wait","180s",timeout=700)
+    proxy=kj("-n","kube-system","get","configmap","kube-proxy")["data"]["config.conf"]
+    if "mode: nftables" not in proxy and 'mode: "nftables"' not in proxy:
+        raise SystemExit("This lab needs the nftables kind config (old iptables WSL cluster cannot implement ClientIP).")
     kind("load","docker-image","mlops11-api:1.0.0","--name",NAME,timeout=300)
     # Pull directly into the node, without a duplicate host image import for monitoring.
     for image in IMAGES:
@@ -52,6 +55,11 @@ def setup():
         print(k("wait",f"--for=condition={condition}",target,"--timeout=120s",timeout=130).strip())
     print(k("get","pods","-o","wide"))
     dump("metrics-server-config.json",kj("-n","kube-system","get","deployment","metrics-server"))
+    rows=[single(f"stand-smoke-{mode}",mode) for mode in ("balanced","sticky")]
+    dump("stand-network-smoke.json",rows)
+    if not all(r["status"]==200 and r["outcome"]=="completed" for r in rows):
+        raise SystemExit(f"Service smoke failed (no benchmark will be meaningful): {rows}")
+    print("Both Services served and completed a real Kubernetes stream.",flush=True)
 
 def main():
     p=argparse.ArgumentParser();p.add_argument("command",choices=["preflight","up","status","down"])

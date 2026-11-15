@@ -59,9 +59,11 @@ def load(tag,host,pattern="uniform",duration=120,interval=.15,cpu=0):
     return rows,start
 
 def sample():
-    pods=kj("get","pods","-l","app=hw11-api")["items"]
-    slices=kj("get","endpointslice","-l","kubernetes.io/service-name=balanced")["items"]
-    hpa=kj("get","hpa")["items"]
+    items=kj("get","pods,endpointslices,hpa")["items"]
+    pods=[p for p in items if p["kind"]=="Pod" and p["metadata"].get("labels",{}).get("app")=="hw11-api"]
+    slices=[p for p in items if p["kind"]=="EndpointSlice" and
+            p["metadata"].get("labels",{}).get("kubernetes.io/service-name")=="balanced"]
+    hpa=[p for p in items if p["kind"]=="HorizontalPodAutoscaler" and p["metadata"]["name"]=="api"]
     return dict(time=time.time(),pods=[dict(name=p["metadata"]["name"],version=p["metadata"]["labels"]["model-version"],
         created=p["metadata"]["creationTimestamp"],deleting=p["metadata"].get("deletionTimestamp"),
         ready=any(c["type"]=="Ready" and c["status"]=="True" for c in p.get("status",{}).get("conditions",[])),
