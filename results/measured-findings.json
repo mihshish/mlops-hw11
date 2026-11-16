@@ -1,0 +1,435 @@
+{
+  "balance": {
+    "grouped": {
+      "uniform/sticky": {
+        "repeats": 3,
+        "median_p95_ttfc": 0.20601256795009704,
+        "median_p95_queue": 0.0010041499999999962,
+        "median_loss_fraction": 0.0,
+        "median_hottest_share": 0.5,
+        "median_hit_fraction": 0.9925,
+        "total_hot_with_capacity_samples": 0
+      },
+      "uniform/balanced": {
+        "repeats": 3,
+        "median_p95_ttfc": 0.6375097463999032,
+        "median_p95_queue": 0.4106640999999979,
+        "median_loss_fraction": 0.0,
+        "median_hottest_share": 0.51375,
+        "median_hit_fraction": 0.9925,
+        "total_hot_with_capacity_samples": 0
+      },
+      "skew/sticky": {
+        "repeats": 3,
+        "median_p95_ttfc": 1.1081066440499738,
+        "median_p95_queue": 0.9064703000000001,
+        "median_loss_fraction": 0.2125,
+        "median_hottest_share": 0.8675,
+        "median_hit_fraction": 0.9920634920634921,
+        "total_hot_with_capacity_samples": 64
+      },
+      "skew/balanced": {
+        "repeats": 3,
+        "median_p95_ttfc": 0.773391760500044,
+        "median_p95_queue": 0.5689155999999999,
+        "median_loss_fraction": 0.00125,
+        "median_hottest_share": 0.51875,
+        "median_hit_fraction": 0.9924906132665833,
+        "total_hot_with_capacity_samples": 11
+      }
+    },
+    "phase_details": [
+      {
+        "run": "b-uniform-sticky-1",
+        "pattern": "uniform",
+        "policy": "sticky",
+        "repeat": 1,
+        "routed": 800,
+        "heavy_pod": "api-64955b7c59-t8hss",
+        "max_pod_share": 0.75,
+        "loss_fraction": 0.095,
+        "hit_fraction": 0.9917127071823204,
+        "success_p95_ttfc": 1.0995788646999813,
+        "success_p95_queue": 0.90052675,
+        "waiting_with_capacity_samples": 0,
+        "capacity_example": null
+      },
+      {
+        "run": "b-uniform-balanced-1",
+        "pattern": "uniform",
+        "policy": "balanced",
+        "repeat": 1,
+        "routed": 800,
+        "heavy_pod": "api-64955b7c59-t8hss",
+        "max_pod_share": 0.51375,
+        "loss_fraction": 0.00125,
+        "hit_fraction": 0.9924906132665833,
+        "success_p95_ttfc": 0.6375097463999032,
+        "success_p95_queue": 0.4106640999999979,
+        "waiting_with_capacity_samples": 0,
+        "capacity_example": null
+      },
+      {
+        "run": "b-skew-sticky-1",
+        "pattern": "skew",
+        "policy": "sticky",
+        "repeat": 1,
+        "routed": 800,
+        "heavy_pod": "api-64955b7c59-t8hss",
+        "max_pod_share": 0.93375,
+        "loss_fraction": 0.27875,
+        "hit_fraction": 0.9930675909878682,
+        "success_p95_ttfc": 1.1115253977999144,
+        "success_p95_queue": 0.9113888,
+        "waiting_with_capacity_samples": 24,
+        "capacity_example": {
+          "time": 1794773739.648,
+          "hot": "api-64955b7c59-t8hss",
+          "waiting": 3.0,
+          "cold": "api-64955b7c59-cftnm",
+          "running": 0.0
+        }
+      },
+      {
+        "run": "b-skew-balanced-1",
+        "pattern": "skew",
+        "policy": "balanced",
+        "repeat": 1,
+        "routed": 800,
+        "heavy_pod": "api-64955b7c59-cftnm",
+        "max_pod_share": 0.54,
+        "loss_fraction": 0.00125,
+        "hit_fraction": 0.9924906132665833,
+        "success_p95_ttfc": 0.8169784476000579,
+        "success_p95_queue": 0.6131999999999999,
+        "waiting_with_capacity_samples": 7,
+        "capacity_example": {
+          "time": 1794773877.804,
+          "hot": "api-64955b7c59-cftnm",
+          "waiting": 1.0,
+          "cold": "api-64955b7c59-t8hss",
+          "running": 1.0
+        }
+      },
+      {
+        "run": "b-uniform-balanced-2",
+        "pattern": "uniform",
+        "policy": "balanced",
+        "repeat": 2,
+        "routed": 800,
+        "heavy_pod": "api-64955b7c59-cftnm",
+        "max_pod_share": 0.52,
+        "loss_fraction": 0.0,
+        "hit_fraction": 0.9925,
+        "success_p95_ttfc": 0.6694977937500312,
+        "success_p95_queue": 0.4710634499999999,
+        "waiting_with_capacity_samples": 0,
+        "capacity_example": null
+      },
+      {
+        "run": "b-uniform-sticky-2",
+        "pattern": "uniform",
+        "policy": "sticky",
+        "repeat": 2,
+        "routed": 800,
+        "heavy_pod": "api-64955b7c59-t8hss",
+        "max_pod_share": 0.5,
+        "loss_fraction": 0.0,
+        "hit_fraction": 0.9925,
+        "success_p95_ttfc": 0.2047362970499762,
+        "success_p95_queue": 0.0009602999999999988,
+        "waiting_with_capacity_samples": 0,
+        "capacity_example": null
+      },
+      {
+        "run": "b-skew-balanced-2",
+        "pattern": "skew",
+        "policy": "balanced",
+        "repeat": 2,
+        "routed": 800,
+        "heavy_pod": "api-64955b7c59-cftnm",
+        "max_pod_share": 0.51,
+        "loss_fraction": 0.0,
+        "hit_fraction": 0.9925,
+        "success_p95_ttfc": 0.6897513803000492,
+        "success_p95_queue": 0.48850469999999985,
+        "waiting_with_capacity_samples": 1,
+        "capacity_example": {
+          "time": 1794774320.168,
+          "hot": "api-64955b7c59-cftnm",
+          "waiting": 1.0,
+          "cold": "api-64955b7c59-t8hss",
+          "running": 1.0
+        }
+      },
+      {
+        "run": "b-skew-sticky-2",
+        "pattern": "skew",
+        "policy": "sticky",
+        "repeat": 2,
+        "routed": 800,
+        "heavy_pod": "api-64955b7c59-t8hss",
+        "max_pod_share": 0.8675,
+        "loss_fraction": 0.2125,
+        "hit_fraction": 0.9920634920634921,
+        "success_p95_ttfc": 1.1081066440499738,
+        "success_p95_queue": 0.9064703000000001,
+        "waiting_with_capacity_samples": 19,
+        "capacity_example": {
+          "time": 1794774402.648,
+          "hot": "api-64955b7c59-t8hss",
+          "waiting": 4.0,
+          "cold": "api-64955b7c59-cftnm",
+          "running": 0.0
+        }
+      },
+      {
+        "run": "b-uniform-sticky-3",
+        "pattern": "uniform",
+        "policy": "sticky",
+        "repeat": 3,
+        "routed": 800,
+        "heavy_pod": "api-64955b7c59-t8hss",
+        "max_pod_share": 0.5,
+        "loss_fraction": 0.0,
+        "hit_fraction": 0.9925,
+        "success_p95_ttfc": 0.20601256795009704,
+        "success_p95_queue": 0.0010041499999999962,
+        "waiting_with_capacity_samples": 0,
+        "capacity_example": null
+      },
+      {
+        "run": "b-uniform-balanced-3",
+        "pattern": "uniform",
+        "policy": "balanced",
+        "repeat": 3,
+        "routed": 800,
+        "heavy_pod": "api-64955b7c59-cftnm",
+        "max_pod_share": 0.50125,
+        "loss_fraction": 0.0,
+        "hit_fraction": 0.9925,
+        "success_p95_ttfc": 0.5998959936002165,
+        "success_p95_queue": 0.3925671999999998,
+        "waiting_with_capacity_samples": 0,
+        "capacity_example": null
+      },
+      {
+        "run": "b-skew-sticky-3",
+        "pattern": "skew",
+        "policy": "sticky",
+        "repeat": 3,
+        "routed": 800,
+        "heavy_pod": "api-64955b7c59-t8hss",
+        "max_pod_share": 0.8675,
+        "loss_fraction": 0.2125,
+        "hit_fraction": 0.9920634920634921,
+        "success_p95_ttfc": 1.106710805700095,
+        "success_p95_queue": 0.90555085,
+        "waiting_with_capacity_samples": 21,
+        "capacity_example": {
+          "time": 1794774801.002,
+          "hot": "api-64955b7c59-t8hss",
+          "waiting": 4.0,
+          "cold": "api-64955b7c59-cftnm",
+          "running": 0.0
+        }
+      },
+      {
+        "run": "b-skew-balanced-3",
+        "pattern": "skew",
+        "policy": "balanced",
+        "repeat": 3,
+        "routed": 800,
+        "heavy_pod": "api-64955b7c59-t8hss",
+        "max_pod_share": 0.51875,
+        "loss_fraction": 0.00125,
+        "hit_fraction": 0.9924906132665833,
+        "success_p95_ttfc": 0.773391760500044,
+        "success_p95_queue": 0.5689155999999999,
+        "waiting_with_capacity_samples": 3,
+        "capacity_example": {
+          "time": 1794774939.304,
+          "hot": "api-64955b7c59-t8hss",
+          "waiting": 1.0,
+          "cold": "api-64955b7c59-cftnm",
+          "running": 1.0
+        }
+      }
+    ]
+  },
+  "hpa": {
+    "balanced_cpu": {
+      "counts": {
+        "completed": 431,
+        "rejected": 922
+      },
+      "ponames_and_counts": {
+        "api-64955b7c59-p692b": 776,
+        "api-64955b7c59-r276k": 387,
+        "api-64955b7c59-cbddl": 190
+      },
+      "new_pods": {
+        "api-64955b7c59-r276k": {
+          "created_seconds": 1.6477887630462646,
+          "observed_seconds": 9.568035364151001,
+          "ready_seconds": 32.276214599609375
+        },
+        "api-64955b7c59-cbddl": {
+          "created_seconds": 31.647788763046265,
+          "observed_seconds": 40.86274790763855,
+          "ready_seconds": 66.07121515274048
+        }
+      },
+      "observed_return_after_last_planned_seconds": 79.44770288467407,
+      "replicas": [
+        2,
+        1,
+        2,
+        2,
+        2,
+        2,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        2
+      ],
+      "ready_max": 3,
+      "transitions": [
+        {
+          "name": "HighRejectionRate",
+          "before": "inactive",
+          "after": "pending",
+          "seconds": 9.568035364151001
+        },
+        {
+          "name": "HighTTFC",
+          "before": "inactive",
+          "after": "pending",
+          "seconds": 17.372999668121338
+        },
+        {
+          "name": "HighRejectionRate",
+          "before": "pending",
+          "after": "firing",
+          "seconds": 25.12656831741333
+        },
+        {
+          "name": "HighTTFC",
+          "before": "pending",
+          "after": "firing",
+          "seconds": 32.276214599609375
+        },
+        {
+          "name": "HighRejectionRate",
+          "before": "firing",
+          "after": "inactive",
+          "seconds": 151.1346733570099
+        },
+        {
+          "name": "HighTTFC",
+          "before": "firing",
+          "after": "inactive",
+          "seconds": 151.1346733570099
+        }
+      ],
+      "final_alerts": [],
+      "busiest_pod_share": 0.573540280857354
+    },
+    "sticky_cpu": {
+      "counts": {
+        "completed": 221,
+        "rejected": 571
+      },
+      "ponames_and_counts": {
+        "api-64955b7c59-p692b": 688,
+        "api-64955b7c59-r276k": 104
+      },
+      "new_pods": {
+        "api-64955b7c59-jq29b": {
+          "created_seconds": 18.007587909698486,
+          "observed_seconds": 22.845672845840454,
+          "ready_seconds": 49.55810832977295
+        }
+      },
+      "observed_return_after_last_planned_seconds": 81.32308506965637,
+      "replicas": [
+        2,
+        2,
+        2,
+        2,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        2
+      ],
+      "ready_max": 3,
+      "transitions": [
+        {
+          "name": "HighRejectionRate",
+          "before": "inactive",
+          "after": "pending",
+          "seconds": 7.715470552444458
+        },
+        {
+          "name": "HighTTFC",
+          "before": "inactive",
+          "after": "pending",
+          "seconds": 15.206573009490967
+        },
+        {
+          "name": "HighRejectionRate",
+          "before": "pending",
+          "after": "firing",
+          "seconds": 22.845672845840454
+        },
+        {
+          "name": "HighTTFC",
+          "before": "pending",
+          "after": "firing",
+          "seconds": 30.892619609832764
+        },
+        {
+          "name": "HighRejectionRate",
+          "before": "firing",
+          "after": "inactive",
+          "seconds": 129.07540655136108
+        },
+        {
+          "name": "HighTTFC",
+          "before": "firing",
+          "after": "inactive",
+          "seconds": 129.07540655136108
+        }
+      ],
+      "final_alerts": [],
+      "busiest_pod_share": 0.8686868686868687
+    }
+  }
+}

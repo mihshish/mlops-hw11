@@ -1,0 +1,72 @@
+{
+  "apiVersion": "autoscaling/v2",
+  "kind": "HorizontalPodAutoscaler",
+  "metadata": {
+    "annotations": {
+      "meta.helm.sh/release-name": "hw11",
+      "meta.helm.sh/release-namespace": "hw11"
+    },
+    "creationTimestamp": "2026-11-15T20:52:44Z",
+    "labels": {
+      "app.kubernetes.io/managed-by": "Helm"
+    },
+    "name": "api",
+    "namespace": "hw11",
+    "resourceVersion": "5538",
+    "uid": "47eaa799-8b5f-4fed-8fb9-67d2118e9461"
+  },
+  "spec": {
+    "behavior": {
+      "scaleDown": {
+        "policies": [
+          {
+            "periodSeconds": 15,
+            "type": "Percent",
+            "value": 100
+          }
+        ],
+        "selectPolicy": "Max",
+        "stabilizationWindowSeconds": 45
+      },
+      "scaleUp": {
+        "policies": [
+          {
+            "periodSeconds": 15,
+            "type": "Pods",
+            "value": 4
+          },
+          {
+            "periodSeconds": 15,
+            "type": "Percent",
+            "value": 100
+          }
+        ],
+        "selectPolicy": "Max",
+        "stabilizationWindowSeconds": 0
+      }
+    },
+    "maxReplicas": 3,
+    "metrics": [
+      {
+        "resource": {
+          "name": "cpu",
+          "target": {
+            "averageUtilization": 65,
+            "type": "Utilization"
+          }
+        },
+        "type": "Resource"
+      }
+    ],
+    "minReplicas": 2,
+    "scaleTargetRef": {
+      "apiVersion": "apps/v1",
+      "kind": "Deployment",
+      "name": "api"
+    }
+  },
+  "status": {
+    "currentMetrics": null,
+    "desiredReplicas": 0
+  }
+}

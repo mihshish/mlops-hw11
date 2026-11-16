@@ -1,0 +1,53 @@
+{
+  "status": "success",
+  "data": {
+    "groups": [
+      {
+        "name": "lab11",
+        "file": "/etc/lab/rules.yml",
+        "rules": [
+          {
+            "state": "inactive",
+            "name": "HighTTFC",
+            "query": "histogram_quantile(0.95, sum by (le) (rate(ml_ttfc_seconds_bucket{job=\"api\"}[30s]))) > 0.8 and sum(increase(ml_ttfc_seconds_count{job=\"api\"}[30s])) >= 8",
+            "duration": 15,
+            "keepFiringFor": 0,
+            "labels": {
+              "severity": "warning"
+            },
+            "annotations": {
+              "summary": "p95 TTFC > 0.8 s with at least 8 successful responses in 30 s"
+            },
+            "alerts": [],
+            "health": "ok",
+            "evaluationTime": 0.001275435,
+            "lastEvaluation": "2026-11-15T20:59:26.277719806Z",
+            "type": "alerting"
+          },
+          {
+            "state": "inactive",
+            "name": "HighRejectionRate",
+            "query": "(sum(increase(ml_requests_total{job=\"api\",outcome=\"rejected\"}[30s])) / sum(increase(ml_requests_total{job=\"api\"}[30s]))) > 0.12 and sum(increase(ml_requests_total{job=\"api\"}[30s])) >= 15",
+            "duration": 15,
+            "keepFiringFor": 0,
+            "labels": {
+              "severity": "warning"
+            },
+            "annotations": {
+              "summary": "Rejection ratio > 12% with at least 15 outcomes in 30 s"
+            },
+            "alerts": [],
+            "health": "ok",
+            "evaluationTime": 0.000514155,
+            "lastEvaluation": "2026-11-15T20:59:26.279008542Z",
+            "type": "alerting"
+          }
+        ],
+        "interval": 5,
+        "limit": 0,
+        "evaluationTime": 0.001864498,
+        "lastEvaluation": "2026-11-15T20:59:26.277660899Z"
+      }
+    ]
+  }
+}

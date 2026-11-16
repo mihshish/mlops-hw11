@@ -1,0 +1,576 @@
+{
+  "before": {
+    "time": 1794805844.2609274,
+    "pods": [
+      {
+        "name": "api-64955b7c59-p692b",
+        "version": "A",
+        "created": "2026-11-15T20:50:46Z",
+        "deleting": null,
+        "ready": true,
+        "restart_count": 0
+      },
+      {
+        "name": "api-64955b7c59-r276k",
+        "version": "A",
+        "created": "2026-11-15T20:52:59Z",
+        "deleting": null,
+        "ready": true,
+        "restart_count": 0
+      }
+    ],
+    "endpoints": [
+      {
+        "pod": "api-64955b7c59-p692b",
+        "ready": true,
+        "serving": true,
+        "terminating": false
+      },
+      {
+        "pod": "api-64955b7c59-r276k",
+        "ready": true,
+        "serving": true,
+        "terminating": false
+      }
+    ],
+    "hpa": null
+  },
+  "after": {
+    "time": 1794805857.3583384,
+    "pods": [
+      {
+        "name": "api-64955b7c59-p692b",
+        "version": "A",
+        "created": "2026-11-15T20:50:46Z",
+        "deleting": null,
+        "ready": true,
+        "restart_count": 0
+      },
+      {
+        "name": "api-64955b7c59-r276k",
+        "version": "A",
+        "created": "2026-11-15T20:52:59Z",
+        "deleting": null,
+        "ready": true,
+        "restart_count": 0
+      }
+    ],
+    "endpoints": [
+      {
+        "pod": "api-64955b7c59-p692b",
+        "ready": true,
+        "serving": true,
+        "terminating": false
+      },
+      {
+        "pod": "api-64955b7c59-r276k",
+        "ready": true,
+        "serving": true,
+        "terminating": false
+      }
+    ],
+    "hpa": {
+      "conditions": [
+        {
+          "lastTransitionTime": "2026-11-16T05:10:57Z",
+          "message": "recommended size matches current size",
+          "reason": "ReadyForNewScale",
+          "status": "True",
+          "type": "AbleToScale"
+        },
+        {
+          "lastTransitionTime": "2026-11-16T05:10:57Z",
+          "message": "the HPA was able to successfully calculate a replica count from cpu resource utilization (percentage of request)",
+          "reason": "ValidMetricFound",
+          "status": "True",
+          "type": "ScalingActive"
+        },
+        {
+          "lastTransitionTime": "2026-11-16T05:10:57Z",
+          "message": "the desired replica count is less than the minimum replica count",
+          "reason": "TooFewReplicas",
+          "status": "True",
+          "type": "ScalingLimited"
+        }
+      ],
+      "currentMetrics": [
+        {
+          "resource": {
+            "current": {
+              "averageUtilization": 10,
+              "averageValue": "10m"
+            },
+            "name": "cpu"
+          },
+          "type": "Resource"
+        }
+      ],
+      "currentReplicas": 2,
+      "desiredReplicas": 2
+    }
+  },
+  "timeline": [
+    {
+      "time": 1794805844.2609274,
+      "pods": [
+        {
+          "name": "api-64955b7c59-p692b",
+          "version": "A",
+          "created": "2026-11-15T20:50:46Z",
+          "deleting": null,
+          "ready": true,
+          "restart_count": 0
+        },
+        {
+          "name": "api-64955b7c59-r276k",
+          "version": "A",
+          "created": "2026-11-15T20:52:59Z",
+          "deleting": null,
+          "ready": true,
+          "restart_count": 0
+        }
+      ],
+      "endpoints": [
+        {
+          "pod": "api-64955b7c59-p692b",
+          "ready": true,
+          "serving": true,
+          "terminating": false
+        },
+        {
+          "pod": "api-64955b7c59-r276k",
+          "ready": true,
+          "serving": true,
+          "terminating": false
+        }
+      ],
+      "hpa": null
+    },
+    {
+      "phase": "init",
+      "time": 1794805844.6997607,
+      "pods": [
+        {
+          "name": "api-64955b7c59-p692b",
+          "version": "A",
+          "created": "2026-11-15T20:50:46Z",
+          "deleting": null,
+          "ready": true,
+          "restart_count": 0
+        },
+        {
+          "name": "api-64955b7c59-r276k",
+          "version": "A",
+          "created": "2026-11-15T20:52:59Z",
+          "deleting": null,
+          "ready": true,
+          "restart_count": 0
+        }
+      ],
+      "endpoints": [
+        {
+          "pod": "api-64955b7c59-p692b",
+          "ready": true,
+          "serving": true,
+          "terminating": false
+        },
+        {
+          "pod": "api-64955b7c59-r276k",
+          "ready": true,
+          "serving": true,
+          "terminating": false
+        }
+      ],
+      "hpa": null
+    },
+    {
+      "phase": "init",
+      "time": 1794805846.6020827,
+      "pods": [
+        {
+          "name": "api-64955b7c59-p692b",
+          "version": "A",
+          "created": "2026-11-15T20:50:46Z",
+          "deleting": null,
+          "ready": true,
+          "restart_count": 0
+        },
+        {
+          "name": "api-64955b7c59-r276k",
+          "version": "A",
+          "created": "2026-11-15T20:52:59Z",
+          "deleting": null,
+          "ready": true,
+          "restart_count": 0
+        }
+      ],
+      "endpoints": [
+        {
+          "pod": "api-64955b7c59-p692b",
+          "ready": true,
+          "serving": true,
+          "terminating": false
+        },
+        {
+          "pod": "api-64955b7c59-r276k",
+          "ready": true,
+          "serving": true,
+          "terminating": false
+        }
+      ],
+      "hpa": null
+    },
+    {
+      "phase": "init",
+      "time": 1794805848.4294775,
+      "pods": [
+        {
+          "name": "api-64955b7c59-p692b",
+          "version": "A",
+          "created": "2026-11-15T20:50:46Z",
+          "deleting": null,
+          "ready": true,
+          "restart_count": 0
+        },
+        {
+          "name": "api-64955b7c59-r276k",
+          "version": "A",
+          "created": "2026-11-15T20:52:59Z",
+          "deleting": null,
+          "ready": true,
+          "restart_count": 0
+        }
+      ],
+      "endpoints": [
+        {
+          "pod": "api-64955b7c59-p692b",
+          "ready": true,
+          "serving": true,
+          "terminating": false
+        },
+        {
+          "pod": "api-64955b7c59-r276k",
+          "ready": true,
+          "serving": true,
+          "terminating": false
+        }
+      ],
+      "hpa": {
+        "currentMetrics": null,
+        "desiredReplicas": 0
+      }
+    },
+    {
+      "phase": "init",
+      "time": 1794805850.2483585,
+      "pods": [
+        {
+          "name": "api-64955b7c59-p692b",
+          "version": "A",
+          "created": "2026-11-15T20:50:46Z",
+          "deleting": null,
+          "ready": true,
+          "restart_count": 0
+        },
+        {
+          "name": "api-64955b7c59-r276k",
+          "version": "A",
+          "created": "2026-11-15T20:52:59Z",
+          "deleting": null,
+          "ready": true,
+          "restart_count": 0
+        }
+      ],
+      "endpoints": [
+        {
+          "pod": "api-64955b7c59-p692b",
+          "ready": true,
+          "serving": true,
+          "terminating": false
+        },
+        {
+          "pod": "api-64955b7c59-r276k",
+          "ready": true,
+          "serving": true,
+          "terminating": false
+        }
+      ],
+      "hpa": {
+        "currentMetrics": null,
+        "desiredReplicas": 0
+      }
+    },
+    {
+      "phase": "init",
+      "time": 1794805852.0903935,
+      "pods": [
+        {
+          "name": "api-64955b7c59-p692b",
+          "version": "A",
+          "created": "2026-11-15T20:50:46Z",
+          "deleting": null,
+          "ready": true,
+          "restart_count": 0
+        },
+        {
+          "name": "api-64955b7c59-r276k",
+          "version": "A",
+          "created": "2026-11-15T20:52:59Z",
+          "deleting": null,
+          "ready": true,
+          "restart_count": 0
+        }
+      ],
+      "endpoints": [
+        {
+          "pod": "api-64955b7c59-p692b",
+          "ready": true,
+          "serving": true,
+          "terminating": false
+        },
+        {
+          "pod": "api-64955b7c59-r276k",
+          "ready": true,
+          "serving": true,
+          "terminating": false
+        }
+      ],
+      "hpa": {
+        "currentMetrics": null,
+        "desiredReplicas": 0
+      }
+    },
+    {
+      "phase": "init",
+      "time": 1794805853.967165,
+      "pods": [
+        {
+          "name": "api-64955b7c59-p692b",
+          "version": "A",
+          "created": "2026-11-15T20:50:46Z",
+          "deleting": null,
+          "ready": true,
+          "restart_count": 0
+        },
+        {
+          "name": "api-64955b7c59-r276k",
+          "version": "A",
+          "created": "2026-11-15T20:52:59Z",
+          "deleting": null,
+          "ready": true,
+          "restart_count": 0
+        }
+      ],
+      "endpoints": [
+        {
+          "pod": "api-64955b7c59-p692b",
+          "ready": true,
+          "serving": true,
+          "terminating": false
+        },
+        {
+          "pod": "api-64955b7c59-r276k",
+          "ready": true,
+          "serving": true,
+          "terminating": false
+        }
+      ],
+      "hpa": {
+        "currentMetrics": null,
+        "desiredReplicas": 0
+      }
+    },
+    {
+      "phase": "init",
+      "time": 1794805855.7838163,
+      "pods": [
+        {
+          "name": "api-64955b7c59-p692b",
+          "version": "A",
+          "created": "2026-11-15T20:50:46Z",
+          "deleting": null,
+          "ready": true,
+          "restart_count": 0
+        },
+        {
+          "name": "api-64955b7c59-r276k",
+          "version": "A",
+          "created": "2026-11-15T20:52:59Z",
+          "deleting": null,
+          "ready": true,
+          "restart_count": 0
+        }
+      ],
+      "endpoints": [
+        {
+          "pod": "api-64955b7c59-p692b",
+          "ready": true,
+          "serving": true,
+          "terminating": false
+        },
+        {
+          "pod": "api-64955b7c59-r276k",
+          "ready": true,
+          "serving": true,
+          "terminating": false
+        }
+      ],
+      "hpa": {
+        "currentMetrics": null,
+        "desiredReplicas": 0
+      }
+    },
+    {
+      "phase": "init",
+      "time": 1794805857.5764818,
+      "pods": [
+        {
+          "name": "api-64955b7c59-p692b",
+          "version": "A",
+          "created": "2026-11-15T20:50:46Z",
+          "deleting": null,
+          "ready": true,
+          "restart_count": 0
+        },
+        {
+          "name": "api-64955b7c59-r276k",
+          "version": "A",
+          "created": "2026-11-15T20:52:59Z",
+          "deleting": null,
+          "ready": true,
+          "restart_count": 0
+        }
+      ],
+      "endpoints": [
+        {
+          "pod": "api-64955b7c59-p692b",
+          "ready": true,
+          "serving": true,
+          "terminating": false
+        },
+        {
+          "pod": "api-64955b7c59-r276k",
+          "ready": true,
+          "serving": true,
+          "terminating": false
+        }
+      ],
+      "hpa": {
+        "conditions": [
+          {
+            "lastTransitionTime": "2026-11-16T05:10:57Z",
+            "message": "recommended size matches current size",
+            "reason": "ReadyForNewScale",
+            "status": "True",
+            "type": "AbleToScale"
+          },
+          {
+            "lastTransitionTime": "2026-11-16T05:10:57Z",
+            "message": "the HPA was able to successfully calculate a replica count from cpu resource utilization (percentage of request)",
+            "reason": "ValidMetricFound",
+            "status": "True",
+            "type": "ScalingActive"
+          },
+          {
+            "lastTransitionTime": "2026-11-16T05:10:57Z",
+            "message": "the desired replica count is less than the minimum replica count",
+            "reason": "TooFewReplicas",
+            "status": "True",
+            "type": "ScalingLimited"
+          }
+        ],
+        "currentMetrics": [
+          {
+            "resource": {
+              "current": {
+                "averageUtilization": 10,
+                "averageValue": "10m"
+              },
+              "name": "cpu"
+            },
+            "type": "Resource"
+          }
+        ],
+        "currentReplicas": 2,
+        "desiredReplicas": 2
+      }
+    },
+    {
+      "time": 1794805857.3583384,
+      "pods": [
+        {
+          "name": "api-64955b7c59-p692b",
+          "version": "A",
+          "created": "2026-11-15T20:50:46Z",
+          "deleting": null,
+          "ready": true,
+          "restart_count": 0
+        },
+        {
+          "name": "api-64955b7c59-r276k",
+          "version": "A",
+          "created": "2026-11-15T20:52:59Z",
+          "deleting": null,
+          "ready": true,
+          "restart_count": 0
+        }
+      ],
+      "endpoints": [
+        {
+          "pod": "api-64955b7c59-p692b",
+          "ready": true,
+          "serving": true,
+          "terminating": false
+        },
+        {
+          "pod": "api-64955b7c59-r276k",
+          "ready": true,
+          "serving": true,
+          "terminating": false
+        }
+      ],
+      "hpa": {
+        "conditions": [
+          {
+            "lastTransitionTime": "2026-11-16T05:10:57Z",
+            "message": "recommended size matches current size",
+            "reason": "ReadyForNewScale",
+            "status": "True",
+            "type": "AbleToScale"
+          },
+          {
+            "lastTransitionTime": "2026-11-16T05:10:57Z",
+            "message": "the HPA was able to successfully calculate a replica count from cpu resource utilization (percentage of request)",
+            "reason": "ValidMetricFound",
+            "status": "True",
+            "type": "ScalingActive"
+          },
+          {
+            "lastTransitionTime": "2026-11-16T05:10:57Z",
+            "message": "the desired replica count is less than the minimum replica count",
+            "reason": "TooFewReplicas",
+            "status": "True",
+            "type": "ScalingLimited"
+          }
+        ],
+        "currentMetrics": [
+          {
+            "resource": {
+              "current": {
+                "averageUtilization": 10,
+                "averageValue": "10m"
+              },
+              "name": "cpu"
+            },
+            "type": "Resource"
+          }
+        ],
+        "currentReplicas": 2,
+        "desiredReplicas": 2
+      }
+    }
+  ],
+  "original_install_min": 1,
+  "fixed_install_min": 2,
+  "pod_names_unchanged": true
+}

@@ -1,0 +1,185 @@
+{
+  "kind": "PodMetricsList",
+  "apiVersion": "metrics.k8s.io/v1beta1",
+  "metadata": {},
+  "items": [
+    {
+      "metadata": {
+        "name": "api-64955b7c59-cx5zr",
+        "namespace": "hw11",
+        "creationTimestamp": "2026-11-15T20:52:45Z",
+        "labels": {
+          "app": "hw11-api",
+          "model-version": "A",
+          "pod-template-hash": "64955b7c59"
+        }
+      },
+      "timestamp": "2026-11-15T20:52:29Z",
+      "window": "18.961s",
+      "containers": [
+        {
+          "name": "api",
+          "usage": {
+            "cpu": "7253362n",
+            "memory": "37688Ki"
+          }
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "name": "api-64955b7c59-p692b",
+        "namespace": "hw11",
+        "creationTimestamp": "2026-11-15T20:52:45Z",
+        "labels": {
+          "app": "hw11-api",
+          "model-version": "A",
+          "pod-template-hash": "64955b7c59"
+        }
+      },
+      "timestamp": "2026-11-15T20:52:31Z",
+      "window": "17.186s",
+      "containers": [
+        {
+          "name": "api",
+          "usage": {
+            "cpu": "9834376n",
+            "memory": "38132Ki"
+          }
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "name": "grafana-7777d4645d-74xcn",
+        "namespace": "hw11",
+        "creationTimestamp": "2026-11-15T20:52:45Z",
+        "labels": {
+          "app": "grafana",
+          "pod-template-hash": "7777d4645d"
+        }
+      },
+      "timestamp": "2026-11-15T20:52:33Z",
+      "window": "14.533s",
+      "containers": [
+        {
+          "name": "grafana",
+          "usage": {
+            "cpu": "12498782n",
+            "memory": "113228Ki"
+          }
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "name": "load-0",
+        "namespace": "hw11",
+        "creationTimestamp": "2026-11-15T20:52:45Z",
+        "labels": {
+          "app": "hw11-client",
+          "app.kubernetes.io/managed-by": "Helm"
+        }
+      },
+      "timestamp": "2026-11-15T20:52:28Z",
+      "window": "15.528s",
+      "containers": [
+        {
+          "name": "load",
+          "usage": {
+            "cpu": "20286733n",
+            "memory": "20728Ki"
+          }
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "name": "load-1",
+        "namespace": "hw11",
+        "creationTimestamp": "2026-11-15T20:52:45Z",
+        "labels": {
+          "app": "hw11-client",
+          "app.kubernetes.io/managed-by": "Helm"
+        }
+      },
+      "timestamp": "2026-11-15T20:52:25Z",
+      "window": "14.21s",
+      "containers": [
+        {
+          "name": "load",
+          "usage": {
+            "cpu": "0",
+            "memory": "4816Ki"
+          }
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "name": "load-2",
+        "namespace": "hw11",
+        "creationTimestamp": "2026-11-15T20:52:45Z",
+        "labels": {
+          "app": "hw11-client",
+          "app.kubernetes.io/managed-by": "Helm"
+        }
+      },
+      "timestamp": "2026-11-15T20:52:32Z",
+      "window": "19.471s",
+      "containers": [
+        {
+          "name": "load",
+          "usage": {
+            "cpu": "0",
+            "memory": "5744Ki"
+          }
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "name": "load-3",
+        "namespace": "hw11",
+        "creationTimestamp": "2026-11-15T20:52:45Z",
+        "labels": {
+          "app": "hw11-client",
+          "app.kubernetes.io/managed-by": "Helm"
+        }
+      },
+      "timestamp": "2026-11-15T20:52:33Z",
+      "window": "14.662s",
+      "containers": [
+        {
+          "name": "load",
+          "usage": {
+            "cpu": "0",
+            "memory": "4536Ki"
+          }
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "name": "prometheus-7cc648f9d8-9s7cl",
+        "namespace": "hw11",
+        "creationTimestamp": "2026-11-15T20:52:45Z",
+        "labels": {
+          "app": "prometheus",
+          "pod-template-hash": "7cc648f9d8"
+        }
+      },
+      "timestamp": "2026-11-15T20:52:32Z",
+      "window": "19.764s",
+      "containers": [
+        {
+          "name": "prometheus",
+          "usage": {
+            "cpu": "4186586n",
+            "memory": "93376Ki"
+          }
+        }
+      ]
+    }
+  ]
+}

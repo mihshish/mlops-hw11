@@ -1,4 +1,10 @@
 {{- $artifact := dict "version" (.Values.modelVersion | toString) "prefix" "SIMULATED" | toJson -}}
+{{- $replicas := .Values.replicas -}}
+{{- if .Values.hpa.enabled -}}
+{{- with (lookup "apps/v1" "Deployment" .Release.Namespace "api") -}}
+{{- $replicas = .spec.replicas -}}
+{{- end -}}
+{{- end -}}
 {{- range $version := list "A" "B" }}
 apiVersion: v1
 kind: ConfigMap
@@ -14,9 +20,8 @@ kind: Deployment
 metadata:
   name: api
 spec:
-  {{- if not .Values.hpa.enabled }}
-  replicas: {{ .Values.replicas }}
-  {{- end }}
+  # Keep the live count on HPA upgrades; dropping this field can default it to 1.
+  replicas: {{ $replicas }}
   revisionHistoryLimit: 4
   minReadySeconds: 2
   progressDeadlineSeconds: 160

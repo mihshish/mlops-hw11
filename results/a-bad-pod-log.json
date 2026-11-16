@@ -1,0 +1,8 @@
+[
+  "INFO:     Started server process [1]",
+  "INFO:     Waiting for application startup.",
+  "{\"event\": \"artifact_loaded\", \"time\": 1794775662.9446151, \"pod\": \"api-67fbb587b5-fdrj5\", \"version\": \"B\", \"artifact_sha256\": \"ed51d30fb17285d5c3dcd9b5562e1641b2048aac4948b597e7292cc522d3a447\", \"backend_mode\": \"simulated\", \"warmed\": false}",
+  "INFO:     Application startup complete.",
+  "INFO:     Uvicorn running on http://0.0.0.0:8080 (Press CTRL+C to quit)",
+  "{\"event\": \"warmup_failed\", \"time\": 1794775682.9435306, \"pod\": \"api-67fbb587b5-fdrj5\", \"version\": \"B\", \"artifact_sha256\": \"ed51d30fb17285d5c3dcd9b5562e1641b2048aac4948b597e7292cc522d3a447\", \"backend_mode\": \"simulated\", \"warmed\": false, \"error\": \"Injected warmup failure\"}"
+]

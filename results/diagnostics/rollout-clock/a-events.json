@@ -1,0 +1,18 @@
+[
+  {
+    "time": 1794775057.4211478,
+    "phase": "broken-warmup"
+  },
+  {
+    "time": 1794775116.1494129,
+    "phase": "fixed-warmup"
+  },
+  {
+    "time": 1794775191.2001085,
+    "phase": "steady-A"
+  },
+  {
+    "time": 1794775213.0264235,
+    "phase": "rolling-B"
+  }
+]

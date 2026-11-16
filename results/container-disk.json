@@ -1,0 +1,8 @@
+{
+  "node_used": "2.4G\t/var/lib/containerd\n53M\t/var/lib/kubelet\n",
+  "telemetry_used": "2.5M\t/var/log/pods\n",
+  "images": {
+    "mlops11-api:1.0.0": "51037397 [\"mlops11-api@sha256:6b8ad597aca59cea1193c1febab5e31cb96a69b214301a28cc3aaae09d90422b\"]",
+    "kindest/node:v1.34.0": "445466597 [\"kindest/node@sha256:7416a61b42b1662ca6ca89f02028ac133a309a2a30ba309614e8ec94d976dc5a\"]"
+  }
+}

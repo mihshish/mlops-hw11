@@ -1,0 +1,35 @@
+[
+  {
+    "check": "warmup_endpoint_service",
+    "passed": true,
+    "warming": [
+      "api-6b948b876-kgx2l"
+    ],
+    "served_by": "api-64955b7c59-vgxq7"
+  },
+  {
+    "check": "actual_loaded_version_after_rollback",
+    "passed": true,
+    "before": "B",
+    "after": "A"
+  },
+  {
+    "check": "pod_replacement_artifact_and_dialog",
+    "passed": true,
+    "old": "api-64955b7c59-5bklt",
+    "new": "api-64955b7c59-cx5zr",
+    "sha256": "ef329986c909d52a9ec67a08d6fc0cbebde2348f662734ed28b233cadd3b25d9"
+  },
+  {
+    "check": "dialog_isolation",
+    "passed": true,
+    "session_a": "dialog-A",
+    "session_b": "dialog-B"
+  },
+  {
+    "check": "rejection_and_abort_counted_separately",
+    "passed": true,
+    "reject_status": 422,
+    "forced_chunks": 4
+  }
+]

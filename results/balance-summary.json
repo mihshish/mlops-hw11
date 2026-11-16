@@ -1,0 +1,765 @@
+[
+  {
+    "run": "b-uniform-sticky-1",
+    "pattern": "uniform",
+    "policy": "sticky",
+    "repeat": 1,
+    "start_unix": 1794773468.680498,
+    "schedule_seconds": 120,
+    "interval_seconds": 0.15,
+    "initial_cache": "cold distinct prefix namespace",
+    "n": 800,
+    "completed": 724,
+    "rejected": 76,
+    "ttfc_p50": 0.9481847179999363,
+    "ttfc_p95": 1.0995788646999813,
+    "full_p50": 1.2114003130000128,
+    "full_p95": 1.3628295503500056,
+    "queue_p95": 0.90052675,
+    "hit": 718,
+    "miss": 6,
+    "outcomes": {
+      "completed": 724,
+      "rejected": 76
+    },
+    "sent": 800,
+    "by_pod": {
+      "api-64955b7c59-t8hss": {
+        "n": 600,
+        "completed": 524,
+        "rejected": 76,
+        "ttfc_p50": 0.9945397585000251,
+        "ttfc_p95": 1.1028793463999933,
+        "full_p50": 1.258101639000074,
+        "full_p95": 1.3679417267499274,
+        "queue_p95": 0.9047555,
+        "hit": 521,
+        "miss": 3
+      },
+      "api-64955b7c59-cftnm": {
+        "n": 200,
+        "completed": 200,
+        "rejected": 0,
+        "ttfc_p50": 0.19771535950002317,
+        "ttfc_p95": 0.20535820674997465,
+        "full_p50": 0.46137023500000396,
+        "full_p95": 0.4693412201500792,
+        "queue_p95": 0.001052649999999999,
+        "hit": 197,
+        "miss": 3
+      }
+    },
+    "by_client": {
+      "0": 200,
+      "1": 200,
+      "2": 200,
+      "3": 200
+    },
+    "peer_ips": [
+      "10.244.0.10",
+      "10.244.0.7",
+      "10.244.0.8",
+      "10.244.0.9"
+    ],
+    "send_lag_p95": 0.0013875708179170942
+  },
+  {
+    "run": "b-uniform-balanced-1",
+    "pattern": "uniform",
+    "policy": "balanced",
+    "repeat": 1,
+    "start_unix": 1794773601.824342,
+    "schedule_seconds": 120,
+    "interval_seconds": 0.15,
+    "initial_cache": "cold distinct prefix namespace",
+    "n": 800,
+    "completed": 799,
+    "rejected": 1,
+    "ttfc_p50": 0.21448344599980373,
+    "ttfc_p95": 0.6375097463999032,
+    "full_p50": 0.4776408559999936,
+    "full_p95": 0.9025566580999318,
+    "queue_p95": 0.4106640999999979,
+    "hit": 793,
+    "miss": 6,
+    "outcomes": {
+      "completed": 799,
+      "rejected": 1
+    },
+    "sent": 800,
+    "by_pod": {
+      "api-64955b7c59-cftnm": {
+        "n": 389,
+        "completed": 388,
+        "rejected": 1,
+        "ttfc_p50": 0.21001788700004909,
+        "ttfc_p95": 0.6751383784999974,
+        "full_p50": 0.4736971835000645,
+        "full_p95": 0.9388531395999905,
+        "queue_p95": 0.47611429999999993,
+        "hit": 385,
+        "miss": 3
+      },
+      "api-64955b7c59-t8hss": {
+        "n": 411,
+        "completed": 411,
+        "rejected": 0,
+        "ttfc_p50": 0.22264572900007806,
+        "ttfc_p95": 0.5956876075000537,
+        "full_p50": 0.48610104400017917,
+        "full_p95": 0.8588881120000451,
+        "queue_p95": 0.39528,
+        "hit": 408,
+        "miss": 3
+      }
+    },
+    "by_client": {
+      "0": 200,
+      "1": 200,
+      "2": 200,
+      "3": 200
+    },
+    "peer_ips": [
+      "10.244.0.10",
+      "10.244.0.7",
+      "10.244.0.8",
+      "10.244.0.9"
+    ],
+    "send_lag_p95": 0.0016491356808614906
+  },
+  {
+    "run": "b-skew-sticky-1",
+    "pattern": "skew",
+    "policy": "sticky",
+    "repeat": 1,
+    "start_unix": 1794773734.64777,
+    "schedule_seconds": 120,
+    "interval_seconds": 0.15,
+    "initial_cache": "cold distinct prefix namespace",
+    "n": 800,
+    "completed": 577,
+    "rejected": 223,
+    "ttfc_p50": 1.0248511689999305,
+    "ttfc_p95": 1.1115253977999144,
+    "full_p50": 1.2885316399999738,
+    "full_p95": 1.3749121517999356,
+    "queue_p95": 0.9113888,
+    "hit": 573,
+    "miss": 4,
+    "outcomes": {
+      "completed": 577,
+      "rejected": 223
+    },
+    "sent": 800,
+    "by_pod": {
+      "api-64955b7c59-t8hss": {
+        "n": 747,
+        "completed": 524,
+        "rejected": 223,
+        "ttfc_p50": 1.0340320179998344,
+        "ttfc_p95": 1.112843655900042,
+        "full_p50": 1.297069112000031,
+        "full_p95": 1.375918772799946,
+        "queue_p95": 0.9119294499999999,
+        "hit": 521,
+        "miss": 3
+      },
+      "api-64955b7c59-cftnm": {
+        "n": 53,
+        "completed": 53,
+        "rejected": 0,
+        "ttfc_p50": 0.19840573700003006,
+        "ttfc_p95": 0.20365398379999533,
+        "full_p50": 0.46179468299988,
+        "full_p95": 0.46687355020008,
+        "queue_p95": 0.0008985999999999996,
+        "hit": 52,
+        "miss": 1
+      }
+    },
+    "by_client": {
+      "0": 641,
+      "1": 53,
+      "2": 53,
+      "3": 53
+    },
+    "peer_ips": [
+      "10.244.0.10",
+      "10.244.0.7",
+      "10.244.0.8",
+      "10.244.0.9"
+    ],
+    "send_lag_p95": 0.0016963034640980366
+  },
+  {
+    "run": "b-skew-balanced-1",
+    "pattern": "skew",
+    "policy": "balanced",
+    "repeat": 1,
+    "start_unix": 1794773867.8044975,
+    "schedule_seconds": 120,
+    "interval_seconds": 0.15,
+    "initial_cache": "cold distinct prefix namespace",
+    "n": 800,
+    "completed": 799,
+    "rejected": 1,
+    "ttfc_p50": 0.22078121900017322,
+    "ttfc_p95": 0.8169784476000579,
+    "full_p50": 0.4847622559998399,
+    "full_p95": 1.080433036900103,
+    "queue_p95": 0.6131999999999999,
+    "hit": 793,
+    "miss": 6,
+    "outcomes": {
+      "completed": 799,
+      "rejected": 1
+    },
+    "sent": 800,
+    "by_pod": {
+      "api-64955b7c59-t8hss": {
+        "n": 368,
+        "completed": 368,
+        "rejected": 0,
+        "ttfc_p50": 0.206144564499823,
+        "ttfc_p95": 0.5355213234000188,
+        "full_p50": 0.4700235975000169,
+        "full_p95": 0.7977924130001497,
+        "queue_p95": 0.3341444499999999,
+        "hit": 365,
+        "miss": 3
+      },
+      "api-64955b7c59-cftnm": {
+        "n": 432,
+        "completed": 431,
+        "rejected": 1,
+        "ttfc_p50": 0.3550269219999791,
+        "ttfc_p95": 0.860465362500122,
+        "full_p50": 0.6185550400000466,
+        "full_p95": 1.1241912840000623,
+        "queue_p95": 0.662431,
+        "hit": 428,
+        "miss": 3
+      }
+    },
+    "by_client": {
+      "0": 641,
+      "1": 53,
+      "2": 53,
+      "3": 53
+    },
+    "peer_ips": [
+      "10.244.0.10",
+      "10.244.0.7",
+      "10.244.0.8",
+      "10.244.0.9"
+    ],
+    "send_lag_p95": 0.0013816091739045078
+  },
+  {
+    "run": "b-uniform-balanced-2",
+    "pattern": "uniform",
+    "policy": "balanced",
+    "repeat": 2,
+    "start_unix": 1794774000.3071437,
+    "schedule_seconds": 120,
+    "interval_seconds": 0.15,
+    "initial_cache": "cold distinct prefix namespace",
+    "n": 800,
+    "completed": 800,
+    "rejected": 0,
+    "ttfc_p50": 0.21390024949994313,
+    "ttfc_p95": 0.6694977937500312,
+    "full_p50": 0.47767680649997146,
+    "full_p95": 0.9323894539501111,
+    "queue_p95": 0.4710634499999999,
+    "hit": 794,
+    "miss": 6,
+    "outcomes": {
+      "completed": 800
+    },
+    "sent": 800,
+    "by_pod": {
+      "api-64955b7c59-t8hss": {
+        "n": 384,
+        "completed": 384,
+        "rejected": 0,
+        "ttfc_p50": 0.20802451699989888,
+        "ttfc_p95": 0.6739630965000399,
+        "full_p50": 0.47162002400000347,
+        "full_p95": 0.9366315275000373,
+        "queue_p95": 0.47460994999999984,
+        "hit": 381,
+        "miss": 3
+      },
+      "api-64955b7c59-cftnm": {
+        "n": 416,
+        "completed": 416,
+        "rejected": 0,
+        "ttfc_p50": 0.2264615449998928,
+        "ttfc_p95": 0.6051162279999858,
+        "full_p50": 0.4912440114999299,
+        "full_p95": 0.8676897930000109,
+        "queue_p95": 0.40633199999999997,
+        "hit": 413,
+        "miss": 3
+      }
+    },
+    "by_client": {
+      "0": 200,
+      "1": 200,
+      "2": 200,
+      "3": 200
+    },
+    "peer_ips": [
+      "10.244.0.10",
+      "10.244.0.7",
+      "10.244.0.8",
+      "10.244.0.9"
+    ],
+    "send_lag_p95": 0.0013845949346432459
+  },
+  {
+    "run": "b-uniform-sticky-2",
+    "pattern": "uniform",
+    "policy": "sticky",
+    "repeat": 2,
+    "start_unix": 1794774132.7304068,
+    "schedule_seconds": 120,
+    "interval_seconds": 0.15,
+    "initial_cache": "cold distinct prefix namespace",
+    "n": 800,
+    "completed": 800,
+    "rejected": 0,
+    "ttfc_p50": 0.19859789500003444,
+    "ttfc_p95": 0.2047362970499762,
+    "full_p50": 0.46207028250000803,
+    "full_p95": 0.46866526139990583,
+    "queue_p95": 0.0009602999999999988,
+    "hit": 794,
+    "miss": 6,
+    "outcomes": {
+      "completed": 800
+    },
+    "sent": 800,
+    "by_pod": {
+      "api-64955b7c59-t8hss": {
+        "n": 400,
+        "completed": 400,
+        "rejected": 0,
+        "ttfc_p50": 0.19863625300001786,
+        "ttfc_p95": 0.20444029635010563,
+        "full_p50": 0.4621759880000127,
+        "full_p95": 0.4683356214001151,
+        "queue_p95": 0.0009301499999999999,
+        "hit": 397,
+        "miss": 3
+      },
+      "api-64955b7c59-cftnm": {
+        "n": 400,
+        "completed": 400,
+        "rejected": 0,
+        "ttfc_p50": 0.19851374799998212,
+        "ttfc_p95": 0.2047362970499762,
+        "full_p50": 0.46204294150004444,
+        "full_p95": 0.46940036114990563,
+        "queue_p95": 0.0010106499999999984,
+        "hit": 397,
+        "miss": 3
+      }
+    },
+    "by_client": {
+      "0": 200,
+      "1": 200,
+      "2": 200,
+      "3": 200
+    },
+    "peer_ips": [
+      "10.244.0.10",
+      "10.244.0.7",
+      "10.244.0.8",
+      "10.244.0.9"
+    ],
+    "send_lag_p95": 0.0014076526783242116
+  },
+  {
+    "run": "b-skew-balanced-2",
+    "pattern": "skew",
+    "policy": "balanced",
+    "repeat": 2,
+    "start_unix": 1794774265.1678693,
+    "schedule_seconds": 120,
+    "interval_seconds": 0.15,
+    "initial_cache": "cold distinct prefix namespace",
+    "n": 800,
+    "completed": 800,
+    "rejected": 0,
+    "ttfc_p50": 0.2165374469999506,
+    "ttfc_p95": 0.6897513803000492,
+    "full_p50": 0.48001701250007045,
+    "full_p95": 0.9526915140500135,
+    "queue_p95": 0.48850469999999985,
+    "hit": 794,
+    "miss": 6,
+    "outcomes": {
+      "completed": 800
+    },
+    "sent": 800,
+    "by_pod": {
+      "api-64955b7c59-cftnm": {
+        "n": 408,
+        "completed": 408,
+        "rejected": 0,
+        "ttfc_p50": 0.22224878350004929,
+        "ttfc_p95": 0.7236004651499683,
+        "full_p50": 0.48519424750008966,
+        "full_p95": 0.9873158970999497,
+        "queue_p95": 0.52424145,
+        "hit": 405,
+        "miss": 3
+      },
+      "api-64955b7c59-t8hss": {
+        "n": 392,
+        "completed": 392,
+        "rejected": 0,
+        "ttfc_p50": 0.21229663349993189,
+        "ttfc_p95": 0.5368900678499472,
+        "full_p50": 0.4761858489999895,
+        "full_p95": 0.8006791571499093,
+        "queue_p95": 0.33826634999999994,
+        "hit": 389,
+        "miss": 3
+      }
+    },
+    "by_client": {
+      "0": 641,
+      "1": 53,
+      "2": 53,
+      "3": 53
+    },
+    "peer_ips": [
+      "10.244.0.10",
+      "10.244.0.7",
+      "10.244.0.8",
+      "10.244.0.9"
+    ],
+    "send_lag_p95": 0.001457464999850799
+  },
+  {
+    "run": "b-skew-sticky-2",
+    "pattern": "skew",
+    "policy": "sticky",
+    "repeat": 2,
+    "start_unix": 1794774397.6478508,
+    "schedule_seconds": 120,
+    "interval_seconds": 0.15,
+    "initial_cache": "cold distinct prefix namespace",
+    "n": 800,
+    "completed": 630,
+    "rejected": 170,
+    "ttfc_p50": 0.9894407199999478,
+    "ttfc_p95": 1.1081066440499738,
+    "full_p50": 1.2536259889999428,
+    "full_p95": 1.3707609536000176,
+    "queue_p95": 0.9064703000000001,
+    "hit": 625,
+    "miss": 5,
+    "outcomes": {
+      "completed": 630,
+      "rejected": 170
+    },
+    "sent": 800,
+    "by_pod": {
+      "api-64955b7c59-t8hss": {
+        "n": 694,
+        "completed": 524,
+        "rejected": 170,
+        "ttfc_p50": 1.0096778419999737,
+        "ttfc_p95": 1.109467841000003,
+        "full_p50": 1.272740180499909,
+        "full_p95": 1.3726262129500924,
+        "queue_p95": 0.90930995,
+        "hit": 521,
+        "miss": 3
+      },
+      "api-64955b7c59-cftnm": {
+        "n": 106,
+        "completed": 106,
+        "rejected": 0,
+        "ttfc_p50": 0.19847224000000097,
+        "ttfc_p95": 0.20594986700001527,
+        "full_p50": 0.46216821299992716,
+        "full_p95": 0.47039279924996436,
+        "queue_p95": 0.0011595,
+        "hit": 104,
+        "miss": 2
+      }
+    },
+    "by_client": {
+      "0": 641,
+      "1": 53,
+      "2": 53,
+      "3": 53
+    },
+    "peer_ips": [
+      "10.244.0.10",
+      "10.244.0.7",
+      "10.244.0.8",
+      "10.244.0.9"
+    ],
+    "send_lag_p95": 0.0015356470459778392
+  },
+  {
+    "run": "b-uniform-sticky-3",
+    "pattern": "uniform",
+    "policy": "sticky",
+    "repeat": 3,
+    "start_unix": 1794774531.0651274,
+    "schedule_seconds": 120,
+    "interval_seconds": 0.15,
+    "initial_cache": "cold distinct prefix namespace",
+    "n": 800,
+    "completed": 800,
+    "rejected": 0,
+    "ttfc_p50": 0.19895172349993118,
+    "ttfc_p95": 0.20601256795009704,
+    "full_p50": 0.46249122200003967,
+    "full_p95": 0.47010912075002126,
+    "queue_p95": 0.0010041499999999962,
+    "hit": 794,
+    "miss": 6,
+    "outcomes": {
+      "completed": 800
+    },
+    "sent": 800,
+    "by_pod": {
+      "api-64955b7c59-t8hss": {
+        "n": 400,
+        "completed": 400,
+        "rejected": 0,
+        "ttfc_p50": 0.1990963540000621,
+        "ttfc_p95": 0.20580021264991047,
+        "full_p50": 0.462587411500067,
+        "full_p95": 0.4698733445001267,
+        "queue_p95": 0.00099005,
+        "hit": 397,
+        "miss": 3
+      },
+      "api-64955b7c59-cftnm": {
+        "n": 400,
+        "completed": 400,
+        "rejected": 0,
+        "ttfc_p50": 0.19886321349997615,
+        "ttfc_p95": 0.20618832185002703,
+        "full_p50": 0.46231973749991084,
+        "full_p95": 0.4707644987998833,
+        "queue_p95": 0.0010848999999999982,
+        "hit": 397,
+        "miss": 3
+      }
+    },
+    "by_client": {
+      "0": 200,
+      "1": 200,
+      "2": 200,
+      "3": 200
+    },
+    "peer_ips": [
+      "10.244.0.10",
+      "10.244.0.7",
+      "10.244.0.8",
+      "10.244.0.9"
+    ],
+    "send_lag_p95": 0.0014311273355360748
+  },
+  {
+    "run": "b-uniform-balanced-3",
+    "pattern": "uniform",
+    "policy": "balanced",
+    "repeat": 3,
+    "start_unix": 1794774663.5370529,
+    "schedule_seconds": 120,
+    "interval_seconds": 0.15,
+    "initial_cache": "cold distinct prefix namespace",
+    "n": 800,
+    "completed": 800,
+    "rejected": 0,
+    "ttfc_p50": 0.21423460850019183,
+    "ttfc_p95": 0.5998959936002165,
+    "full_p50": 0.47823365550016206,
+    "full_p95": 0.8630466910497262,
+    "queue_p95": 0.3925671999999998,
+    "hit": 794,
+    "miss": 6,
+    "outcomes": {
+      "completed": 800
+    },
+    "sent": 800,
+    "by_pod": {
+      "api-64955b7c59-t8hss": {
+        "n": 399,
+        "completed": 399,
+        "rejected": 0,
+        "ttfc_p50": 0.2156892399998469,
+        "ttfc_p95": 0.607146644200245,
+        "full_p50": 0.48016936000021815,
+        "full_p95": 0.8707973797001134,
+        "queue_p95": 0.4043708999999975,
+        "hit": 396,
+        "miss": 3
+      },
+      "api-64955b7c59-cftnm": {
+        "n": 401,
+        "completed": 401,
+        "rejected": 0,
+        "ttfc_p50": 0.21408210900017366,
+        "ttfc_p95": 0.56253713399974,
+        "full_p50": 0.4774311010000929,
+        "full_p95": 0.8249913750000815,
+        "queue_p95": 0.357362,
+        "hit": 398,
+        "miss": 3
+      }
+    },
+    "by_client": {
+      "0": 200,
+      "1": 200,
+      "2": 200,
+      "3": 200
+    },
+    "peer_ips": [
+      "10.244.0.10",
+      "10.244.0.7",
+      "10.244.0.8",
+      "10.244.0.9"
+    ],
+    "send_lag_p95": 0.0015011839873750432
+  },
+  {
+    "run": "b-skew-sticky-3",
+    "pattern": "skew",
+    "policy": "sticky",
+    "repeat": 3,
+    "start_unix": 1794774796.0021188,
+    "schedule_seconds": 120,
+    "interval_seconds": 0.15,
+    "initial_cache": "cold distinct prefix namespace",
+    "n": 800,
+    "completed": 630,
+    "rejected": 170,
+    "ttfc_p50": 0.9883114985000248,
+    "ttfc_p95": 1.106710805700095,
+    "full_p50": 1.251537936500199,
+    "full_p95": 1.3705353443499235,
+    "queue_p95": 0.90555085,
+    "hit": 625,
+    "miss": 5,
+    "outcomes": {
+      "completed": 630,
+      "rejected": 170
+    },
+    "sent": 800,
+    "by_pod": {
+      "api-64955b7c59-t8hss": {
+        "n": 694,
+        "completed": 524,
+        "rejected": 170,
+        "ttfc_p50": 1.0101917130000402,
+        "ttfc_p95": 1.1101434917998176,
+        "full_p50": 1.2733099335000588,
+        "full_p95": 1.373227362449984,
+        "queue_p95": 0.9086497,
+        "hit": 521,
+        "miss": 3
+      },
+      "api-64955b7c59-cftnm": {
+        "n": 106,
+        "completed": 106,
+        "rejected": 0,
+        "ttfc_p50": 0.19897735099993952,
+        "ttfc_p95": 0.2042719279997982,
+        "full_p50": 0.4625047364997954,
+        "full_p95": 0.46804378049989737,
+        "queue_p95": 0.00097675,
+        "hit": 104,
+        "miss": 2
+      }
+    },
+    "by_client": {
+      "0": 641,
+      "1": 53,
+      "2": 53,
+      "3": 53
+    },
+    "peer_ips": [
+      "10.244.0.10",
+      "10.244.0.7",
+      "10.244.0.8",
+      "10.244.0.9"
+    ],
+    "send_lag_p95": 0.0015353654953287328
+  },
+  {
+    "run": "b-skew-balanced-3",
+    "pattern": "skew",
+    "policy": "balanced",
+    "repeat": 3,
+    "start_unix": 1794774929.303677,
+    "schedule_seconds": 120,
+    "interval_seconds": 0.15,
+    "initial_cache": "cold distinct prefix namespace",
+    "n": 800,
+    "completed": 799,
+    "rejected": 1,
+    "ttfc_p50": 0.22383243400008723,
+    "ttfc_p95": 0.773391760500044,
+    "full_p50": 0.4867177310002262,
+    "full_p95": 1.0364696477999127,
+    "queue_p95": 0.5689155999999999,
+    "hit": 793,
+    "miss": 6,
+    "outcomes": {
+      "completed": 799,
+      "rejected": 1
+    },
+    "sent": 800,
+    "by_pod": {
+      "api-64955b7c59-t8hss": {
+        "n": 415,
+        "completed": 414,
+        "rejected": 1,
+        "ttfc_p50": 0.28298717050006417,
+        "ttfc_p95": 0.7369012812499702,
+        "full_p50": 0.546435758500138,
+        "full_p95": 1.000880857450056,
+        "queue_p95": 0.5353619999999996,
+        "hit": 411,
+        "miss": 3
+      },
+      "api-64955b7c59-cftnm": {
+        "n": 385,
+        "completed": 385,
+        "rejected": 0,
+        "ttfc_p50": 0.212883310000052,
+        "ttfc_p95": 0.8580273027997463,
+        "full_p50": 0.4763190029998441,
+        "full_p95": 1.1212124793998555,
+        "queue_p95": 0.6561533999999997,
+        "hit": 382,
+        "miss": 3
+      }
+    },
+    "by_client": {
+      "0": 641,
+      "1": 53,
+      "2": 53,
+      "3": 53
+    },
+    "peer_ips": [
+      "10.244.0.10",
+      "10.244.0.7",
+      "10.244.0.8",
+      "10.244.0.9"
+    ],
+    "send_lag_p95": 0.001539441320301193
+  }
+]

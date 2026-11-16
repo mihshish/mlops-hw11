@@ -1,0 +1,98 @@
+{
+  "count by(job) (up)": [
+    {
+      "metric": {
+        "job": "kubelet-cadvisor"
+      },
+      "value": [
+        1794776382.547,
+        "1"
+      ]
+    },
+    {
+      "metric": {
+        "job": "api"
+      },
+      "value": [
+        1794776382.547,
+        "2"
+      ]
+    },
+    {
+      "metric": {
+        "job": "ready-endpoint"
+      },
+      "value": [
+        1794776382.547,
+        "2"
+      ]
+    }
+  ],
+  "sum by(pod) (rate(container_cpu_usage_seconds_total{namespace=\"hw11\",container=\"api\"}[1m]))": [
+    {
+      "metric": {
+        "pod": "api-64955b7c59-p692b"
+      },
+      "value": [
+        1794776385.746,
+        "0.006008844488106457"
+      ]
+    },
+    {
+      "metric": {
+        "pod": "api-64955b7c59-r276k"
+      },
+      "value": [
+        1794776385.746,
+        "0.006094615966613566"
+      ]
+    }
+  ],
+  "sum by(pod) (container_memory_working_set_bytes{namespace=\"hw11\",container=\"api\"})": [
+    {
+      "metric": {
+        "pod": "api-64955b7c59-p692b"
+      },
+      "value": [
+        1794776389.353,
+        "40239104"
+      ]
+    },
+    {
+      "metric": {
+        "pod": "api-64955b7c59-r276k"
+      },
+      "value": [
+        1794776389.353,
+        "42311680"
+      ]
+    },
+    {
+      "metric": {
+        "pod": "api-64955b7c59-cbddl"
+      },
+      "value": [
+        1794776389.353,
+        "41586688"
+      ]
+    },
+    {
+      "metric": {
+        "pod": "api-64955b7c59-jq29b"
+      },
+      "value": [
+        1794776389.353,
+        "41697280"
+      ]
+    }
+  ],
+  "sum(up{job=\"ready-endpoint\"})": [
+    {
+      "metric": {},
+      "value": [
+        1794776392.755,
+        "2"
+      ]
+    }
+  ]
+}

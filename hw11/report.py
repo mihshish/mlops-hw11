@@ -63,6 +63,7 @@ def main():
     findings=obj("measured-findings.json",{})
     footprint=obj("container-disk.json",{})
     changes=obj("stand-network-smoke.json",[])
+    install_fix=obj("hpa-install-fix.json",{})
     if traces:
         t0=traces[0]["time"]
         ga=chart("a-ready.svg","A · Ready, EndpointSlice и rollout", "с от начала", "реплики",
@@ -117,6 +118,12 @@ def main():
         "Незавершённая сдача: нет полного комплекта фактических опытов Kubernetes")
     a_text=(table(("Результат A","Значение"),[(k,v) for k,v in a.items() if k!="long_stream"]) if a else
           "<p>Проверено только на localhost, без Kubernetes: сломанная проба открывает холодный backend, исправленная возвращает 503 до прогрева, несовместимый SHA не допускает Ready. Rollout, EndpointSlice, откат и SIGKILL не засчитаны без журналов.</p>")
+    if a:
+        stream=a["long_stream"]
+        a_text+=(f'<p>Контрольный поток: {stream["chunks"]} частей за {stream["total_seconds"]:.2f} с, '
+                 f'версия {escape(stream["version"])}. Запрос начался до выката и закончился после его начала. '
+                 '<a href="results/a-requests.jsonl">Все попытки</a> · '
+                 '<a href="results/a-timeline.jsonl">Ready и EndpointSlice</a>.</p>')
     b_text=(table(("Прогон","План","Отпр.","200+done","4xx","Оборв.","Тайм-аут","Др. ошибки","Неуспех, %","TTFC p50","TTFC p95","Full p50","Full p95","Отстав. p95, с","Распред."),rows)
       if rows else "<p>Нагрузочные замеры отсутствуют. Тесты проверили расписание 25/25/25/25 и 80/6,7/6,7/6,7, но это не доказательство распределения по Pod.</p>")
     group_rows=[]
@@ -125,6 +132,18 @@ def main():
           v["median_loss_fraction"],v["median_hottest_share"],v["median_hit_fraction"],v["total_hot_with_capacity_samples"]))
     by_policy=(table(("Политика / профиль","Повторы","Медиана p95 TTFC, с","Медиана p95 очереди, с","Доля неуспеха","Доля самого горячего Pod","Доля hit","Сэмплы: ожидание при свободных слотах"),group_rows)
                if group_rows else "")
+    groups=findings.get("balance",{}).get("grouped",{})
+    b_decision=""
+    if all(g in groups and groups[g]["repeats"]==3 for g in ("skew/sticky","skew/balanced")):
+        s=groups["skew/sticky"];b=groups["skew/balanced"]
+        if b["median_loss_fraction"] < s["median_loss_fraction"] and b["median_p95_ttfc"] < s["median_p95_ttfc"]:
+            b_decision=(f'<p><strong>Для перекоса 80% выбираем Service без ClientIP.</strong> Медиана p95 TTFC '
+                        f'{s["median_p95_ttfc"]:.3f} → {b["median_p95_ttfc"]:.3f} с; медианная доля неуспеха '
+                        f'{100*s["median_loss_fraction"]:.1f}% → {100*b["median_loss_fraction"]:.1f}%. '
+                        f'Доля cache hit {100*s["median_hit_fraction"]:.1f}% → {100*b["median_hit_fraction"]:.1f}%. '
+                        'Это результат коротких префиксов, помещающихся в оба LRU, а не обещание для GPU-сервиса.</p>')
+        else:
+            b_decision='<p>У этого набора нет одновременного выигрыша по p95 и отказам; нужен явный SLO и дополнительная проверка.</p>'
     c_details=[]
     c_transitions=[]
     for phase,v in findings.get("hpa",{}).items():
@@ -135,6 +154,23 @@ def main():
     c_text=(table(("Фаза","Новый Pod","Создан, с","Ready, с","Возврат через с после последнего планового","Запросы по Pod"),c_details)
             if c_details else "")
     if c_transitions:c_text+=table(("Фаза","Алерт","Из","В","Секунды от начала нагрузки"),c_transitions)
+    sticky=findings.get("hpa",{}).get("sticky_cpu",{})
+    if sticky:
+        for name,pod in sticky["new_pods"].items():
+            if pod["ready_seconds"] is None:
+                continue
+            n=sticky["ponames_and_counts"].get(name,0)
+            c_text+=(f'<p>При ClientIP третий Pod создан через {pod["created_seconds"]:.1f} с и впервые '
+                     f'наблюдался Ready через {pod["ready_seconds"]:.1f} с от начала нагрузки. '
+                     f'От четырёх уже привязанных IP он получил {n} запросов. Порог считает среднее CPU '
+                     'по репликам, тогда как ClientIP продолжает направлять запросы по старым привязкам.</p>')
+    if install_fix:
+        c_text+=(f'<p>При первом включении HPA Helm удалил поле replicas и Deployment кратко '
+                 f'упал до {install_fix["original_install_min"]}. Этот участок сохранён, а чистый цикл 2→3→2 '
+                 'виден на фазе ClientIP. Чарт теперь при включении HPA сохраняет живое значение replicas '
+                 'и ждёт две Ready-реплики с CPU-метриками перед опытом. Отдельно повторно проверили само '
+                 f'включение без нагрузки: минимум {install_fix["fixed_install_min"]}, имена Pod не изменились. '
+                 '<a href="results/hpa-install-fix.json">Трасса контрольной проверки</a>.</p>')
     out=f"""<!doctype html><html lang="ru"><head><meta charset="utf-8"><title>ДЗ 11 · Kubernetes</title>
 <style>body{{background:#f5f7fb;color:#17263b;font:16px/1.58 system-ui;margin:0}}main{{max-width:1160px;margin:auto;padding:35px}}
 h1,h2{{line-height:1.2}}table{{border-collapse:collapse;width:100%;font-size:13px}}td,th{{padding:7px;border-bottom:1px solid #d6e0ed;text-align:left}}
@@ -151,7 +187,7 @@ figure{{margin:20px 0}}img{{width:100%;max-width:850px}}a{{color:#175899}}.notic
 {a_text}{ga}
 <h2>B · Привязка и горячая реплика</h2>
 <p>Гипотеза: ClientIP объединяет запросы одного клиента в одном Pod, даже если в другом есть место. <code>make hw11-b</code>: 4 клиента, 800 запланированных запросов за 120 с на прогон; четыре комбинации по три раза. Одинаковый payload и расписание для сравниваемых вариантов, отдельное TCP-соединение на запрос. Изначально префиксы каждого прогона холодные. Исправление для сравнения — убрать ClientIP, иначе сохранить локальность только как предпочтение. Если перекоса нет, проверяем IP и фактическую раскладку четырёх клиентов, а не удаляем неудобный прогон.</p>
-{b_text}{by_policy}{gq}{gb}
+{b_text}{by_policy}{b_decision}{gq}{gb}
 <p>Свободная ёмкость в таблице — одновременно waiting &gt; 0 у самого загруженного Pod и running &lt; 2 у другого на одном 5-секундном сэмпле. Нулевой результат у отдельного повтора сохранён: это не доказательство отсутствия кратких всплесков между сэмплами. Сохраняем ClientIP только при проверенной выгоде локальности и контроле очереди.</p>
 <h2>C · HPA и алерты</h2>
 <p><code>make hw11-c</code>: resource metrics API, CPU HPA 2–3 по 65% requests, scale-down stabilization 45 с. Под нагрузкой работает CPU-цикл, а не только sleep. Среднее может скрыть горячий Pod, а новая реплика не перебивает существующую ClientIP-привязку. В правилах HighTTFC: p95 &gt; 0,8 с при ≥8 успешных за 30 с; HighRejectionRate: &gt;12% при ≥15 исходах; удержание 15 с. Отдельно нужны наблюдения pending, firing и возврата в норму.</p>

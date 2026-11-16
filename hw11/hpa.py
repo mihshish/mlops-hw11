@@ -10,11 +10,23 @@ def fetch(path, service="http://prometheus:9090"):
 
 def alerts():return [{k:a[k] for k in ("state","name") if k in a} | {"name":a["labels"]["alertname"]} for a in fetch("/api/v1/alerts")["data"]["alerts"]]
 
+def stable_start():
+    deadline=time.monotonic()+100
+    while time.monotonic()<deadline:
+        s=sample()
+        h=s["hpa"] or {}
+        metrics=(h.get("currentMetrics") or [])
+        if len(s["pods"])==2 and all(p["ready"] for p in s["pods"]) and metrics and h.get("currentReplicas")==2:
+            return s
+        time.sleep(3)
+    raise RuntimeError("HPA not calibrated on two Ready replicas")
+
 def main():
     rows=[]; traffic=[]
     try:
         release(hpa__enabled=True)
         rollout()
+        dump("hpa-stable-start.json",stable_start())
         dump("metrics-api-before.json",json.loads(k("get","--raw","/apis/metrics.k8s.io/v1beta1/namespaces/hw11/pods")))
         dump("hpa-config.json",kj("get","hpa","api"))
         with ThreadPoolExecutor(2) as pool:

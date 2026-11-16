@@ -1,0 +1,98 @@
+{
+  "b-uniform-sticky-1/ttfc": {
+    "quantile": "histogram_quantile(0.95, (sum by (le) (ml_ttfc_seconds_bucket{job=\"api\"} @ 1794773595.662) - sum by (le) (ml_ttfc_seconds_bucket{job=\"api\"} @ 1794773468.180)))",
+    "count": "(sum (ml_ttfc_seconds_bucket{le=\"+Inf\",job=\"api\"} @ 1794773595.662) - sum (ml_ttfc_seconds_bucket{le=\"+Inf\",job=\"api\"} @ 1794773468.180))"
+  },
+  "b-uniform-sticky-1/full": {
+    "quantile": "histogram_quantile(0.95, (sum by (le) (ml_full_seconds_bucket{job=\"api\"} @ 1794773595.662) - sum by (le) (ml_full_seconds_bucket{job=\"api\"} @ 1794773468.180)))",
+    "count": "(sum (ml_full_seconds_bucket{le=\"+Inf\",job=\"api\"} @ 1794773595.662) - sum (ml_full_seconds_bucket{le=\"+Inf\",job=\"api\"} @ 1794773468.180))"
+  },
+  "b-uniform-balanced-1/ttfc": {
+    "quantile": "histogram_quantile(0.95, (sum by (le) (ml_ttfc_seconds_bucket{job=\"api\"} @ 1794773728.485) - sum by (le) (ml_ttfc_seconds_bucket{job=\"api\"} @ 1794773601.324)))",
+    "count": "(sum (ml_ttfc_seconds_bucket{le=\"+Inf\",job=\"api\"} @ 1794773728.485) - sum (ml_ttfc_seconds_bucket{le=\"+Inf\",job=\"api\"} @ 1794773601.324))"
+  },
+  "b-uniform-balanced-1/full": {
+    "quantile": "histogram_quantile(0.95, (sum by (le) (ml_full_seconds_bucket{job=\"api\"} @ 1794773728.485) - sum by (le) (ml_full_seconds_bucket{job=\"api\"} @ 1794773601.324)))",
+    "count": "(sum (ml_full_seconds_bucket{le=\"+Inf\",job=\"api\"} @ 1794773728.485) - sum (ml_full_seconds_bucket{le=\"+Inf\",job=\"api\"} @ 1794773601.324))"
+  },
+  "b-skew-sticky-1/ttfc": {
+    "quantile": "histogram_quantile(0.95, (sum by (le) (ml_ttfc_seconds_bucket{job=\"api\"} @ 1794773861.646) - sum by (le) (ml_ttfc_seconds_bucket{job=\"api\"} @ 1794773734.148)))",
+    "count": "(sum (ml_ttfc_seconds_bucket{le=\"+Inf\",job=\"api\"} @ 1794773861.646) - sum (ml_ttfc_seconds_bucket{le=\"+Inf\",job=\"api\"} @ 1794773734.148))"
+  },
+  "b-skew-sticky-1/full": {
+    "quantile": "histogram_quantile(0.95, (sum by (le) (ml_full_seconds_bucket{job=\"api\"} @ 1794773861.646) - sum by (le) (ml_full_seconds_bucket{job=\"api\"} @ 1794773734.148)))",
+    "count": "(sum (ml_full_seconds_bucket{le=\"+Inf\",job=\"api\"} @ 1794773861.646) - sum (ml_full_seconds_bucket{le=\"+Inf\",job=\"api\"} @ 1794773734.148))"
+  },
+  "b-skew-balanced-1/ttfc": {
+    "quantile": "histogram_quantile(0.95, (sum by (le) (ml_ttfc_seconds_bucket{job=\"api\"} @ 1794773994.103) - sum by (le) (ml_ttfc_seconds_bucket{job=\"api\"} @ 1794773867.304)))",
+    "count": "(sum (ml_ttfc_seconds_bucket{le=\"+Inf\",job=\"api\"} @ 1794773994.103) - sum (ml_ttfc_seconds_bucket{le=\"+Inf\",job=\"api\"} @ 1794773867.304))"
+  },
+  "b-skew-balanced-1/full": {
+    "quantile": "histogram_quantile(0.95, (sum by (le) (ml_full_seconds_bucket{job=\"api\"} @ 1794773994.103) - sum by (le) (ml_full_seconds_bucket{job=\"api\"} @ 1794773867.304)))",
+    "count": "(sum (ml_full_seconds_bucket{le=\"+Inf\",job=\"api\"} @ 1794773994.103) - sum (ml_full_seconds_bucket{le=\"+Inf\",job=\"api\"} @ 1794773867.304))"
+  },
+  "b-uniform-balanced-2/ttfc": {
+    "quantile": "histogram_quantile(0.95, (sum by (le) (ml_ttfc_seconds_bucket{job=\"api\"} @ 1794774126.602) - sum by (le) (ml_ttfc_seconds_bucket{job=\"api\"} @ 1794773999.807)))",
+    "count": "(sum (ml_ttfc_seconds_bucket{le=\"+Inf\",job=\"api\"} @ 1794774126.602) - sum (ml_ttfc_seconds_bucket{le=\"+Inf\",job=\"api\"} @ 1794773999.807))"
+  },
+  "b-uniform-balanced-2/full": {
+    "quantile": "histogram_quantile(0.95, (sum by (le) (ml_full_seconds_bucket{job=\"api\"} @ 1794774126.602) - sum by (le) (ml_full_seconds_bucket{job=\"api\"} @ 1794773999.807)))",
+    "count": "(sum (ml_full_seconds_bucket{le=\"+Inf\",job=\"api\"} @ 1794774126.602) - sum (ml_full_seconds_bucket{le=\"+Inf\",job=\"api\"} @ 1794773999.807))"
+  },
+  "b-uniform-sticky-2/ttfc": {
+    "quantile": "histogram_quantile(0.95, (sum by (le) (ml_ttfc_seconds_bucket{job=\"api\"} @ 1794774259.035) - sum by (le) (ml_ttfc_seconds_bucket{job=\"api\"} @ 1794774132.230)))",
+    "count": "(sum (ml_ttfc_seconds_bucket{le=\"+Inf\",job=\"api\"} @ 1794774259.035) - sum (ml_ttfc_seconds_bucket{le=\"+Inf\",job=\"api\"} @ 1794774132.230))"
+  },
+  "b-uniform-sticky-2/full": {
+    "quantile": "histogram_quantile(0.95, (sum by (le) (ml_full_seconds_bucket{job=\"api\"} @ 1794774259.035) - sum by (le) (ml_full_seconds_bucket{job=\"api\"} @ 1794774132.230)))",
+    "count": "(sum (ml_full_seconds_bucket{le=\"+Inf\",job=\"api\"} @ 1794774259.035) - sum (ml_full_seconds_bucket{le=\"+Inf\",job=\"api\"} @ 1794774132.230))"
+  },
+  "b-skew-balanced-2/ttfc": {
+    "quantile": "histogram_quantile(0.95, (sum by (le) (ml_ttfc_seconds_bucket{job=\"api\"} @ 1794774391.489) - sum by (le) (ml_ttfc_seconds_bucket{job=\"api\"} @ 1794774264.668)))",
+    "count": "(sum (ml_ttfc_seconds_bucket{le=\"+Inf\",job=\"api\"} @ 1794774391.489) - sum (ml_ttfc_seconds_bucket{le=\"+Inf\",job=\"api\"} @ 1794774264.668))"
+  },
+  "b-skew-balanced-2/full": {
+    "quantile": "histogram_quantile(0.95, (sum by (le) (ml_full_seconds_bucket{job=\"api\"} @ 1794774391.489) - sum by (le) (ml_full_seconds_bucket{job=\"api\"} @ 1794774264.668)))",
+    "count": "(sum (ml_full_seconds_bucket{le=\"+Inf\",job=\"api\"} @ 1794774391.489) - sum (ml_full_seconds_bucket{le=\"+Inf\",job=\"api\"} @ 1794774264.668))"
+  },
+  "b-skew-sticky-2/ttfc": {
+    "quantile": "histogram_quantile(0.95, (sum by (le) (ml_ttfc_seconds_bucket{job=\"api\"} @ 1794774524.784) - sum by (le) (ml_ttfc_seconds_bucket{job=\"api\"} @ 1794774397.148)))",
+    "count": "(sum (ml_ttfc_seconds_bucket{le=\"+Inf\",job=\"api\"} @ 1794774524.784) - sum (ml_ttfc_seconds_bucket{le=\"+Inf\",job=\"api\"} @ 1794774397.148))"
+  },
+  "b-skew-sticky-2/full": {
+    "quantile": "histogram_quantile(0.95, (sum by (le) (ml_full_seconds_bucket{job=\"api\"} @ 1794774524.784) - sum by (le) (ml_full_seconds_bucket{job=\"api\"} @ 1794774397.148)))",
+    "count": "(sum (ml_full_seconds_bucket{le=\"+Inf\",job=\"api\"} @ 1794774524.784) - sum (ml_full_seconds_bucket{le=\"+Inf\",job=\"api\"} @ 1794774397.148))"
+  },
+  "b-uniform-sticky-3/ttfc": {
+    "quantile": "histogram_quantile(0.95, (sum by (le) (ml_ttfc_seconds_bucket{job=\"api\"} @ 1794774657.365) - sum by (le) (ml_ttfc_seconds_bucket{job=\"api\"} @ 1794774530.565)))",
+    "count": "(sum (ml_ttfc_seconds_bucket{le=\"+Inf\",job=\"api\"} @ 1794774657.365) - sum (ml_ttfc_seconds_bucket{le=\"+Inf\",job=\"api\"} @ 1794774530.565))"
+  },
+  "b-uniform-sticky-3/full": {
+    "quantile": "histogram_quantile(0.95, (sum by (le) (ml_full_seconds_bucket{job=\"api\"} @ 1794774657.365) - sum by (le) (ml_full_seconds_bucket{job=\"api\"} @ 1794774530.565)))",
+    "count": "(sum (ml_full_seconds_bucket{le=\"+Inf\",job=\"api\"} @ 1794774657.365) - sum (ml_full_seconds_bucket{le=\"+Inf\",job=\"api\"} @ 1794774530.565))"
+  },
+  "b-uniform-balanced-3/ttfc": {
+    "quantile": "histogram_quantile(0.95, (sum by (le) (ml_ttfc_seconds_bucket{job=\"api\"} @ 1794774789.850) - sum by (le) (ml_ttfc_seconds_bucket{job=\"api\"} @ 1794774663.037)))",
+    "count": "(sum (ml_ttfc_seconds_bucket{le=\"+Inf\",job=\"api\"} @ 1794774789.850) - sum (ml_ttfc_seconds_bucket{le=\"+Inf\",job=\"api\"} @ 1794774663.037))"
+  },
+  "b-uniform-balanced-3/full": {
+    "quantile": "histogram_quantile(0.95, (sum by (le) (ml_full_seconds_bucket{job=\"api\"} @ 1794774789.850) - sum by (le) (ml_full_seconds_bucket{job=\"api\"} @ 1794774663.037)))",
+    "count": "(sum (ml_full_seconds_bucket{le=\"+Inf\",job=\"api\"} @ 1794774789.850) - sum (ml_full_seconds_bucket{le=\"+Inf\",job=\"api\"} @ 1794774663.037))"
+  },
+  "b-skew-sticky-3/ttfc": {
+    "quantile": "histogram_quantile(0.95, (sum by (le) (ml_ttfc_seconds_bucket{job=\"api\"} @ 1794774923.169) - sum by (le) (ml_ttfc_seconds_bucket{job=\"api\"} @ 1794774795.502)))",
+    "count": "(sum (ml_ttfc_seconds_bucket{le=\"+Inf\",job=\"api\"} @ 1794774923.169) - sum (ml_ttfc_seconds_bucket{le=\"+Inf\",job=\"api\"} @ 1794774795.502))"
+  },
+  "b-skew-sticky-3/full": {
+    "quantile": "histogram_quantile(0.95, (sum by (le) (ml_full_seconds_bucket{job=\"api\"} @ 1794774923.169) - sum by (le) (ml_full_seconds_bucket{job=\"api\"} @ 1794774795.502)))",
+    "count": "(sum (ml_full_seconds_bucket{le=\"+Inf\",job=\"api\"} @ 1794774923.169) - sum (ml_full_seconds_bucket{le=\"+Inf\",job=\"api\"} @ 1794774795.502))"
+  },
+  "b-skew-balanced-3/ttfc": {
+    "quantile": "histogram_quantile(0.95, (sum by (le) (ml_ttfc_seconds_bucket{job=\"api\"} @ 1794775055.606) - sum by (le) (ml_ttfc_seconds_bucket{job=\"api\"} @ 1794774928.804)))",
+    "count": "(sum (ml_ttfc_seconds_bucket{le=\"+Inf\",job=\"api\"} @ 1794775055.606) - sum (ml_ttfc_seconds_bucket{le=\"+Inf\",job=\"api\"} @ 1794774928.804))"
+  },
+  "b-skew-balanced-3/full": {
+    "quantile": "histogram_quantile(0.95, (sum by (le) (ml_full_seconds_bucket{job=\"api\"} @ 1794775055.606) - sum by (le) (ml_full_seconds_bucket{job=\"api\"} @ 1794774928.804)))",
+    "count": "(sum (ml_full_seconds_bucket{le=\"+Inf\",job=\"api\"} @ 1794775055.606) - sum (ml_full_seconds_bucket{le=\"+Inf\",job=\"api\"} @ 1794774928.804))"
+  }
+}

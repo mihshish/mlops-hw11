@@ -1,0 +1,63 @@
+[
+  {
+    "time": 1794775057.4211478,
+    "phase": "broken-warmup"
+  },
+  {
+    "time": 1794775116.1494129,
+    "phase": "fixed-warmup"
+  },
+  {
+    "time": 1794775413.4306643,
+    "phase": "restore-A-after-diagnostic"
+  },
+  {
+    "time": 1794775476.21804,
+    "phase": "steady-A"
+  },
+  {
+    "time": 1794775501.3883162,
+    "phase": "long-request-arrived",
+    "request_id": "4498efcd-5df1-4266-8d01-b758b775a095",
+    "server_time": 1794775501.1248453,
+    "pod": "api-64955b7c59-sgl56"
+  },
+  {
+    "time": 1794775503.1887918,
+    "phase": "rolling-B"
+  },
+  {
+    "time": 1794775578.453771,
+    "phase": "back-to-A"
+  },
+  {
+    "time": 1794775653.376807,
+    "phase": "bad-B"
+  },
+  {
+    "time": 1794775684.6933067,
+    "phase": "rollback-A",
+    "target_revision": "7"
+  },
+  {
+    "time": 1794775728.5606263,
+    "phase": "forced-stop-start"
+  },
+  {
+    "time": 1794775733.9329424,
+    "phase": "forced-request-arrived",
+    "request_id": "89dc2dc6-1c64-4b89-a38e-b53904ff3771",
+    "server_time": 1794775733.2225962,
+    "pod": "api-64955b7c59-r6qmw"
+  },
+  {
+    "time": 1794775737.1355963,
+    "phase": "forced-stop",
+    "pod": "api-64955b7c59-r6qmw"
+  },
+  {
+    "time": 1794775773.1371891,
+    "phase": "forced-stop-recovered",
+    "pod": "api-64955b7c59-r6qmw"
+  }
+]

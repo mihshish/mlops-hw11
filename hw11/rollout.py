@@ -1,9 +1,11 @@
 """Observe actual EndpointSlices, arrivals before warmup, rollout, rollback and a SIGKILL."""
 from concurrent.futures import ThreadPoolExecutor
 from contextlib import contextmanager
+import argparse
+import json
 import threading
 import time
-from hw11.cluster import data,dump,k,kj,load,release,rollout,run,sample,single
+from hw11.cluster import RESULT,data,dump,k,kj,load,release,rollout,run,sample,single
 
 class Trace:
     def __init__(self):
@@ -31,33 +33,64 @@ class Trace:
     def save(self):
         data("a-timeline.jsonl",self.rows);data("a-requests.jsonl",self.requests);dump("a-events.json",self.events)
 
+def wait_arrival(session, pod=None):
+    target=[pod] if pod else ["-l","app=hw11-api"]
+    until=time.monotonic()+16
+    while time.monotonic()<until:
+        for line in k("logs",*target,"--since=20s","--tail=90",timeout=8).splitlines():
+            try: r=json.loads(line)
+            except ValueError: continue
+            if r.get("event")=="arrived" and r.get("session_id")==session:
+                return r
+        time.sleep(.35)
+    raise TimeoutError(f"No arrival for {session}")
+
+def warmup_experiments(t,pool,reuse):
+    if reuse:
+        def existing(name):
+            return [json.loads(l) for l in (RESULT/name).read_text(encoding="utf-8").splitlines()]
+        events=json.loads((RESULT/"a-events.json").read_text(encoding="utf-8"))
+        t.events=[e for e in events if e["phase"] in ("broken-warmup","fixed-warmup")]
+        t.rows.extend(r for r in existing("a-timeline.jsonl") if r.get("phase") in ("broken-warmup","fixed-warmup"))
+        before=existing("a-broken.jsonl");fixed=existing("a-fixed.jsonl")
+        t.requests.extend(before+fixed)
+        t.mark("restore-A-after-diagnostic")
+        release(modelVersion="A",probeMode="fixed",failWarmup=False);rollout()
+    else:
+        t.mark("broken-warmup")
+        b=t.track_load(pool,"a-broken",46)
+        time.sleep(12)
+        release(probeMode="broken",modelVersion="A");rollout()
+        before=t.keep(b)
+        for p in {r["pod"] for r in before if r.get("warmed")=="false" and r["outcome"]=="completed"}:
+            dump(f"a-broken-log-{p}.json",k("logs",p).splitlines())
+        t.mark("fixed-warmup")
+        f=t.track_load(pool,"a-fixed",46)
+        time.sleep(12)
+        release(probeMode="fixed",modelVersion="A");rollout()
+        fixed=t.keep(f)
+    early=[r for r in before if r.get("warmed")=="false" and r["outcome"]=="completed"]
+    assert early,"Defect not reproduced"
+    assert any(r["outcome"]=="completed" for r in fixed) and all(r.get("warmed")!="false" for r in fixed)
+    return before,fixed,early
+
 def main():
+    p=argparse.ArgumentParser();p.add_argument("--reuse-warmup",action="store_true")
+    args=p.parse_args()
     t=Trace()
     try:
         with ThreadPoolExecutor(5) as pool,t.capture():
-            t.mark("broken-warmup")
-            b=t.track_load(pool,"a-broken",46)
-            time.sleep(12)
-            release(probeMode="broken", modelVersion="A")
-            rollout()
-            before=t.keep(b)
-            unwarmed=[r for r in before if r.get("warmed")=="false" and r["outcome"]=="completed"]
-            assert unwarmed,"Defect not reproduced"
-            for p in {r["pod"] for r in unwarmed}:
-                dump(f"a-broken-log-{p}.json",k("logs",p).splitlines())
-            t.mark("fixed-warmup")
-            f=t.track_load(pool,"a-fixed",46)
-            time.sleep(12)
-            release(probeMode="fixed",modelVersion="A");rollout()
-            fixed=t.keep(f)
-            assert fixed and all(r.get("warmed")!="false" for r in fixed),"A fixed request still reached cold Pod"
+            before,fixed,unwarmed=warmup_experiments(t,pool,args.reuse_warmup)
             t.mark("steady-A")
             assert single("a-check-A")["version"]=="A"
             rev_a=kj("get","deployment","api")["metadata"]["annotations"]["deployment.kubernetes.io/revision"]
             f=t.track_load(pool,"a-normal",78)
             time.sleep(13)
-            long=pool.submit(single,"a-long","balanced",0,("--chunks",30,"--chunk-seconds",.9))
-            time.sleep(3)
+            long=pool.submit(single,"a-long","balanced",0,
+                             ("--chunks",30,"--chunk-seconds",.9,"--session","rollout-long"))
+            r=wait_arrival("rollout-long")
+            t.mark("long-request-arrived",request_id=r["request_id"],server_time=r["time"],pod=r["pod"])
+            time.sleep(1.8)
             t.mark("rolling-B")
             rollout_start=t.events[-1]["time"]
             release(probeMode="fixed",modelVersion="B");rollout()
@@ -93,8 +126,10 @@ def main():
             name=pod["metadata"]["name"]
             ip=pod["status"]["podIP"]
             cid=pod["status"]["containerStatuses"][0]["containerID"].split("://")[-1]
-            doomed=pool.submit(single,"a-forced",ip,0,("--chunks",30,"--chunk-seconds",.9))
-            time.sleep(5)
+            doomed=pool.submit(single,"a-forced",ip,0,("--chunks",30,"--chunk-seconds",.9,"--session","forced-long"))
+            r=wait_arrival("forced-long",name)
+            t.mark("forced-request-arrived",request_id=r["request_id"],server_time=r["time"],pod=name)
+            time.sleep(3.2)
             t.mark("forced-stop",pod=name)
             run("docker","exec","mlops11-control-plane","crictl","stop","--timeout","0",cid)
             result=doomed.result();t.requests.append(result)

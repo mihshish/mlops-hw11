@@ -1,0 +1,10 @@
+{
+  "platform": "Windows-10-10.0.19044-SP0",
+  "free_bytes": 26815401984,
+  "disk_bytes": 255390105600,
+  "docker_error": "",
+  "engine_version": "28.3.2",
+  "cpus": 8,
+  "docker_ram_bytes": 4024471552,
+  "os": "linux"
+}

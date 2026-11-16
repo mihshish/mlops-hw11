@@ -1,0 +1,309 @@
+{
+  "mode": "iptables",
+  "kernel": "5.15.153.1-microsoft-standard-WSL2",
+  "proxy_log": [
+    "\texit status 4: Warning: Extension recent revision 0 not supported, missing kernel module?",
+    "\tWarning: Extension recent is not supported, missing kernel module?",
+    "\tWarning: Extension recent is not supported, missing kernel module?",
+    "\tWarning: Extension recent is not supported, missing kernel module?",
+    "\tiptables-restore v1.8.9 (nf_tables): ",
+    "\tline 63: RULE_APPEND failed (No such file or directory): rule in chain KUBE-SVC-UTEQTI47OPCSY4HE",
+    "\tline 64: RULE_APPEND failed (No such file or directory): rule in chain KUBE-SVC-UTEQTI47OPCSY4HE",
+    "\tline 68: RULE_APPEND failed (No such file or directory): rule in chain KUBE-SEP-XSPNG4SX4RRVAMBB",
+    "\tline 70: RULE_APPEND failed (No such file or directory): rule in chain KUBE-SEP-SVNA5DISYHMVDJ7Y",
+    " > ipFamily=\"IPv4\"",
+    "I1115 20:04:39.551485       1 proxier.go:768] \"Sync failed\" ipFamily=\"IPv4\" retryingTime=\"30s\"",
+    "E1115 20:05:09.846477       1 proxier.go:1501] \"Failed to execute iptables-restore\" err=<",
+    "\texit status 4: Warning: Extension recent revision 0 not supported, missing kernel module?",
+    "\tWarning: Extension recent is not supported, missing kernel module?",
+    "\tWarning: Extension recent is not supported, missing kernel module?",
+    "\tWarning: Extension recent is not supported, missing kernel module?",
+    "\tiptables-restore v1.8.9 (nf_tables): ",
+    "\tline 63: RULE_APPEND failed (No such file or directory): rule in chain KUBE-SVC-UTEQTI47OPCSY4HE",
+    "\tline 64: RULE_APPEND failed (No such file or directory): rule in chain KUBE-SVC-UTEQTI47OPCSY4HE",
+    "\tline 68: RULE_APPEND failed (No such file or directory): rule in chain KUBE-SEP-XSPNG4SX4RRVAMBB",
+    "\tline 70: RULE_APPEND failed (No such file or directory): rule in chain KUBE-SEP-SVNA5DISYHMVDJ7Y",
+    " > ipFamily=\"IPv4\"",
+    "I1115 20:05:09.846563       1 proxier.go:768] \"Sync failed\" ipFamily=\"IPv4\" retryingTime=\"30s\"",
+    "E1115 20:05:40.244953       1 proxier.go:1501] \"Failed to execute iptables-restore\" err=<",
+    "\texit status 4: Warning: Extension recent revision 0 not supported, missing kernel module?",
+    "\tWarning: Extension recent is not supported, missing kernel module?",
+    "\tWarning: Extension recent is not supported, missing kernel module?",
+    "\tWarning: Extension recent is not supported, missing kernel module?",
+    "\tiptables-restore v1.8.9 (nf_tables): ",
+    "\tline 55: RULE_APPEND failed (No such file or directory): rule in chain KUBE-SVC-UTEQTI47OPCSY4HE",
+    "\tline 56: RULE_APPEND failed (No such file or directory): rule in chain KUBE-SVC-UTEQTI47OPCSY4HE",
+    "\tline 60: RULE_APPEND failed (No such file or directory): rule in chain KUBE-SEP-XSPNG4SX4RRVAMBB",
+    "\tline 62: RULE_APPEND failed (No such file or directory): rule in chain KUBE-SEP-SVNA5DISYHMVDJ7Y",
+    " > ipFamily=\"IPv4\"",
+    "I1115 20:05:40.245082       1 proxier.go:768] \"Sync failed\" ipFamily=\"IPv4\" retryingTime=\"30s\""
+  ],
+  "endpoints": [
+    {
+      "addressType": "IPv4",
+      "apiVersion": "discovery.k8s.io/v1",
+      "endpoints": [
+        {
+          "addresses": [
+            "10.244.0.14"
+          ],
+          "conditions": {
+            "ready": true,
+            "serving": true,
+            "terminating": false
+          },
+          "nodeName": "mlops11-control-plane",
+          "targetRef": {
+            "kind": "Pod",
+            "name": "api-64955b7c59-hrcqt",
+            "namespace": "hw11",
+            "uid": "25a58d50-c53a-41fc-b9e5-6c713806ee90"
+          }
+        },
+        {
+          "addresses": [
+            "10.244.0.12"
+          ],
+          "conditions": {
+            "ready": true,
+            "serving": true,
+            "terminating": false
+          },
+          "nodeName": "mlops11-control-plane",
+          "targetRef": {
+            "kind": "Pod",
+            "name": "api-64955b7c59-sbmbx",
+            "namespace": "hw11",
+            "uid": "567ac933-bfb0-4d6e-be07-93b4b6005b47"
+          }
+        }
+      ],
+      "kind": "EndpointSlice",
+      "metadata": {
+        "annotations": {
+          "endpoints.kubernetes.io/last-change-trigger-time": "2026-11-15T20:00:35Z"
+        },
+        "creationTimestamp": "2026-11-15T20:00:02Z",
+        "generateName": "balanced-",
+        "generation": 5,
+        "labels": {
+          "app.kubernetes.io/managed-by": "Helm",
+          "endpointslice.kubernetes.io/managed-by": "endpointslice-controller.k8s.io",
+          "kubernetes.io/service-name": "balanced"
+        },
+        "name": "balanced-9fcnz",
+        "namespace": "hw11",
+        "ownerReferences": [
+          {
+            "apiVersion": "v1",
+            "blockOwnerDeletion": true,
+            "controller": true,
+            "kind": "Service",
+            "name": "balanced",
+            "uid": "afbe36f5-2c38-4fa3-a39b-21979d95b3a8"
+          }
+        ],
+        "resourceVersion": "2259",
+        "uid": "94a361d6-65d9-49f3-ab84-064d993aa31b"
+      },
+      "ports": [
+        {
+          "name": "http",
+          "port": 8080,
+          "protocol": "TCP"
+        }
+      ]
+    },
+    {
+      "addressType": "IPv4",
+      "apiVersion": "discovery.k8s.io/v1",
+      "endpoints": [
+        {
+          "addresses": [
+            "10.244.0.13"
+          ],
+          "conditions": {
+            "ready": true,
+            "serving": true,
+            "terminating": false
+          },
+          "nodeName": "mlops11-control-plane",
+          "targetRef": {
+            "kind": "Pod",
+            "name": "grafana-7777d4645d-8nwwc",
+            "namespace": "hw11",
+            "uid": "6adb6a6b-daf2-4c3e-9e60-0fee5a6ef4ed"
+          }
+        }
+      ],
+      "kind": "EndpointSlice",
+      "metadata": {
+        "annotations": {
+          "endpoints.kubernetes.io/last-change-trigger-time": "2026-11-15T20:00:08Z"
+        },
+        "creationTimestamp": "2026-11-15T20:00:02Z",
+        "generateName": "grafana-",
+        "generation": 2,
+        "labels": {
+          "app.kubernetes.io/managed-by": "Helm",
+          "endpointslice.kubernetes.io/managed-by": "endpointslice-controller.k8s.io",
+          "kubernetes.io/service-name": "grafana"
+        },
+        "name": "grafana-4bvfl",
+        "namespace": "hw11",
+        "ownerReferences": [
+          {
+            "apiVersion": "v1",
+            "blockOwnerDeletion": true,
+            "controller": true,
+            "kind": "Service",
+            "name": "grafana",
+            "uid": "aee3a61b-254e-476b-a3d8-93547501da6b"
+          }
+        ],
+        "resourceVersion": "2156",
+        "uid": "6e248fd2-d6b4-47a4-9764-2d801f324f8f"
+      },
+      "ports": [
+        {
+          "name": "",
+          "port": 3000,
+          "protocol": "TCP"
+        }
+      ]
+    },
+    {
+      "addressType": "IPv4",
+      "apiVersion": "discovery.k8s.io/v1",
+      "endpoints": [
+        {
+          "addresses": [
+            "10.244.0.15"
+          ],
+          "conditions": {
+            "ready": true,
+            "serving": true,
+            "terminating": false
+          },
+          "nodeName": "mlops11-control-plane",
+          "targetRef": {
+            "kind": "Pod",
+            "name": "prometheus-7cc648f9d8-8g9fv",
+            "namespace": "hw11",
+            "uid": "5a27cb06-57c0-4e97-9cd3-d4cbd417e9df"
+          }
+        }
+      ],
+      "kind": "EndpointSlice",
+      "metadata": {
+        "annotations": {
+          "endpoints.kubernetes.io/last-change-trigger-time": "2026-11-15T20:00:08Z"
+        },
+        "creationTimestamp": "2026-11-15T20:00:02Z",
+        "generateName": "prometheus-",
+        "generation": 2,
+        "labels": {
+          "app.kubernetes.io/managed-by": "Helm",
+          "endpointslice.kubernetes.io/managed-by": "endpointslice-controller.k8s.io",
+          "kubernetes.io/service-name": "prometheus"
+        },
+        "name": "prometheus-5zmbm",
+        "namespace": "hw11",
+        "ownerReferences": [
+          {
+            "apiVersion": "v1",
+            "blockOwnerDeletion": true,
+            "controller": true,
+            "kind": "Service",
+            "name": "prometheus",
+            "uid": "3bf41910-7b4e-4cc2-9a67-f917d97a23d5"
+          }
+        ],
+        "resourceVersion": "2149",
+        "uid": "f1b1d6a3-e4e1-4714-8c29-6d7179abb436"
+      },
+      "ports": [
+        {
+          "name": "",
+          "port": 9090,
+          "protocol": "TCP"
+        }
+      ]
+    },
+    {
+      "addressType": "IPv4",
+      "apiVersion": "discovery.k8s.io/v1",
+      "endpoints": [
+        {
+          "addresses": [
+            "10.244.0.14"
+          ],
+          "conditions": {
+            "ready": true,
+            "serving": true,
+            "terminating": false
+          },
+          "nodeName": "mlops11-control-plane",
+          "targetRef": {
+            "kind": "Pod",
+            "name": "api-64955b7c59-hrcqt",
+            "namespace": "hw11",
+            "uid": "25a58d50-c53a-41fc-b9e5-6c713806ee90"
+          }
+        },
+        {
+          "addresses": [
+            "10.244.0.12"
+          ],
+          "conditions": {
+            "ready": true,
+            "serving": true,
+            "terminating": false
+          },
+          "nodeName": "mlops11-control-plane",
+          "targetRef": {
+            "kind": "Pod",
+            "name": "api-64955b7c59-sbmbx",
+            "namespace": "hw11",
+            "uid": "567ac933-bfb0-4d6e-be07-93b4b6005b47"
+          }
+        }
+      ],
+      "kind": "EndpointSlice",
+      "metadata": {
+        "annotations": {
+          "endpoints.kubernetes.io/last-change-trigger-time": "2026-11-15T20:00:35Z"
+        },
+        "creationTimestamp": "2026-11-15T20:00:02Z",
+        "generateName": "sticky-",
+        "generation": 5,
+        "labels": {
+          "app.kubernetes.io/managed-by": "Helm",
+          "endpointslice.kubernetes.io/managed-by": "endpointslice-controller.k8s.io",
+          "kubernetes.io/service-name": "sticky"
+        },
+        "name": "sticky-f5br7",
+        "namespace": "hw11",
+        "ownerReferences": [
+          {
+            "apiVersion": "v1",
+            "blockOwnerDeletion": true,
+            "controller": true,
+            "kind": "Service",
+            "name": "sticky",
+            "uid": "69ffe535-544c-432a-b0f1-02272e22f146"
+          }
+        ],
+        "resourceVersion": "2258",
+        "uid": "8501aba7-96d9-4757-8831-f66714eecb6e"
+      },
+      "ports": [
+        {
+          "name": "http",
+          "port": 8080,
+          "protocol": "TCP"
+        }
+      ]
+    }
+  ]
+}

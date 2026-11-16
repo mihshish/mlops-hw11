@@ -3,6 +3,7 @@ import argparse
 import json
 import platform
 import shutil
+import subprocess
 from pathlib import Path
 from hw11.cluster import CTX,NS,KUBECTL,WORK,dump,k,kj,release,rollout,run,single
 
@@ -62,13 +63,23 @@ def setup():
     print("Both Services served and completed a real Kubernetes stream.",flush=True)
 
 def main():
-    p=argparse.ArgumentParser();p.add_argument("command",choices=["preflight","up","status","down"])
+    p=argparse.ArgumentParser();p.add_argument("command",choices=["preflight","up","status","smoke","grafana","down"])
     p.add_argument("--confirm",action="store_true");a=p.parse_args()
     if a.command=="up":setup()
     elif a.command=="preflight":preflight()
     elif a.command=="status":
         print(k("get","deploy,pods,svc,hpa","-o","wide"))
         print(k("get","endpointslice","-l","kubernetes.io/service-name=balanced","-o","wide"))
+    elif a.command=="smoke":
+        r=single("screencast-live")
+        if r["status"]!=200 or r["outcome"]!="completed":
+            raise SystemExit(f"Smoke failed: {r}")
+        print(json.dumps({k:r[k] for k in ("status","outcome","backend_mode","pod","version","warmed",
+              "request_id","chunks","ttfc_seconds","total_seconds")},indent=2))
+    elif a.command=="grafana":
+        print("Open http://127.0.0.1:3000/d/hw11-observability; Ctrl+C closes this port-forward.",flush=True)
+        raise SystemExit(subprocess.call([KUBECTL,"--context",CTX,"-n",NS,
+                                         "port-forward","svc/grafana","3000:3000","--address","127.0.0.1"]))
     elif a.confirm:
         assert CTX=="kind-mlops11";print(kind("delete","cluster","--name",NAME,timeout=180).stdout)
     else:p.error("down deletes ONLY kind/mlops11; specify --confirm")

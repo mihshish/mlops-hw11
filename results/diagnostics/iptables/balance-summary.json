@@ -1,0 +1,70 @@
+[
+  {
+    "run": "b-uniform-sticky-1",
+    "pattern": "uniform",
+    "policy": "sticky",
+    "repeat": 1,
+    "start_unix": 1794772850.1711874,
+    "schedule_seconds": 120,
+    "interval_seconds": 0.15,
+    "initial_cache": "cold distinct prefix namespace",
+    "n": 800,
+    "completed": 0,
+    "rejected": 0,
+    "ttfc_p50": null,
+    "ttfc_p95": null,
+    "full_p50": null,
+    "full_p95": null,
+    "queue_p95": null,
+    "hit": 0,
+    "miss": 0,
+    "outcomes": {
+      "transport_error": 796,
+      "timeout": 4
+    },
+    "sent": 800,
+    "by_pod": {},
+    "by_client": {
+      "0": 200,
+      "1": 200,
+      "2": 200,
+      "3": 200
+    },
+    "peer_ips": [],
+    "send_lag_p95": 0.0012938912956855112
+  },
+  {
+    "run": "b-uniform-balanced-1",
+    "pattern": "uniform",
+    "policy": "balanced",
+    "repeat": 1,
+    "start_unix": 1794772993.5299084,
+    "schedule_seconds": 120,
+    "interval_seconds": 0.15,
+    "initial_cache": "cold distinct prefix namespace",
+    "n": 800,
+    "completed": 0,
+    "rejected": 0,
+    "ttfc_p50": null,
+    "ttfc_p95": null,
+    "full_p50": null,
+    "full_p95": null,
+    "queue_p95": null,
+    "hit": 0,
+    "miss": 0,
+    "outcomes": {
+      "transport_error": 799,
+      "timeout": 1
+    },
+    "sent": 800,
+    "by_pod": {},
+    "by_client": {
+      "0": 200,
+      "1": 200,
+      "2": 200,
+      "3": 200
+    },
+    "peer_ips": [],
+    "send_lag_p95": 0.001687131754326287
+  }
+]

@@ -1,0 +1,20 @@
+{
+  "kube_proxy_config": {
+    "config.conf": "apiVersion: kubeproxy.config.k8s.io/v1alpha1\nbindAddress: 0.0.0.0\nbindAddressHardFail: false\nclientConnection:\n  acceptContentTypes: \"\"\n  burst: 0\n  contentType: \"\"\n  kubeconfig: /var/lib/kube-proxy/kubeconfig.conf\n  qps: 0\nclusterCIDR: 10.244.0.0/16\nconfigSyncPeriod: 0s\nconntrack:\n  maxPerCore: 0\n  min: null\n  tcpBeLiberal: true\n  tcpCloseWaitTimeout: null\n  tcpEstablishedTimeout: null\n  udpStreamTimeout: 0s\n  udpTimeout: 0s\ndetectLocal:\n  bridgeInterface: \"\"\n  interfaceNamePrefix: \"\"\ndetectLocalMode: \"\"\nenableProfiling: false\nhealthzBindAddress: \"\"\nhostnameOverride: \"\"\niptables:\n  localhostNodePorts: null\n  masqueradeAll: false\n  masqueradeBit: null\n  minSyncPeriod: 1s\n  syncPeriod: 0s\nipvs:\n  excludeCIDRs: null\n  minSyncPeriod: 0s\n  scheduler: \"\"\n  strictARP: false\n  syncPeriod: 0s\n  tcpFinTimeout: 0s\n  tcpTimeout: 0s\n  udpTimeout: 0s\nkind: KubeProxyConfiguration\nlogging:\n  flushFrequency: 0\n  options:\n    json:\n      infoBufferSize: \"0\"\n    text:\n      infoBufferSize: \"0\"\n  verbosity: 0\nmetricsBindAddress: \"\"\nmode: nftables\nnftables:\n  masqueradeAll: false\n  masqueradeBit: null\n  minSyncPeriod: 0s\n  syncPeriod: 0s\nnodePortAddresses: null\noomScoreAdj: null\nportRange: \"\"\nshowHiddenMetricsForVersion: \"\"\nwinkernel:\n  enableDSR: false\n  forwardHealthCheckVip: false\n  networkName: \"\"\n  rootHnsEndpointName: \"\"\n  sourceVip: \"\"",
+    "kubeconfig.conf": "apiVersion: v1\nkind: Config\nclusters:\n- cluster:\n    certificate-authority: /var/run/secrets/kubernetes.io/serviceaccount/ca.crt\n    server: https://mlops11-control-plane:6443\n  name: default\ncontexts:\n- context:\n    cluster: default\n    namespace: default\n    user: default\n  name: default\ncurrent-context: default\nusers:\n- name: default\n  user:\n    tokenFile: /var/run/secrets/kubernetes.io/serviceaccount/token"
+  },
+  "kube_proxy_logs": [
+    "I1115 20:47:25.198629       1 proxier.go:1170] \"Deleting stale nftables chains\" ipFamily=\"IPv4\" numChains=2",
+    "I1115 20:48:59.821462       1 proxier.go:1170] \"Deleting stale nftables chains\" ipFamily=\"IPv4\" numChains=2",
+    "I1115 20:50:11.090276       1 proxier.go:1170] \"Deleting stale nftables chains\" ipFamily=\"IPv4\" numChains=2",
+    "I1115 20:50:43.702453       1 proxier.go:1170] \"Deleting stale nftables chains\" ipFamily=\"IPv4\" numChains=2",
+    "I1115 20:51:17.909012       1 proxier.go:1170] \"Deleting stale nftables chains\" ipFamily=\"IPv4\" numChains=2",
+    "I1115 20:51:50.513376       1 proxier.go:1170] \"Deleting stale nftables chains\" ipFamily=\"IPv4\" numChains=2",
+    "I1115 20:51:57.743110       1 proxier.go:1170] \"Deleting stale nftables chains\" ipFamily=\"IPv4\" numChains=2",
+    "I1115 20:52:45.629817       1 proxier.go:1170] \"Deleting stale nftables chains\" ipFamily=\"IPv4\" numChains=2",
+    "I1115 20:56:01.656618       1 proxier.go:1170] \"Deleting stale nftables chains\" ipFamily=\"IPv4\" numChains=1",
+    "I1115 20:56:05.318348       1 proxier.go:1170] \"Deleting stale nftables chains\" ipFamily=\"IPv4\" numChains=1",
+    "I1115 20:59:17.331846       1 proxier.go:1170] \"Deleting stale nftables chains\" ipFamily=\"IPv4\" numChains=1",
+    "I1115 20:59:20.976618       1 proxier.go:1170] \"Deleting stale nftables chains\" ipFamily=\"IPv4\" numChains=1"
+  ]
+}

@@ -1,0 +1,230 @@
+[
+  {
+    "run": "b-uniform-sticky-1",
+    "start": 1794773468.180498,
+    "end": 1794773595.6619697,
+    "results": {
+      "ttfc": {
+        "prom_p95": 1.4226495726495725,
+        "prom_count": 724.0,
+        "client_p95": 1.0995788646999813,
+        "client_count": 724
+      },
+      "full": {
+        "prom_p95": 1.4652591170825335,
+        "prom_count": 724.0,
+        "client_p95": 1.3628295503500056,
+        "client_count": 724
+      }
+    }
+  },
+  {
+    "run": "b-uniform-balanced-1",
+    "start": 1794773601.324342,
+    "end": 1794773728.4850934,
+    "results": {
+      "ttfc": {
+        "prom_p95": 0.6955681818181817,
+        "prom_count": 799.0,
+        "client_p95": 0.6375097463999032,
+        "client_count": 799
+      },
+      "full": {
+        "prom_p95": 0.9501086956521738,
+        "prom_count": 799.0,
+        "client_p95": 0.9025566580999318,
+        "client_count": 799
+      }
+    }
+  },
+  {
+    "run": "b-skew-sticky-1",
+    "start": 1794773734.14777,
+    "end": 1794773861.646142,
+    "results": {
+      "ttfc": {
+        "prom_p95": 1.4587857142857144,
+        "prom_count": 577.0,
+        "client_p95": 1.1115253977999144,
+        "client_count": 577
+      },
+      "full": {
+        "prom_p95": 1.4723128598848367,
+        "prom_count": 577.0,
+        "client_p95": 1.3749121517999356,
+        "client_count": 577
+      }
+    }
+  },
+  {
+    "run": "b-skew-balanced-1",
+    "start": 1794773867.3044975,
+    "end": 1794773994.1029851,
+    "results": {
+      "ttfc": {
+        "prom_p95": 0.8144230769230766,
+        "prom_count": 799.0,
+        "client_p95": 0.8169784476000579,
+        "client_count": 799
+      },
+      "full": {
+        "prom_p95": 1.1231132075471695,
+        "prom_count": 799.0,
+        "client_p95": 1.080433036900103,
+        "client_count": 799
+      }
+    }
+  },
+  {
+    "run": "b-uniform-balanced-2",
+    "start": 1794773999.8071437,
+    "end": 1794774126.601987,
+    "results": {
+      "ttfc": {
+        "prom_p95": 0.6915887850467289,
+        "prom_count": 800.0,
+        "client_p95": 0.6694977937500312,
+        "client_count": 800
+      },
+      "full": {
+        "prom_p95": 0.9436936936936937,
+        "prom_count": 800.0,
+        "client_p95": 0.9323894539501111,
+        "client_count": 800
+      }
+    }
+  },
+  {
+    "run": "b-uniform-sticky-2",
+    "start": 1794774132.2304068,
+    "end": 1794774259.0351481,
+    "results": {
+      "ttfc": {
+        "prom_p95": 0.19718670076726344,
+        "prom_count": 800.0,
+        "client_p95": 0.2047362970499762,
+        "client_count": 800
+      },
+      "full": {
+        "prom_p95": 0.49467005076142134,
+        "prom_count": 800.0,
+        "client_p95": 0.46866526139990583,
+        "client_count": 800
+      }
+    }
+  },
+  {
+    "run": "b-skew-balanced-2",
+    "start": 1794774264.6678693,
+    "end": 1794774391.4892852,
+    "results": {
+      "ttfc": {
+        "prom_p95": 0.7066929133858267,
+        "prom_count": 800.0,
+        "client_p95": 0.6897513803000492,
+        "client_count": 800
+      },
+      "full": {
+        "prom_p95": 0.9576923076923077,
+        "prom_count": 800.0,
+        "client_p95": 0.9526915140500135,
+        "client_count": 800
+      }
+    }
+  },
+  {
+    "run": "b-skew-sticky-2",
+    "start": 1794774397.1478508,
+    "end": 1794774524.7838714,
+    "results": {
+      "ttfc": {
+        "prom_p95": 1.4431407942238268,
+        "prom_count": 630.0,
+        "client_p95": 1.1081066440499738,
+        "client_count": 630
+      },
+      "full": {
+        "prom_p95": 1.4696819085487078,
+        "prom_count": 630.0,
+        "client_p95": 1.3707609536000176,
+        "client_count": 630
+      }
+    }
+  },
+  {
+    "run": "b-uniform-sticky-3",
+    "start": 1794774530.5651274,
+    "end": 1794774657.364855,
+    "results": {
+      "ttfc": {
+        "prom_p95": 0.19781209781209783,
+        "prom_count": 800.0,
+        "client_p95": 0.20601256795009704,
+        "client_count": 800
+      },
+      "full": {
+        "prom_p95": 0.49467005076142134,
+        "prom_count": 800.0,
+        "client_p95": 0.47010912075002126,
+        "client_count": 800
+      }
+    }
+  },
+  {
+    "run": "b-uniform-balanced-3",
+    "start": 1794774663.0370529,
+    "end": 1794774789.849955,
+    "results": {
+      "ttfc": {
+        "prom_p95": 0.6813186813186813,
+        "prom_count": 800.0,
+        "client_p95": 0.5998959936002165,
+        "client_count": 800
+      },
+      "full": {
+        "prom_p95": 0.9348958333333334,
+        "prom_count": 800.0,
+        "client_p95": 0.8630466910497262,
+        "client_count": 800
+      }
+    }
+  },
+  {
+    "run": "b-skew-sticky-3",
+    "start": 1794774795.5021188,
+    "end": 1794774923.1689918,
+    "results": {
+      "ttfc": {
+        "prom_p95": 1.4423076923076923,
+        "prom_count": 630.0,
+        "client_p95": 1.106710805700095,
+        "client_count": 630
+      },
+      "full": {
+        "prom_p95": 1.469438877755511,
+        "prom_count": 630.0,
+        "client_p95": 1.3705353443499235,
+        "client_count": 630
+      }
+    }
+  },
+  {
+    "run": "b-skew-balanced-3",
+    "start": 1794774928.803677,
+    "end": 1794775055.6058357,
+    "results": {
+      "ttfc": {
+        "prom_p95": 0.8091911764705879,
+        "prom_count": 799.0,
+        "client_p95": 0.773391760500044,
+        "client_count": 799
+      },
+      "full": {
+        "prom_p95": 1.108333333333333,
+        "prom_count": 799.0,
+        "client_p95": 1.0364696477999127,
+        "client_count": 799
+      }
+    }
+  }
+]
